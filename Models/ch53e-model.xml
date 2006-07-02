@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<PropertyList include="ch53e-cockpit-anim.xml">
+
+<path>ch53e.ac</path>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>Cockpit</object-name>
+	<object-name>FooRotor</object-name>
+	<object-name>FooTailRotor</object-name>
+</animation>
+
+<!-- DEBUGGING AND DEVLEOPMENT SECTION -->
+
+<animation>
+	<type>select</type>
+	<object-name>CenterStandGuide</object-name>
+	<condition>
+		<equals>
+			<property>/sim/model/ch53e/debug-model</property>
+			<value>1</value>
+		</equals>
+	</condition>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>PanelGuide</object-name>
+	<condition>
+		<equals>
+			<property>/sim/model/ch53e/debug-model</property>
+			<value>1</value>
+		</equals>
+	</condition>
+</animation>
+
+<!-- HOTSPOTS -->
+
+<panel>
+	<path>Aircraft/ch53e/Models/ch53e-center-stand-hotspots.xml</path>
+	<bottom-right>
+		<x-m>4.192</x-m>
+		<y-m>0.218</y-m>
+		<z-m>0.761</z-m>
+	</bottom-right>
+	<bottom-left>
+		<x-m>4.192</x-m>
+		<y-m>-0.218</y-m>
+		<z-m>0.761</z-m>
+	</bottom-left>
+	<top-left>
+		<x-m>3.600</x-m>
+		<y-m>-0.218</y-m>
+		<z-m>0.813</z-m>
+	</top-left>
+</panel>
+
+</PropertyList>
