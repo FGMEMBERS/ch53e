@@ -3,9 +3,10 @@
 <PropertyList>
 
 <sim>
+	<name>CH-53E</name>
 	<description>Sikorsky CH-53E Super Stallion</description>
 	<author>Josh Babcock</author>
-	<status>alpha</status>
+	<status>early alpha</status>
 	<aircraft-version>0.1</aircraft-version>
 
 	<flight-model>yasim</flight-model>
@@ -41,6 +42,56 @@
 			</body-part-pos>
 		</ch53e>
 	</model>
+
+	<weight>
+		<name>sta-162-222</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>2000</max-lb>
+	</weight>
+
+	<weight>
+		<name>sta-222-282</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>2000</max-lb>
+	</weight>
+
+	<weight>
+		<name>sta-282-342</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>2000</max-lb>
+	</weight>
+
+	<weight>
+		<name>sta-342-402</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>2000</max-lb>
+	</weight>
+
+	<weight>
+		<name>sta-402-462</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>2000</max-lb>
+	</weight>
+
+	<weight>
+		<name>sta-462-522</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>2000</max-lb>
+	</weight>
+
+	<weight>
+		<name>cargo-hook</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>36000</max-lb>
+		<cable-cut type="bool">false</cable-cut>
+	</weight>
+
+	<weight>
+		<name>rescue-hoist</name>
+		<weight-lb>0</weight-lb>
+		<max-lb>600</max-lb>
+		<cable-cut type="bool">false</cable-cut>
+	</weight>
 
 	<virtual-cockpit>true</virtual-cockpit>
 	<view n="0">
