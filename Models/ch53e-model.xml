@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 
-<PropertyList include="ch53e-cockpit-anim.xml">
+<PropertyList include="ch53e-body-anim.xml">
+
+<!--
+This file includes debugging animations and "other" type stuff
+The include chain goes like this:
+ch53e-model.xml -> ch53e-body-anim.xml -> ch53e-cockpit-anim.xml -> ch53e-instruments.xml -> ch53e-caution-anim.xml
+-->
 
 <path>ch53e.ac</path>
 
@@ -53,6 +59,25 @@
 		<x-m>3.600</x-m>
 		<y-m>-0.218</y-m>
 		<z-m>0.813</z-m>
+	</top-left>
+</panel>
+
+<panel n="2">
+	<path>Aircraft/ch53e/Models/ch53e-panel-hotspots.xml</path>
+	<bottom-right>
+		<x-m>3.600</x-m>
+		<y-m>0.759</y-m>
+		<z-m>0.807</z-m>
+	</bottom-right>
+	<bottom-left>
+		<x-m>3.600</x-m>
+		<y-m>-0.759</y-m>
+		<z-m>0.807</z-m>
+	</bottom-left>
+	<top-left>
+		<x-m>3.494</x-m>
+		<y-m>-0.759</y-m>
+		<z-m>1.201</z-m>
 	</top-left>
 </panel>
 

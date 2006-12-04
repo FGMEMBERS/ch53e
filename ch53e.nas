@@ -167,6 +167,10 @@ settimer(gearInit, 0);
 #
 # Stick Position
 #
+# This will figure out where the stick is and convert it into a discrete low-res
+# value. It then sets material properties that are used to run the material animation
+# for the stick position indicator instrument.
+#
 ################
 
 pollStickPos = func {
@@ -174,14 +178,12 @@ pollStickPos = func {
 	materials = '/sim/model/ch53e/materials/';
 	quant_pitch = int(((getprop('/controls/flight/elevator'))+1)/0.0606060606);
 	quant_roll = int(((getprop('/controls/flight/aileron'))+1)/0.0606060606);
-	# setprop('/sim/model/ch53e/quant-roll', quant_roll);
-	# setprop('/sim/model/ch53e/quant-pitch', quant_pitch);
 	if (getprop('/controls/lighting/nvg-mode') == 1) {
 		led_color = 'green';
-		led_intensity = (getprop('/controls/lighting/instrument-norm')*0.5);
+		led_intensity = (getprop('/controls/lighting/instruments-norm')*0.5);
 	} else {
 		led_color = 'red';
-		led_intensity = getprop('/controls/lighting/instrument-norm');
+		led_intensity = getprop('/controls/lighting/instruments-norm');
 	}
 	# Turn it all off
 	for (i=1;i<=8;i+=1) {
@@ -399,6 +401,61 @@ adjustTacanMode = func {
 }
 setlistener('/instrumentation/tacan/frequencies/selected-channel[4]', adjustTacanMode);
 settimer(adjustTacanMode, 0);
+
+################
+#
+# Hydraulic System
+#
+################
+
+# TODO switch off based on 2B pri AC bus    26v/QUAD HYDR QTY breaker   set value to -.2
+hydVol0 = '';
+hydVol1 = '';
+hydVol2 = '';
+hydVol3 = '';
+hydCap0 = '';
+hydCap1 = '';
+hydCap2 = '';
+hydCap3 = '';
+initHydVolDisp = func {
+	hydVol0 = props.globals.getNode('consumables/hydraulic/tank[0]/volume-gal_us', 1);
+	hydVol1 = props.globals.getNode('consumables/hydraulic/tank[1]/volume-gal_us', 1);
+	hydVol2 = props.globals.getNode('consumables/hydraulic/tank[2]/volume-gal_us', 1);
+	hydVol3 = props.globals.getNode('consumables/hydraulic/tank[3]/volume-gal_us', 1);
+	hydCap0 = props.globals.getNode('consumables/hydraulic/tank[0]/capacity-gal_us', 1);
+	hydCap1 = props.globals.getNode('consumables/hydraulic/tank[1]/capacity-gal_us', 1);
+	hydCap2 = props.globals.getNode('consumables/hydraulic/tank[2]/capacity-gal_us', 1);
+	hydCap3 = props.globals.getNode('consumables/hydraulic/tank[3]/capacity-gal_us', 1);
+	adjustHydVolDisp0();
+	adjustHydVolDisp1();
+	adjustHydVolDisp2();
+	adjustHydVolDisp3();
+}
+settimer(initHydVolDisp, 0);
+
+adjustHydVolDisp0 = func {
+	reading = hydVol0.getValue() / hydCap0.getValue();
+	interpolate('instrumentation/hydraulic-quantity/tank[0]/vol-norm', reading, 0.25);
+}
+setlistener('consumables/hydraulic/tank[0]/volume-gal_us', adjustHydVolDisp0);
+
+adjustHydVolDisp1 = func {
+	reading = hydVol1.getValue()/hydCap1.getValue();
+	interpolate('instrumentation/hydraulic-quantity/tank[1]/vol-norm', reading, 0.25);
+}
+setlistener('consumables/hydraulic/tank[1]/volume-gal_us', adjustHydVolDisp1);
+
+adjustHydVolDisp2 = func {
+	reading = hydVol2.getValue()/hydCap2.getValue();
+	interpolate('instrumentation/hydraulic-quantity/tank[2]/vol-norm', reading, 0.25);
+}
+setlistener('consumables/hydraulic/tank[2]/volume-gal_us', adjustHydVolDisp2);
+
+adjustHydVolDisp3 = func {
+	reading = hydVol3.getValue()/hydCap3.getValue();
+	interpolate('instrumentation/hydraulic-quantity/tank[3]/vol-norm', reading, 0.25);
+}
+setlistener('consumables/hydraulic/tank[3]/volume-gal_us', adjustHydVolDisp3);
 
 ################
 #

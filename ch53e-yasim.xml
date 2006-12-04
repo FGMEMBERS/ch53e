@@ -12,32 +12,32 @@
 	
 	<!-- 3000000 in*lbs torque on d model according to kegwasher at t-online-->
 	<rotor name="main" x="-9.126" y="0.0" z="3.686" nx="0.07" ny="0" nz="1.0" fx="1" fy="0" fz="0"
-		diameter="22" rel-len-blade-start="0.29"
-      chord=".78" twist="-0.8"
-      numblades="7" weightperblade="800" relbladecenter="0.61"
-      rel-len-where-incidence-is-measured="0.8"
+		diameter="22" rel_len_blade_start="0.29"
+      chord=".78" twist="-11"
+      numblades="7" weightperblade="834" relbladecenter="0.61"
+      rel_len_where_incidence_is_measured="0.8"
 
 		maxcollective="15.8" mincollective="0.2"
 		mincyclicele="-7.6" maxcyclicele="7.6"
 		mincyclicail="-8.94" maxcyclicail="8.94"
 
 		flapmin="-18" flapmax="18" flap0="-5"
-		delta="0.28" rellenflaphinge="0.26" delta3="0.15"
+		delta="0.28" rellenflaphinge="0.1" delta3="0.15"
 
-		incidence-stall-zero-speed="15"
-		incidence-stall-half-sonic-speed="14"
-		lift-factor-stall="0.28"
-		drag-factor-stall="1.5"
-		stall-change-over="2.0"
-		translift-ve="20"
-		translift-maxfactor="1.3"
-		ground-effect-constatnt="1.25"
+		incidence_stall_zero_speed="15"
+		incidence_stall_half_sonic_speed="14"
+		lift_factor_stall="0.28"
+		drag_factor_stall="1.5"
+		stall_change_over="2.0"
+		translift_ve="20"
+		translift_maxfactor="1.3"
+		ground_effect_constatnt="1.25"
 
-		pitch-a="12.0" forceatpitch-a="69000"
-		pitch-b="12.0" poweratpitch-b="9800"  
-		poweratpitch-0="53"
+		pitch_a="10.0" forceatpitch_a="69000"
+		pitch_b="10.0" poweratpitch_b="8818"  
+		poweratpitch_0="53"
 
-		dynamic="1" number-of-segments="10"
+		dynamic="1" number_of_segments="10"
 		rpm="185" ccw="1" notorque="0" >
 	
 		<control-input axis="/controls/flight/aileron-trim" control="CYCLICAIL" split="1"/>
@@ -56,29 +56,29 @@
 	</rotor>
 	
 	<rotor name="tail" x="-24.096" y="1.989" z="4.471" nx="0.0" ny="-1" nz="-.36" fx="1" fy="0" fz="0"
-		diameter="4.87" rel-len-blade-start="0.1"
+		diameter="4.87" rel_len_blade_start="0.1"
       chord="0.32" twist="0"
 		numblades="4" weightperblade="50" relbladecenter="0.58"
-      rel-len-where-incidence-is-measured="0.8"
+      rel_len_where_incidence_is_measured="0.8"
 
 		maxcollective="20" mincollective="-10"
 
 		flapmin="-8" flapmax="8" flap0="0" flap0factor="0"
-		delta="0.5" rellenflaphinge="0.0" delta3="1"
+		delta="0.5" rellenflaphinge="0.1" delta3="1"
 
-		incidence-stall-zero-speed="15"
-		incidence-stall-half-sonic-speed="14"
-		lift-factor-stall="0.28"
-		drag-factor-stall="1.5"
-		stall-change-over="2.0"
-		translift-ve="20"
-		translift-maxfactor="1.3"
+		incidence_stall_zero_speed="15"
+		incidence_stall_half_sonic_speed="14"
+		lift_factor_stall="0.28"
+		drag_factor_stall="1.5"
+		stall_change_over="2.0"
+		translift_ve="20"
+		translift_maxfactor="1.3"
 
-		pitch-a="15.8" forceatpitch-a="7500"
-		pitch-b="15.8" poweratpitch-b="1010"
-		poweratpitch-0="5"
+		pitch_a="15.8" forceatpitch_a="7500"
+		pitch_b="15.8" poweratpitch_b="1010"
+		poweratpitch_0="5"
 
-		dynamic="0.5" number-of-segments="10"
+		dynamic="0.5" number_of_segments="10"
 		rpm="1100" ccw="1" notorque="0" >
 	
 		<control-input axis="/controls/flight/rudder" control="COLLECTIVE" invert="1"
@@ -87,8 +87,8 @@
 	</rotor>
 
 	<rotorgear
-		max-power-engine="70000"
-		engine-prop-factor="0.03"
+		max_power_engine="9798"
+		engine_prop_factor="0.03"
 		yasimdragfactor="10"
 		yasimliftfactor="140"
 	>
@@ -140,8 +140,8 @@
 	
 	<gear x="-3.44" y="0" z="-1.35" compression="0.4"  spring="1.2" damp="1.0"> 
 		<control-input axis="/controls/flight/rudder" control="STEER" square="true"
-			src0="-1" dst0="-1.5"
-			src1="1"  dst1="1.5" />
+			src0="1"  dst0="-1.5"
+			src1="-1" dst1="1.5" />
 		<control-input axis="/controls/gear/castering" control="CASTERING"/>
 		<control-input axis="/controls/gear/gear-down" control="EXTEND"/>
 		<control-speed control="EXTEND" transition-time="6"/>

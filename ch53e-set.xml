@@ -29,6 +29,18 @@
 						<blue>0.8</blue>
 					</ambient>
 				</gearHandleGlow>
+				<panel-light-color>
+					<nvg>
+						<red>0.0</red>
+						<green>4.0</green>
+						<blue>1.0</blue>
+					</nvg>
+					<unaided>
+						<red>5.0</red>
+						<green>0</green>
+						<blue>0</blue>
+					</unaided>
+				</panel-light-color>
 			</instrument-pos>
 			<control-pos>
 				<LandingGearEmergExt-pos-norm>0</LandingGearEmergExt-pos-norm>
@@ -161,6 +173,20 @@
 	<stick-position-indicator>
 		<serviceable type="bool">true</serviceable>
 	</stick-position-indicator>
+	<hydraulic-quantity>
+		<tank n="0">
+			<vol-norm type="double">0</vol-norm>
+		</tank>
+		<tank n="1">
+			<vol-norm type="double">0</vol-norm>
+		</tank>
+		<tank n="2">
+			<vol-norm type="double">0</vol-norm>
+		</tank>
+		<tank n="3">
+			<vol-norm type="double">0</vol-norm>
+		</tank>
+	</hydraulic-quantity>
 </instrumentation>
 
 <controls>
@@ -169,10 +195,43 @@
 	</lighting>
 </controls>
 
+<systems>
+	<electrical>
+		<path>Aircraft/ch53e/ch53e-electrical.xml</path>
+	</electrical>
+</systems>
+
+<consumables>
+	<hydraulic>
+		<tank n="0">
+			<volume-gal_us type="double">5</volume-gal_us>
+			<capacity-gal_us type="double">5</capacity-gal_us>
+		</tank>
+		<tank n="1">
+			<volume-gal_us type="double">5</volume-gal_us>
+			<capacity-gal_us type="double">5</capacity-gal_us>
+		</tank>
+		<tank n="2">
+			<volume-gal_us type="double">5</volume-gal_us>
+			<capacity-gal_us type="double">5</capacity-gal_us>
+		</tank>
+		<tank n="3">
+			<volume-gal_us type="double">5</volume-gal_us>
+			<capacity-gal_us type="double">5</capacity-gal_us>
+		</tank>
+	</hydraulic>
+</consumables>
+
 <nasal>
 	<ch53e>
 		<file>Aircraft/ch53e/ch53e.nas</file>
 	</ch53e>
+	<caution-panel>
+		<file>Aircraft/ch53e/ch53e-caution.nas</file>
+	</caution-panel>
+	<jrb-usn-adi>
+		<file>Aircraft/ch53e/Instruments/jrb-usn-adi.nas</file>
+	</jrb-usn-adi>
 </nasal>
 
 </PropertyList>

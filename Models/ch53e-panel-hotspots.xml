@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <PropertyList>
 
- <name>_____ Hotspots</name>
+ <name>Panel Hotspots</name>
  <background>Aircraft/b29/Models/transparent.rgb</background>
  <w>1024</w>
  <h>1024</h>
@@ -9,41 +9,34 @@
   
  <instruments>
   <instrument>
-   <name>_____</name>
+   <name>Panel</name>
    <x>512</x>
    <y>512</y>
    <w>1024</w>
    <h>1024</h>
    <w-base>1024</w-base>
    <h-base>1024</h-base>
-   <!--layers>
-    <layer>
-     <name>background</name>
-     <texture>
-      <path>Aircraft/b29/Models/hotspot.rgb</path>
-      <x1>0.0</x1>
-      <y1>0.0</y1>
-      <x2>1.0</x2>
-      <y2>1.0</y2>
-     </texture>
-    </layer>
-   </layers-->
    <actions>
-    <action> <!-- 15 Lines -->
-     <name>_____</name>
+    <!-- 15 Lines -->
+    <action>
+     <name>testCautionLights</name>
      <button>0</button>
-     <x>_____</x>
-     <y>_____</y>
-     <w>_____</w>
-     <h>_____</h>
+     <x>-138</x>
+     <y>-47</y>
+     <w>6</w>
+     <h>24</h>
      <binding>
-      <command>property-adjust</command>
-      <property>_____</property>
-      <step>_____</step>
-      <min>_____</min>
-      <max>_____</max>
-      <wrap>_____</wrap>
+      <command>property-assign</command>
+      <property>sim/model/ch53e/control-input/caution-test</property>
+      <value>1</value>
      </binding>
+     <mod-up>
+      <binding>
+       <command>property-assign</command>
+       <property>sim/model/ch53e/control-input/caution-test</property>
+       <value>0</value>
+      </binding>
+     </mod-up>
     </action>
    </actions>
   </instrument>

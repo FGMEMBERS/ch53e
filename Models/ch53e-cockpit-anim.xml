@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<PropertyList>
+<PropertyList include="ch53e-instruments.xml">
 
 <!-- ADF -->
 
@@ -130,6 +130,40 @@
       <blue-prop>ambient/blue</blue-prop>
 	</ambient>
 
+</animation>
+
+<!-- Hydraulics -->
+
+<!-- We are not using utility 2 -->
+
+<animation>
+	<type>textranslate</type>
+	<object-name>HydQty1</object-name>
+	<property>instrumentation/hydraulic-quantity/tank[0]/vol-norm</property>
+	<factor>0.19</factor>
+	<axis>
+		<y>-1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>HydQty2</object-name>
+	<property>instrumentation/hydraulic-quantity/tank[1]/vol-norm</property>
+	<factor>0.19</factor>
+	<axis>
+		<y>-1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>textranslate</type>
+	<object-name>HydQty3</object-name>
+	<property>instrumentation/hydraulic-quantity/tank[2]/vol-norm</property>
+	<factor>0.19</factor>
+	<axis>
+		<y>-1</y>
+	</axis>
 </animation>
 
 <!-- CONTROLS SECTION -->

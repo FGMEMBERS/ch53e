@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<PropertyList include="ch53e-caution-anim.xml">
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-adi.xml</path>
+	<offsets>
+		<x-m>3.518</x-m>
+		<y-m>.494</y-m>
+		<z-m>1.105</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+</PropertyList>
