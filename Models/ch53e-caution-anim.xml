@@ -1,8 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="4.0"?>
 
 <PropertyList>
 
-<animation>
+<animation n="4000">
   <type>material</type>
   <object-name>Warn.1antiice</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1antiice</property-base>
@@ -13,7 +13,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4001">
   <type>material</type>
   <object-name>Warn.1engbst</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1engbst</property-base>
@@ -24,7 +24,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4002">
   <type>material</type>
   <object-name>Warn.1engfltr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1engfltr</property-base>
@@ -35,7 +35,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4003">
   <type>material</type>
   <object-name>Warn.1engoph</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1engoph</property-base>
@@ -46,7 +46,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4004">
   <type>material</type>
   <object-name>Warn.1engoplow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1engoplow</property-base>
@@ -57,7 +57,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4005">
   <type>material</type>
   <object-name>Warn.1engqtylow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1engqtylow</property-base>
@@ -68,7 +68,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4006">
   <type>material</type>
   <object-name>Warn.1feullow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1feullow</property-base>
@@ -79,7 +79,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4007">
   <type>material</type>
   <object-name>Warn.1gen</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1gen</property-base>
@@ -90,7 +90,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4008">
   <type>material</type>
   <object-name>Warn.1igvice</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1igvice</property-base>
@@ -101,7 +101,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4009">
   <type>material</type>
   <object-name>Warn.1ngbhot</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1ngbhot</property-base>
@@ -112,7 +112,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4010">
   <type>material</type>
   <object-name>Warn.1ngbop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1ngbop</property-base>
@@ -123,7 +123,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4011">
   <type>material</type>
   <object-name>Warn.1rec</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1rec</property-base>
@@ -134,7 +134,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4012">
   <type>material</type>
   <object-name>Warn.1stgmr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1stgmr</property-base>
@@ -145,7 +145,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4013">
   <type>material</type>
   <object-name>Warn.1stgpr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1stgpr</property-base>
@@ -156,7 +156,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4014">
   <type>material</type>
   <object-name>Warn.1stgsb</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1stgsb</property-base>
@@ -167,7 +167,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4015">
   <type>material</type>
   <object-name>Warn.1stqty</object-name>
   <property-base>sim/model/ch53e/materials/Warn.1stqty</property-base>
@@ -178,7 +178,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4016">
   <type>material</type>
   <object-name>Warn.2engbst</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2engbst</property-base>
@@ -189,7 +189,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4017">
   <type>material</type>
   <object-name>Warn.2engfltr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2engfltr</property-base>
@@ -200,7 +200,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4018">
   <type>material</type>
   <object-name>Warn.2engoh</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2engoh</property-base>
@@ -211,7 +211,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4019">
   <type>material</type>
   <object-name>Warn.2engop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2engop</property-base>
@@ -222,7 +222,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4020">
   <type>material</type>
   <object-name>Warn.2engoph</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2engoph</property-base>
@@ -233,7 +233,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4021">
   <type>material</type>
   <object-name>Warn.2engqtylow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2engqtylow</property-base>
@@ -244,7 +244,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4022">
   <type>material</type>
   <object-name>Warn.2fuellow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2fuellow</property-base>
@@ -255,7 +255,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4023">
   <type>material</type>
   <object-name>Warn.2gen</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2gen</property-base>
@@ -266,7 +266,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4024">
   <type>material</type>
   <object-name>Warn.2ptflt</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2ptflt</property-base>
@@ -277,7 +277,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4025">
   <type>material</type>
   <object-name>Warn.2rect</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2rect</property-base>
@@ -288,7 +288,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4026">
   <type>material</type>
   <object-name>Warn.2stgmrsb</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2stgmrsb</property-base>
@@ -299,7 +299,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4027">
   <type>material</type>
   <object-name>Warn.2stgoh</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2stgoh</property-base>
@@ -310,7 +310,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4028">
   <type>material</type>
   <object-name>Warn.2stgpmr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2stgpmr</property-base>
@@ -321,7 +321,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4029">
   <type>material</type>
   <object-name>Warn.2stgqty</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2stgqty</property-base>
@@ -332,7 +332,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4030">
   <type>material</type>
   <object-name>Warn.2stgtrsb</object-name>
   <property-base>sim/model/ch53e/materials/Warn.2stgtrsb</property-base>
@@ -343,7 +343,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4031">
   <type>material</type>
   <object-name>Warn.3antiice</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3antiice</property-base>
@@ -354,7 +354,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4032">
   <type>material</type>
   <object-name>Warn.3engbst</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3engbst</property-base>
@@ -365,7 +365,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4033">
   <type>material</type>
   <object-name>Warn.3engfltr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3engfltr</property-base>
@@ -376,7 +376,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4034">
   <type>material</type>
   <object-name>Warn.3engop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3engop</property-base>
@@ -387,7 +387,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4035">
   <type>material</type>
   <object-name>Warn.3engoph</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3engoph</property-base>
@@ -398,7 +398,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4036">
   <type>material</type>
   <object-name>Warn.3engqtylow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3engqtylow</property-base>
@@ -409,7 +409,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4037">
   <type>material</type>
   <object-name>Warn.3fuellow</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3fuellow</property-base>
@@ -420,7 +420,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4038">
   <type>material</type>
   <object-name>Warn.3gen</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3gen</property-base>
@@ -431,7 +431,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4039">
   <type>material</type>
   <object-name>Warn.3ngbhot</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3ngbhot</property-base>
@@ -442,7 +442,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4040">
   <type>material</type>
   <object-name>Warn.3ngbop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.3ngbop</property-base>
@@ -453,7 +453,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4041">
   <type>material</type>
   <object-name>Warn.acchot</object-name>
   <property-base>sim/model/ch53e/materials/Warn.acchot</property-base>
@@ -464,7 +464,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4042">
   <type>material</type>
   <object-name>Warn.accpres</object-name>
   <property-base>sim/model/ch53e/materials/Warn.accpres</property-base>
@@ -475,7 +475,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4043">
   <type>material</type>
   <object-name>Warn.afcs</object-name>
   <property-base>sim/model/ch53e/materials/Warn.afcs</property-base>
@@ -486,7 +486,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4044">
   <type>material</type>
   <object-name>Warn.afcsdeg</object-name>
   <property-base>sim/model/ch53e/materials/Warn.afcsdeg</property-base>
@@ -497,7 +497,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4045">
   <type>material</type>
   <object-name>Warn.afthook</object-name>
   <property-base>sim/model/ch53e/materials/Warn.afthook</property-base>
@@ -508,7 +508,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4046">
   <type>material</type>
   <object-name>Warn.alt</object-name>
   <property-base>sim/model/ch53e/materials/Warn.alt</property-base>
@@ -519,7 +519,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4047">
   <type>material</type>
   <object-name>Warn.app</object-name>
   <property-base>sim/model/ch53e/materials/Warn.app</property-base>
@@ -530,7 +530,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4048">
   <type>material</type>
   <object-name>Warn.autorel</object-name>
   <property-base>sim/model/ch53e/materials/Warn.autorel</property-base>
@@ -541,7 +541,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4049">
   <type>material</type>
   <object-name>Warn.bim</object-name>
   <property-base>sim/model/ch53e/materials/Warn.bim</property-base>
@@ -552,7 +552,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4050">
   <type>material</type>
   <object-name>Warn.blade</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blade</property-base>
@@ -563,7 +563,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4051">
   <type>material</type>
   <object-name>Warn.blank</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank</property-base>
@@ -574,7 +574,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4052">
   <type>material</type>
   <object-name>Warn.blank.001</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.001</property-base>
@@ -585,7 +585,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4053">
   <type>material</type>
   <object-name>Warn.blank.002</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.002</property-base>
@@ -596,7 +596,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4054">
   <type>material</type>
   <object-name>Warn.blank.003</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.003</property-base>
@@ -607,7 +607,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4055">
   <type>material</type>
   <object-name>Warn.blank.004</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.004</property-base>
@@ -618,7 +618,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4056">
   <type>material</type>
   <object-name>Warn.blank.005</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.005</property-base>
@@ -629,7 +629,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4057">
   <type>material</type>
   <object-name>Warn.blank.006</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.006</property-base>
@@ -640,7 +640,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4058">
   <type>material</type>
   <object-name>Warn.blank.007</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.007</property-base>
@@ -651,7 +651,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4059">
   <type>material</type>
   <object-name>Warn.blank.008</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.008</property-base>
@@ -662,7 +662,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4060">
   <type>material</type>
   <object-name>Warn.blank.009</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.009</property-base>
@@ -673,7 +673,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4061">
   <type>material</type>
   <object-name>Warn.blank.010</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.010</property-base>
@@ -684,7 +684,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4062">
   <type>material</type>
   <object-name>Warn.blank.011</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.011</property-base>
@@ -695,7 +695,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4063">
   <type>material</type>
   <object-name>Warn.blank.012</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.012</property-base>
@@ -706,7 +706,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4064">
   <type>material</type>
   <object-name>Warn.blank.013</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.013</property-base>
@@ -717,7 +717,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4065">
   <type>material</type>
   <object-name>Warn.blank.014</object-name>
   <property-base>sim/model/ch53e/materials/Warn.blank.014</property-base>
@@ -728,7 +728,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4066">
   <type>material</type>
   <object-name>Warn.cghook</object-name>
   <property-base>sim/model/ch53e/materials/Warn.cghook</property-base>
@@ -739,7 +739,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4067">
   <type>material</type>
   <object-name>Warn.chip</object-name>
   <property-base>sim/model/ch53e/materials/Warn.chip</property-base>
@@ -750,7 +750,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4068">
   <type>material</type>
   <object-name>Warn.com1</object-name>
   <property-base>sim/model/ch53e/materials/Warn.com1</property-base>
@@ -761,7 +761,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4069">
   <type>material</type>
   <object-name>Warn.comp</object-name>
   <property-base>sim/model/ch53e/materials/Warn.comp</property-base>
@@ -772,7 +772,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4070">
   <type>material</type>
   <object-name>Warn.dopp</object-name>
   <property-base>sim/model/ch53e/materials/Warn.dopp</property-base>
@@ -783,7 +783,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4071">
   <type>material</type>
   <object-name>Warn.eaps</object-name>
   <property-base>sim/model/ch53e/materials/Warn.eaps</property-base>
@@ -794,7 +794,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4072">
   <type>material</type>
   <object-name>Warn.eapshp</object-name>
   <property-base>sim/model/ch53e/materials/Warn.eapshp</property-base>
@@ -805,7 +805,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4073">
   <type>material</type>
   <object-name>Warn.engtqe</object-name>
   <property-base>sim/model/ch53e/materials/Warn.engtqe</property-base>
@@ -816,7 +816,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4074">
   <type>material</type>
   <object-name>Warn.extpwr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.extpwr</property-base>
@@ -827,7 +827,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4075">
   <type>material</type>
   <object-name>Warn.fwdhook</object-name>
   <property-base>sim/model/ch53e/materials/Warn.fwdhook</property-base>
@@ -838,7 +838,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4076">
   <type>material</type>
   <object-name>Warn.gpwsalert</object-name>
   <property-base>sim/model/ch53e/materials/Warn.gpwsalert</property-base>
@@ -849,7 +849,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4077">
   <type>material</type>
   <object-name>Warn.gpwsinop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.gpwsinop</property-base>
@@ -860,7 +860,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4078">
   <type>material</type>
   <object-name>Warn.gpwstacinhb</object-name>
   <property-base>sim/model/ch53e/materials/Warn.gpwstacinhb</property-base>
@@ -871,7 +871,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4079">
   <type>material</type>
   <object-name>Warn.headpos</object-name>
   <property-base>sim/model/ch53e/materials/Warn.headpos</property-base>
@@ -882,7 +882,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4080">
   <type>material</type>
   <object-name>Warn.ice</object-name>
   <property-base>sim/model/ch53e/materials/Warn.ice</property-base>
@@ -893,7 +893,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4081">
   <type>material</type>
   <object-name>Warn.iff</object-name>
   <property-base>sim/model/ch53e/materials/Warn.iff</property-base>
@@ -904,7 +904,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4082">
   <type>material</type>
   <object-name>Warn.igbop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.igbop</property-base>
@@ -915,7 +915,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4083">
   <type>material</type>
   <object-name>Warn.igv2ice</object-name>
   <property-base>sim/model/ch53e/materials/Warn.igv2ice</property-base>
@@ -926,7 +926,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4084">
   <type>material</type>
   <object-name>Warn.igv3ice</object-name>
   <property-base>sim/model/ch53e/materials/Warn.igv3ice</property-base>
@@ -937,7 +937,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4085">
   <type>material</type>
   <object-name>Warn.isol</object-name>
   <property-base>sim/model/ch53e/materials/Warn.isol</property-base>
@@ -948,7 +948,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4086">
   <type>material</type>
   <object-name>Warn.mgbhot</object-name>
   <property-base>sim/model/ch53e/materials/Warn.mgbhot</property-base>
@@ -959,7 +959,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4087">
   <type>material</type>
   <object-name>Warn.mgblube</object-name>
   <property-base>sim/model/ch53e/materials/Warn.mgblube</property-base>
@@ -970,7 +970,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4088">
   <type>material</type>
   <object-name>Warn.mgbop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.mgbop</property-base>
@@ -981,7 +981,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4089">
   <type>material</type>
   <object-name>Warn.park</object-name>
   <property-base>sim/model/ch53e/materials/Warn.park</property-base>
@@ -992,7 +992,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4090">
   <type>material</type>
   <object-name>Warn.purge</object-name>
   <property-base>sim/model/ch53e/materials/Warn.purge</property-base>
@@ -1003,7 +1003,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4091">
   <type>material</type>
   <object-name>Warn.radalt1</object-name>
   <property-base>sim/model/ch53e/materials/Warn.radalt1</property-base>
@@ -1014,7 +1014,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4092">
   <type>material</type>
   <object-name>Warn.radalt2</object-name>
   <property-base>sim/model/ch53e/materials/Warn.radalt2</property-base>
@@ -1025,7 +1025,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4093">
   <type>material</type>
   <object-name>Warn.ramp</object-name>
   <property-base>sim/model/ch53e/materials/Warn.ramp</property-base>
@@ -1036,7 +1036,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4094">
   <type>material</type>
   <object-name>Warn.rotbrk</object-name>
   <property-base>sim/model/ch53e/materials/Warn.rotbrk</property-base>
@@ -1047,7 +1047,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4095">
   <type>material</type>
   <object-name>Warn.rotbrkpr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.rotbrkpr</property-base>
@@ -1058,7 +1058,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4096">
   <type>material</type>
   <object-name>Warn.rotlock</object-name>
   <property-base>sim/model/ch53e/materials/Warn.rotlock</property-base>
@@ -1069,7 +1069,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4097">
   <type>material</type>
   <object-name>Warn.sphook</object-name>
   <property-base>sim/model/ch53e/materials/Warn.sphook</property-base>
@@ -1080,7 +1080,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4098">
   <type>material</type>
   <object-name>Warn.start</object-name>
   <property-base>sim/model/ch53e/materials/Warn.start</property-base>
@@ -1091,7 +1091,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4099">
   <type>material</type>
   <object-name>Warn.tgbop</object-name>
   <property-base>sim/model/ch53e/materials/Warn.tgbop</property-base>
@@ -1102,7 +1102,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4100">
   <type>material</type>
   <object-name>Warn.u1hot</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u1hot</property-base>
@@ -1113,7 +1113,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4101">
   <type>material</type>
   <object-name>Warn.u1press</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u1press</property-base>
@@ -1124,7 +1124,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4102">
   <type>material</type>
   <object-name>Warn.u1qtytr</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u1qtytr</property-base>
@@ -1135,7 +1135,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4103">
   <type>material</type>
   <object-name>Warn.u2hot</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u2hot</property-base>
@@ -1146,7 +1146,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4104">
   <type>material</type>
   <object-name>Warn.u2press</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u2press</property-base>
@@ -1157,7 +1157,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4105">
   <type>material</type>
   <object-name>Warn.u2pump</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u2pump</property-base>
@@ -1168,7 +1168,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4106">
   <type>material</type>
   <object-name>Warn.u2qty</object-name>
   <property-base>sim/model/ch53e/materials/Warn.u2qty</property-base>
@@ -1179,7 +1179,7 @@
   </emission>
 </animation>
 
-<animation>
+<animation n="4107">
   <type>material</type>
   <object-name>Warn.utrpres</object-name>
   <property-base>sim/model/ch53e/materials/Warn.utrpres</property-base>

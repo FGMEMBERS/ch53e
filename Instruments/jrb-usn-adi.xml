@@ -3,31 +3,59 @@
 
 <path>jrb-usn-adi.ac</path>
 
-<nasal>
-	<jrb-usn-adi>
-		<file>Aircraft/ch53e/Instruments/jrb-usn-adi.nas</file>
-	</jrb-usn-adi>
-</nasal>
+<animation>
+   <type>noshadow</type>
+</animation>
 
-<!-- FIXME -->
-<!-- Since this does not exist yet ... -->
+<animation>
+	<name>Alpha</name>
+   <type>alpha-test</type>
+	<object-name>W</object-name>
+   <alpha-factor>0.05</alpha-factor>
+</animation>
+
+<animation>
+   <type>range</type>
+   <min-m>0</min-m>
+   <max-m>5</max-m>
+</animation>
+
+<!--animation>
+   <type>range</type>
+   <object-name>lowres</object-name>
+   <min-m>0</min-m>
+   <max-m>25</max-m>
+</animation-->
+
+<animation>
+   <type>material</type>
+   <property-base>controls/lighting/instruments/emission</property-base>
+   <emission>
+      <red-prop>red</red-prop>
+      <green-prop>green</green-prop>
+      <blue-prop>blue</blue-prop>
+   </emission>
+</animation>
+
+<animation>
+	<name>OutsideMaterial</name>
+   <type>material</type>
+   <object-name>Housing</object-name>
+	<object-name>PitchKnob</object-name>
+	<object-name>RollKnob</object-name>
+   <property-base>controls/lighting/panel/emission</property-base>
+   <emission>
+      <red-prop>red</red-prop>
+      <green-prop>green</green-prop>
+      <blue-prop>blue</blue-prop>
+   </emission>
+</animation>
+
 <instrumentation>
 	<attitude-indicator>
 		<roll-offset-deg type="double">0</roll-offset-deg>
 	</attitude-indicator>
 </instrumentation>
-
-<animation>
-	<type>alpha-test</type>
-	<object-name>W</object-name>
-	<object-name>RollIndicator</object-name>
-</animation>
-
-<animation>
-	<type>range</type>
-	<min-m>0</min-m>
-	<max-m>5</max-m>
-</animation>
 
 <!-- Hotspots -->
 
@@ -49,6 +77,8 @@
 		<z-m>.07</z-m>
 	</top-left>
 </panel>
+
+<!-- Animations -->
 
 <animation>
 	<type>rotate</type>
@@ -86,7 +116,7 @@
 	<transform>
 		<subtype>textranslate</subtype>
 		<property>instrumentation/attitude-indicator/indicated-pitch-deg</property>
-		<factor>.0074</factor>
+		<factor>.0037</factor>
 		<axis>
 			<y>1</y>
 		</axis>
@@ -132,7 +162,7 @@
 <animation>
 	<type>rotate</type>
 	<object-name>ATTFlag</object-name>
-	<property>sim/model/jrb-usn-adi/ATTFlag-pos-norm</property>
+	<property>sim/model/jrb-usn/ATTFlag-pos-norm</property>
 	<offset-deg>-45</offset-deg>
 	<factor>45</factor>
 	<center>
@@ -155,13 +185,4 @@
 </animation>
 
 </PropertyList>
-
-
-
-
-
-
-
-
-
 

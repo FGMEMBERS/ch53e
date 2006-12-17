@@ -76,6 +76,35 @@ setlistener('/instrumentation/comm[1]/frequencies/selected-mhz', func{adjustComm
 
 ################
 #
+# Engine
+# A sophisticated YASim style turbine simulation.
+# Booyah.
+#
+################
+
+rpm0 = '';
+rpm1 = '';
+rpm2 = '';
+rpmR = '';
+engineSim =  func {
+	var rpm = (rpmR.getValue() / 0.185);
+	rpm0.setDoubleValue(rpm);
+	rpm1.setDoubleValue(rpm);
+	rpm2.setDoubleValue(rpm);
+	settimer(engineSim, 0.1);
+}
+engineInit = func {
+	rpm0 = props.globals.getNode('engines/engine[0]/rpm', 1);
+	rpm1 = props.globals.getNode('engines/engine[1]/rpm', 1);
+	rpm2 = props.globals.getNode('engines/engine[2]/rpm', 1);
+	rpmR = props.globals.getNode('rotors/main/rpm', 1);
+	rpmR.setDoubleValue(0);
+	engineSim();
+}
+settimer(engineInit, 0 );
+
+################
+#
 # Landing gear animation support
 #
 ################
@@ -120,12 +149,12 @@ turnGearLight = func(status) {
 }
 
 origGearDown = controls.gearDown;
-lastGearPosition = '';
+lastGearPosition = nil;
 controls.gearDown = func(position) {
 	# Someone moved the gear handle. Indicate barberpole until further notice, unless the emergency release has been pulled.
 	# Mode the control handle regardless
-	interpolate("/sim/model/ch53e/control-pos/LandingGearHandle-pos-norm", position, 0.2);
 	if ((position != 0) and (position != lastGearPosition) and (getprop('/sim/model/ch53e/control-pos/LandingGearEmergExt-pos-norm') != 1)) {
+		interpolate("/sim/model/ch53e/control-pos/LandingGearHandle-pos-norm", position, 0.2);
 		lastGearPosition = position;
 		# Turn light red right away
 		turnGearLight('red');
@@ -133,7 +162,8 @@ controls.gearDown = func(position) {
 		interpolate("/sim/model/ch53e/instrument-pos/GearIndicator0-pos", 0, 0.1);
 		interpolate("/sim/model/ch53e/instrument-pos/GearIndicator1-pos", 0, 0.1);
 		interpolate("/sim/model/ch53e/instrument-pos/GearIndicator2-pos", 0, 0.1);
-		# Make sure these times match those in the YASim file FIXME
+		# Make sure these times match those in the YASim file TODO
+		# Also, these interpolations don't always work right FIXME
 		if (position == 1) {
 			settimer(func {interpolate("/sim/model/ch53e/instrument-pos/GearIndicator0-pos", 1, 0.1)}, 6.0);
 			settimer(func {interpolate("/sim/model/ch53e/instrument-pos/GearIndicator1-pos", 1, 0.1)}, 6.0);
@@ -165,31 +195,135 @@ settimer(gearInit, 0);
 
 ################
 #
+# NVG Lighting Switch
+#
+# This model has a night vision mode switch which selects between two colors for the
+# panel and instrument lights. Instead of just setting the desired colors for various
+# lights in the -set file as would be normal with interior-lights.nas, this system
+# watches the apropriate switch and then sets the instument-lights.nas input props
+# based on two custom defined color schemes.
+#
+################
+
+initNvgMode = func {
+	adjustNvgMode = func {
+		if (nvgMode.getValue()) {
+			domeLightRed.setDoubleValue(domeLightRedNvg.getValue());
+			domeLightGreen.setDoubleValue(domeLightGreenNvg.getValue());
+			domeLightBlue.setDoubleValue(domeLightBlueNvg.getValue());
+			panelLightRed.setDoubleValue(panelLightRedNvg.getValue());
+			panelLightGreen.setDoubleValue(panelLightGreenNvg.getValue());
+			panelLightBlue.setDoubleValue(panelLightBlueNvg.getValue());
+			instrumentsLightRed.setDoubleValue(instrumentsLightRedNvg.getValue());
+			instrumentsLightGreen.setDoubleValue(instrumentsLightGreenNvg.getValue());
+			instrumentsLightBlue.setDoubleValue(instrumentsLightBlueNvg.getValue());
+		} else {
+			domeLightRed.setDoubleValue(domeLightRedUnaided.getValue());
+			domeLightGreen.setDoubleValue(domeLightGreenUnaided.getValue());
+			domeLightBlue.setDoubleValue(domeLightBlueUnaided.getValue());
+			panelLightRed.setDoubleValue(panelLightRedUnaided.getValue());
+			panelLightGreen.setDoubleValue(panelLightGreenUnaided.getValue());
+			panelLightBlue.setDoubleValue(panelLightBlueUnaided.getValue());
+			instrumentsLightRed.setDoubleValue(instrumentsLightRedUnaided.getValue());
+			instrumentsLightGreen.setDoubleValue(instrumentsLightGreenUnaided.getValue());
+			instrumentsLightBlue.setDoubleValue(instrumentsLightBlueUnaided.getValue());
+		}
+	}
+
+	domeLightRed                 = props.globals.getNode('controls/lighting/dome/color/red', 1);
+	domeLightRedNvg              = props.globals.getNode('sim/model/ch53e/materials/dome-light-color/nvg/red', 1);
+	domeLightRedUnaided          = props.globals.getNode('sim/model/ch53e/materials/dome-light-color/unaided/red', 1);
+	domeLightGreen               = props.globals.getNode('controls/lighting/dome/color/green', 1);
+	domeLightGreenNvg            = props.globals.getNode('sim/model/ch53e/materials/dome-light-color/nvg/green', 1);
+	domeLightGreenUnaided        = props.globals.getNode('sim/model/ch53e/materials/dome-light-color/unaided/green', 1);
+	domeLightBlue                = props.globals.getNode('controls/lighting/dome/color/blue', 1);
+	domeLightBlueNvg             = props.globals.getNode('sim/model/ch53e/materials/dome-light-color/nvg/blue', 1);
+	domeLightBlueUnaided         = props.globals.getNode('sim/model/ch53e/materials/dome-light-color/unaided/blue', 1);
+
+	panelLightRed                = props.globals.getNode('controls/lighting/panel/color/red', 1);
+	panelLightRedNvg             = props.globals.getNode('sim/model/ch53e/materials/panel-light-color/nvg/red', 1);
+	panelLightRedUnaided         = props.globals.getNode('sim/model/ch53e/materials/panel-light-color/unaided/red', 1);
+	panelLightGreen              = props.globals.getNode('controls/lighting/panel/color/green', 1);
+	panelLightGreenNvg           = props.globals.getNode('sim/model/ch53e/materials/panel-light-color/nvg/green', 1);
+	panelLightGreenUnaided       = props.globals.getNode('sim/model/ch53e/materials/panel-light-color/unaided/green', 1);
+	panelLightBlue               = props.globals.getNode('controls/lighting/panel/color/blue', 1);
+	panelLightBlueNvg            = props.globals.getNode('sim/model/ch53e/materials/panel-light-color/nvg/blue', 1);
+	panelLightBlueUnaided        = props.globals.getNode('sim/model/ch53e/materials/panel-light-color/unaided/blue', 1);
+
+	instrumentsLightRed          = props.globals.getNode('controls/lighting/instruments/color/red', 1);
+	instrumentsLightRedNvg       = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/nvg/red', 1);
+	instrumentsLightRedUnaided   = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/unaided/red', 1);
+	instrumentsLightGreen        = props.globals.getNode('controls/lighting/instruments/color/green', 1);
+	instrumentsLightGreenNvg     = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/nvg/green', 1);
+	instrumentsLightGreenUnaided = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/unaided/green', 1);
+	instrumentsLightBlue         = props.globals.getNode('controls/lighting/instruments/color/blue', 1);
+	instrumentsLightBlueNvg      = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/nvg/blue', 1);
+	instrumentsLightBlueUnaided  = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/unaided/blue', 1);
+
+	nvgMode = props.globals.getNode('controls/lighting/nvg-mode', 1);
+
+	adjustNvgMode();
+	setlistener(nvgMode, adjustNvgMode);
+}
+
+
+################
+#
+# Rotor Brake
+#
+################
+
+rotorBrakeSwitch = '';
+rotorBrakeIndicatorPos = '';
+
+animateRotorBrakeIndicator = func {
+	if (rotorBrakeSwitch.getValue()) {
+		interpolate('sim/model/ch53e/instrument-pos/rot-brake-ind-pos-norm', 1, 0.2);
+	} else {
+		interpolate('sim/model/ch53e/instrument-pos/rot-brake-ind-pos-norm', 0, 0.2);
+	}
+}
+setlistener('controls/rotor/brake', animateRotorBrakeIndicator);
+
+initRotorBrake = func {
+	rotorBrakeSwitch = props.globals.getNode('controls/rotor/brake', 1);
+	rotorBrakeIndicatorPos = props.globals.getNode('sim/model/ch53e/instrument-pos/rot-brake-ind-pos-norm', 1);
+	animateRotorBrakeIndicator();
+}
+settimer(initRotorBrake, 0);
+
+################
+#
 # Stick Position
 #
 # This will figure out where the stick is and convert it into a discrete low-res
 # value. It then sets material properties that are used to run the material animation
-# for the stick position indicator instrument.
+# for the stick position indicator instrument. There is a private intensity property.
 #
 ################
 
+stickPosIntensity = nil;
+stickPosTest = nil;
 pollStickPos = func {
-	# TODO test button?
 	materials = '/sim/model/ch53e/materials/';
 	quant_pitch = int(((getprop('/controls/flight/elevator'))+1)/0.0606060606);
 	quant_roll = int(((getprop('/controls/flight/aileron'))+1)/0.0606060606);
-	if (getprop('/controls/lighting/nvg-mode') == 1) {
+	if (getprop('controls/lighting/nvg-mode') == 1) {
 		led_color = 'green';
-		led_intensity = (getprop('/controls/lighting/instruments-norm')*0.5);
+		led_intensity = (stickPosIntensity.getValue()*0.5+0.1);
 	} else {
 		led_color = 'red';
-		led_intensity = getprop('/controls/lighting/instruments-norm');
+		led_intensity = (stickPosIntensity.getValue()*0.9+0.1);
 	}
-	# Turn it all off
+	# Turn it all off, or on if the test button is pressed
 	for (i=1;i<=8;i+=1) {
 		foreach (zone; ['HSPLeft.00', 'HSPRight.00', 'VSPFore.00', 'VSPAft.00']) {
-			foreach (color; ['red','green','blue']) {
-				setprop(materials~zone~i~'/emission/'~color, '0'); 
+			if (stickPosTest.getValue() == 1) {
+				setprop(materials~zone~i~'/emission/'~led_color, led_intensity);
+			} else {
+				foreach (color; ['red','green','blue']) {
+					setprop(materials~zone~i~'/emission/'~color, '0'); 
+				}
 			}
 		}
 	}
@@ -361,9 +495,19 @@ pollStickPos = func {
 			setprop(materials~'VSPFore.008'~'/emission/'~led_color, led_intensity); 
 		}
 	}
+	settimer(pollStickPos, 0.1);
+}
+initStickPos = func {
+	# Just to make sure that this property exists and has a sane value.
+	stickPosTest = props.globals.getNode('sim/model/ch53e/control-input/stick-pos-test', 1);
+	stickPosIntensity = props.globals.getNode('sim/model/ch53e/control-input/stick-pos-bright-norm', 1);
+	# We assume that instruments-norm is a proper double. Someday this will cause trouble.
+	if (stickPosIntensity.getType() != 'DOUBLE') {
+		stickPosIntensity.setDoubleValue(getprop('controls/lighting/instruments-norm'));
+	}
 	settimer(pollStickPos, 0);
 }
-settimer(pollStickPos, 0);
+settimer(initStickPos, 0);
 
 ################
 #
@@ -468,7 +612,12 @@ debugInit = func {
 		# material.showDialog('/sim/model/ch53e/instrument-pos/gearHandleGlow');
 	}
 }
-settimer(debugInit, 0);
 
-print("ch53e.nas initialized");
+init = func {
+	debugInit();
+	initNvgMode();
+	print("ch53e.nas initialized");
+}
+settimer(init, 0);
+
 

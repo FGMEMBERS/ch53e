@@ -101,14 +101,11 @@
 		max-power-engine="70000"
 		engine-prop-factor="0.03"
 		yasimdragfactor="10"
-		yasimliftfactor="140"
-	>
-
-	<control-input axis="/controls/engines/engine[0]/magnetos" control="ROTORGEARENGINEON"/>
-	<control-input axis="/controls/rotor/brake" control="ROTORBRAKE"
-		src0="0.0" src1="1.0"
-		dst0="0.0" dst1="1.0"/>
-
+		yasimliftfactor="140" >
+		<control-input axis="/controls/engines/engine[0]/magnetos" control="ROTORGEARENGINEON"/>
+		<control-input axis="/controls/rotor/brake" control="ROTORBRAKE"
+			src0="0.0" src1="1.0"
+			dst0="0.0" dst1="1.0"/>
 	</rotorgear>
 		  
 	<!-- FIXME what side is this on? also add the hstab -->
@@ -149,7 +146,7 @@
 	<weight x="-9.5" y="0" z="-0.9"  mass-prop="/sim/weight[6]/weight-lb" size="6"/>
 	<weight x="-5.9" y="1.9" z="1.1" mass-prop="/sim/weight[7]/weight-lb" size="0.5"/>
 	
-	<gear x="-3.44" y="0" z="-1.35" compression="0.4"  spring="1.2" damp="1.0"> 
+	<gear x="-3.44" y="0" z="-1.35" compression="0.25"  spring="1.2" damp="1.0"> 
 		<control-input axis="/controls/flight/rudder" control="STEER" square="true"
 			src0="-1" dst0="-1.5"
 			src1="1"  dst1="1.5" />
@@ -159,7 +156,7 @@
 		<control-output control="EXTEND" prop="/gear/gear[0]/position-norm"/>
 	</gear>
 	
-	<gear x="-11.74" y="2.25" z="-1.35" compression=".4"  spring="1.2" damp="1.0"> 
+	<gear x="-11.74" y="2.25" z="-1.35" compression=".25"  spring="1.2" damp="1.0"> 
 		<control-input axis="/controls/gear/brake-left" control="BRAKE"/>
 		<control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
 		<control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -167,7 +164,7 @@
 		<control-output control="EXTEND" prop="/gear/gear[2]/position-norm"/>
 	</gear>
 	
-	<gear x="-11.74" y="-2.25" z="-1.35" compression=".4" spring="1.2" damp="1.0"> 
+	<gear x="-11.74" y="-2.25" z="-1.35" compression=".25" spring="1.2" damp="1.0"> 
 		<control-input axis="/controls/gear/brake-right" control="BRAKE"/>
 		<control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
 		<control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -175,7 +172,7 @@
 		<control-output control="EXTEND" prop="/gear/gear[1]/position-norm"/>
 	</gear>
 	
-	<gear x="-23.5" y="0" z="0.65" compression=".4" spring="1.2" damp="1.0"> 
+	<gear x="-23.5" y="0" z="0.65" compression=".1" spring="1.2" damp="1.0"> 
 		<control-input axis="/controls/gear/gear-down" control="EXTEND"/>
 		<control-speed control="EXTEND" transition-time="6"/>
 		<control-output control="EXTEND" prop="/gear/gear[3]/position-norm"/>

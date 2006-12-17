@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<PropertyList>
+
+<path>jrb-usn-rad-alt.ac</path>
+
+<animation>
+   <type>noshadow</type>
+</animation>
+
+<animation>
+   <type>alpha-test</type>
+   <alpha-factor>0.05</alpha-factor>
+</animation>
+
+<animation>
+   <type>range</type>
+   <min-m>0</min-m>
+   <max-m>5</max-m>
+</animation>
+
+<!--animation>
+   <type>range</type>
+   <object-name>lowres</object-name>
+   <min-m>0</min-m>
+   <max-m>25</max-m>
+</animation-->
+
+<animation>
+   <type>material</type>
+   <property-base>controls/lighting/instruments/emission</property-base>
+   <emission>
+      <red-prop>red</red-prop>
+      <green-prop>green</green-prop>
+      <blue-prop>blue</blue-prop>
+   </emission>
+</animation>
+
+<animation>
+   <type>material</type>
+   <object-name>RadAltBevel</object-name>
+   <object-name>RadAltDHWarn</object-name>
+   <property-base>controls/lighting/panel/emission</property-base>
+   <emission>
+      <red-prop>red</red-prop>
+      <green-prop>green</green-prop>
+      <blue-prop>blue</blue-prop>
+   </emission>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>RadAltNeedle</object-name>
+	<property>position/altitude-agl-ft</property>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>200</ind> <dep>243</dep> </entry>
+		<entry> <ind>500</ind> <dep>232</dep> </entry>
+		<entry> <ind>1000</ind> <dep>272</dep> </entry>
+		<entry> <ind>5000</ind> <dep>320</dep> </entry>
+	</interpolation>
+	<axis>
+		<x>-1</x>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>RadAltBug</object-name>
+	<property>sim/model/jrb-usn/radar-altitude-decision-height</property>
+	<interpolation>
+		<entry> <ind>0</ind> <dep>0</dep> </entry>
+		<entry> <ind>200</ind> <dep>243</dep> </entry>
+		<entry> <ind>500</ind> <dep>232</dep> </entry>
+		<entry> <ind>1000</ind> <dep>272</dep> </entry>
+		<entry> <ind>5000</ind> <dep>320</dep> </entry>
+	</interpolation>
+	<axis>
+		<x>-1</x>
+	</axis>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>RadAltNoTrack</object-name>
+	<condition>
+		<equals>
+			<property>sim/model/jrb-usn/radar-altitude-decision-height-warning</property>
+			<value>1</value>
+		</equals>
+	</condition>
+</animation>
+
+</PropertyList>

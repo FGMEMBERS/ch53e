@@ -875,7 +875,7 @@
 				<h>70</h>
 				<binding>
 					<command>nasal</command>
-					<script>controls.gearUp(1)</script>
+					<script>controls.gearDown(-1)</script>
 				</binding>
 			</action>
 			<action>
