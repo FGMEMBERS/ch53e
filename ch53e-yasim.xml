@@ -37,7 +37,7 @@
 		incidence-stall-half-sonic-speed="14"
 		translift-ve="20"
 		translift-maxfactor="1.3"
-		ground-effect-constatnt="1.25"
+		ground-effect-constant="1.25"
 
 		pitch-a="12.0" 
 		pitch-b="12.0" 
