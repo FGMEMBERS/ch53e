@@ -74,18 +74,28 @@
 			<control-input>
 				<emergency-gear-release type='int'>0</emergency-gear-release>
 				<stick-pos-test type='int'>0</stick-pos-test>
-				<stick-pos-bright-norm type='double' userarchive='y'/>
-				<caution-bright-norm type='double' userarchive='y'/>
-				<probe-extend type='int' userarchive='y'>0</probe-extend>
+				<stick-pos-bright-norm type='double'/>
+				<caution-bright-norm type='double'/>
+				<probe-extend type='int'>0</probe-extend>
 			</control-input>
 		</ch53e>
 		<jrb-usn>
-			<gyro-needle-source n='0' userarchive='y'/>
-			<gyro-needle-source n='1' userarchive='y'/>
-			<radar-altitude-decision-height type='int' userarchive='y'/>
-			<gyro-bug-heading type='double' userarchive='y'/>
+			<gyro-needle-source n='0'/>
+			<gyro-needle-source n='1'/>
+			<radar-altitude-decision-height type='int'/>
+			<gyro-bug-heading type='double'/>
 		</jrb-usn>
 	</model>
+
+	<aircraft-data> <!-- save these to ~/.fgfs/aircraft-data/ch53e.xml -->
+		<path>/sim/model/ch53e/control-input/stick-pos-bright-norm</path>
+		<path>/sim/model/ch53e/control-input/caution-bright-norm</path>
+		<path>/sim/model/ch53e/rontrol-input/probe-extend</path>
+		<path>/sim/model/jrb-usn/gyro-needle-source[0]</path>
+		<path>/sim/model/jrb-usn/gyro-needle-source[1]</path>
+		<path>/sim/model/jrb-usn/radar-altitude-decision-height</path>
+		<path>/sim/model/jrb-usn/gyro-bug-heading</path>
+	</aircraft-data>
 
 	<weight>
 		<name>sta-162-222</name>
