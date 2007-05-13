@@ -196,6 +196,13 @@
 		</config>
 	</view>
 
+	<view n="6">
+		<config>
+			<target-x-offset-m>1.2</target-x-offset-m>
+			<target-z-offset-m>9.5</target-z-offset-m>
+		</config>
+	</view>
+
 	<sound>
 		<path>Aircraft/bell206/bell206-sound.xml</path>
 	</sound>
