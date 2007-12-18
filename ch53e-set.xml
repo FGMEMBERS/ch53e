@@ -204,7 +204,7 @@
 	</view>
 
 	<sound>
-		<path>Aircraft/bell206/bell206-sound.xml</path>
+		<path>Aircraft/ch53e/ch53e-sound.xml</path>
 	</sound>
 </sim>
 
