@@ -1,10 +1,18 @@
 <?xml version="1.0"?>
 
-<PropertyList include="ch53e-instruments.xml">
+<!--
+Animate various objects in the cockpit.
+Pick animations go in ch53e-controls.xml
+Due to their legion number, the caution panel animations get their own file.
+-->
+
+<PropertyList>
+
+<caution include="ch53e-caution-anim.xml" omit-node="y"/>
 
 <!-- ADF -->
 
-<animation n="2000">
+<animation>
 	<type>rotate</type>
 	<object-name>ADFFreqDisp1</object-name>
 	<property>/sim/model/ch53e/instrument-pos/ADFFreqDisp1</property>
@@ -21,7 +29,7 @@
 	</center>
 </animation>
 
-<animation n="2001">
+<animation>
 	<type>rotate</type>
 	<object-name>ADFFreqDisp2</object-name>
 	<property>/sim/model/ch53e/instrument-pos/ADFFreqDisp2</property>
@@ -36,7 +44,7 @@
 	</center>
 </animation>
 
-<animation n="2002">
+<animation>
 	<type>rotate</type>
 	<object-name>ADFFreqDisp3</object-name>
 	<property>/sim/model/ch53e/instrument-pos/ADFFreqDisp3</property>
@@ -51,7 +59,7 @@
 	</center>
 </animation>
 
-<animation n="2003">
+<animation>
 	<type>rotate</type>
 	<object-name>ADFMode</object-name>
 	<property>/instrumentation/adf/control-switch</property>
@@ -69,7 +77,7 @@
 
 <!-- Gear -->
 
-<animation n="2004">
+<animation>
 	<type>textranslate</type>
 	<object-name>GearIndicator0</object-name>
 	<property>/sim/model/ch53e/instrument-pos/GearIndicator0-pos</property>
@@ -79,7 +87,7 @@
 	</axis>
 </animation>
 
-<animation n="2005">
+<animation>
 	<type>textranslate</type>
 	<object-name>GearIndicator1</object-name>
 	<property>/sim/model/ch53e/instrument-pos/GearIndicator1-pos</property>
@@ -89,7 +97,7 @@
 	</axis>
 </animation>
 
-<animation n="2006">
+<animation>
 	<type>textranslate</type>
 	<object-name>GearIndicator2</object-name>
 	<property>/sim/model/ch53e/instrument-pos/GearIndicator2-pos</property>
@@ -99,7 +107,7 @@
 	</axis>
 </animation>
 
-<animation n="2007">
+<animation>
 	<type>material</type>
 	<object-name>ILandingGearHandle</object-name>
 	<property-base>/sim/model/ch53e/instrument-pos/gearHandleGlow</property-base>
@@ -115,7 +123,7 @@
 	</ambient>
 </animation>
 
-<animation n="2008">
+<animation>
 	<type>material</type>
 	<object-name>OLandingGearHandle</object-name>
 	<property-base>/sim/model/ch53e/instrument-pos/gearHandleGlow</property-base>
@@ -134,9 +142,9 @@
 
 <!-- Hydraulics -->
 
-<!-- We are not using utility 2 -->
+<!-- We are not using utility 2 guage -->
 
-<animation n="2009">
+<animation>
 	<type>textranslate</type>
 	<object-name>HydQty1</object-name>
 	<property>instrumentation/hydraulic-quantity/tank[0]/vol-norm</property>
@@ -146,7 +154,7 @@
 	</axis>
 </animation>
 
-<animation n="2010">
+<animation>
 	<type>textranslate</type>
 	<object-name>HydQty2</object-name>
 	<property>instrumentation/hydraulic-quantity/tank[1]/vol-norm</property>
@@ -156,7 +164,7 @@
 	</axis>
 </animation>
 
-<animation n="2011">
+<animation>
 	<type>textranslate</type>
 	<object-name>HydQty3</object-name>
 	<property>instrumentation/hydraulic-quantity/tank[2]/vol-norm</property>
@@ -170,7 +178,7 @@
 
 <!-- Gear -->
 
-<animation n="2012">
+<animation>
 	<type>rotate</type>
 	<object-name>LandingGearHandle</object-name>
 	<property>/sim/model/ch53e/control-pos/LandingGearHandle-pos-norm</property>
@@ -184,7 +192,7 @@
 	</center>
 </animation>
 
-<animation n="2013">
+<animation>
 	<type>rotate</type>
 	<object-name>LandingGearEmergExt</object-name>
 	<property>/sim/model/ch53e/control-pos/LandingGearEmergExt-rot-norm</property>
@@ -200,7 +208,7 @@
 	</center>
 </animation>
 
-<animation n="2014">
+<animation>
 	<type>translate</type>
 	<object-name>LandingGearEmergExt</object-name>
 	<property>/sim/model/ch53e/control-pos/LandingGearEmergExt-pos-norm</property>
@@ -213,7 +221,7 @@
 
 <!-- Comm[0] -->
 
-<animation n="2015">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF0FreqSel1</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF0FreqSel1-pos-norm</property>
@@ -227,7 +235,7 @@
 	</center>
 </animation>
 
-<animation n="2016">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF1FreqSel1</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF1FreqSel1-pos-norm</property>
@@ -241,7 +249,7 @@
 	</center>
 </animation>
 
-<animation n="2017">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF0FreqSel2</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF0FreqSel2-pos-norm</property>
@@ -255,7 +263,7 @@
 	</center>
 </animation>
 
-<animation n="2018">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF1FreqSel2</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF1FreqSel2-pos-norm</property>
@@ -269,7 +277,7 @@
 	</center>
 </animation>
 
-<animation n="2019">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF0FreqSel3</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF0FreqSel3-pos-norm</property>
@@ -283,7 +291,7 @@
 	</center>
 </animation>
 
-<animation n="2020">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF1FreqSel3</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF1FreqSel3-pos-norm</property>
@@ -297,7 +305,7 @@
 	</center>
 </animation>
 
-<animation n="2021">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF0FreqSel4</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF0FreqSel4-pos-norm</property>
@@ -311,7 +319,7 @@
 	</center>
 </animation>
 
-<animation n="2022">
+<animation>
 	<type>rotate</type>
 	<object-name>VHF1FreqSel4</object-name>
 	<property>/sim/model/ch53e/control-pos/VHF1FreqSel4-pos-norm</property>
@@ -325,73 +333,73 @@
 	</center>
 </animation>
 
-<animation n="2023">
+<animation>
 	<type>material</type>
 	<object-name>VHF0Display1</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF0Display1-texture</texture-prop>
 </animation>
 
-<animation n="2024">
+<animation>
 	<type>material</type>
 	<object-name>VHF0Display2</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF0Display2-texture</texture-prop>
 </animation>
 
-<animation n="2025">
+<animation>
 	<type>material</type>
 	<object-name>VHF0Display3</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF0Display3-texture</texture-prop>
 </animation>
 
-<animation n="2026">
+<animation>
 	<type>material</type>
 	<object-name>VHF0Display5</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF0Display5-texture</texture-prop>
 </animation>
 
-<animation n="2027">
+<animation>
 	<type>material</type>
 	<object-name>VHF0Display6</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF0Display6-texture</texture-prop>
 </animation>
 
-<animation n="2028">
+<animation>
 	<type>material</type>
 	<object-name>VHF0Display7</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF0Display7-texture</texture-prop>
 </animation>
 
-<animation n="2029">
+<animation>
 	<type>material</type>
 	<object-name>VHF1Display1</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF1Display1-texture</texture-prop>
 </animation>
 
-<animation n="2030">
+<animation>
 	<type>material</type>
 	<object-name>VHF1Display2</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF1Display2-texture</texture-prop>
 </animation>
 
-<animation n="2040">
+<animation>
 	<type>material</type>
 	<object-name>VHF1Display3</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF1Display3-texture</texture-prop>
 </animation>
 
-<animation n="2041">
+<animation>
 	<type>material</type>
 	<object-name>VHF1Display5</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF1Display5-texture</texture-prop>
 </animation>
 
-<animation n="2042">
+<animation>
 	<type>material</type>
 	<object-name>VHF1Display6</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF1Display6-texture</texture-prop>
 </animation>
 
-<animation n="2043">
+<animation>
 	<type>material</type>
 	<object-name>VHF1Display7</object-name>
 	<texture-prop>/sim/model/ch53e/instrument-pos/VHF1Display7-texture</texture-prop>
@@ -399,7 +407,7 @@
 
 <!-- Marker Beacon -->
 
-<animation n="2044">
+<animation>
 	<type>rotate</type>
 	<object-name>MBVolume</object-name>
 	<property>/instrumentation/marker-beacon/volume</property>
@@ -415,7 +423,7 @@
 	</axis>
 </animation>
 
-<animation n="2045">
+<animation>
 	<type>rotate</type>
 	<object-name>MBSwitch</object-name>
 	<property>/instrumentation/marker-beacon/power-btn</property>
@@ -430,7 +438,7 @@
 	</axis>
 </animation>
 
-<animation n="2046">
+<animation>
 	<type>rotate</type>
 	<object-name>NavVolume</object-name>
 	<property>/instrumentation/nav/volume</property>
@@ -448,7 +456,7 @@
 
 <!--TACAN -->
 
-<animation n="2047">
+<animation>
 	<type>rotate</type>
 	<object-name>TACANFreqDisp1</object-name>
 	<property>/instrumentation/tacan/frequencies/selected-channel[1]</property>
@@ -462,7 +470,7 @@
 	</axis>
 </animation>
 
-<animation n="2048">
+<animation>
 	<type>rotate</type>
 	<object-name>TACANFreqDisp2</object-name>
 	<property>/instrumentation/tacan/frequencies/selected-channel[2]</property>
@@ -476,7 +484,7 @@
 	</axis>
 </animation>
 
-<animation n="2049">
+<animation>
 	<type>rotate</type>
 	<object-name>TACANFreqDisp3</object-name>
 	<property>/instrumentation/tacan/frequencies/selected-channel[3]</property>
@@ -490,7 +498,7 @@
 	</axis>
 </animation>
 
-<animation n="2050">
+<animation>
 	<type>rotate</type>
 	<object-name>TACANFreqDisp4</object-name>
 	<property>/instrumentation/tacan/mode</property>
@@ -504,7 +512,7 @@
 	</axis>
 </animation>
 
-<animation n="2051">
+<animation>
 	<type>rotate</type>
 	<object-name>TacanMajFreqSel</object-name>
 	<property>/sim/model/ch53e/control-pos/TacanMajFreqSel-rot-deg</property>
@@ -520,7 +528,7 @@
 	</axis>
 </animation>
 
-<animation n="2052">
+<animation>
 	<type>rotate</type>
 	<object-name>TacanMinFreqSel</object-name>
 	<property>/instrumentation/tacan/channel-select-mode</property>
@@ -536,7 +544,7 @@
 	</axis>
 </animation>
 
-<animation n="2053">
+<animation>
 	<type>rotate</type>
 	<object-name>TacanModeSel</object-name>
 	<property>/instrumentation/tacan/switch-position</property>
@@ -554,7 +562,7 @@
 
 <!-- Stick Position Indicator -->
 
-<animation n="2054">
+<animation>
 	<type>material</type>
 	<object-name>CenterStickPos</object-name>
 	<property-base>/sim/model/ch53e/materials/CenterStickPos</property-base>
@@ -565,7 +573,7 @@
 	</emission>
 </animation>
 
-<animation n="2055">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.001</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.001</property-base>
@@ -576,7 +584,7 @@
 	</emission>
 </animation>
 
-<animation n="2056">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.002</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.002</property-base>
@@ -587,7 +595,7 @@
 	</emission>
 </animation>
 
-<animation n="2057">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.003</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.003</property-base>
@@ -598,7 +606,7 @@
 	</emission>
 </animation>
 
-<animation n="2058">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.004</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.004</property-base>
@@ -609,7 +617,7 @@
 	</emission>
 </animation>
 
-<animation n="2059">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.005</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.005</property-base>
@@ -620,7 +628,7 @@
 	</emission>
 </animation>
 
-<animation n="2060">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.006</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.006</property-base>
@@ -631,7 +639,7 @@
 	</emission>
 </animation>
 
-<animation n="2061">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.007</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.007</property-base>
@@ -642,7 +650,7 @@
 	</emission>
 </animation>
 
-<animation n="2062">
+<animation>
 	<type>material</type>
 	<object-name>HSPLeft.008</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPLeft.008</property-base>
@@ -653,7 +661,7 @@
 	</emission>
 </animation>
 
-<animation n="2063">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.001</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.001</property-base>
@@ -664,7 +672,7 @@
 	</emission>
 </animation>
 
-<animation n="2064">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.002</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.002</property-base>
@@ -675,7 +683,7 @@
 	</emission>
 </animation>
 
-<animation n="2065">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.003</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.003</property-base>
@@ -686,7 +694,7 @@
 	</emission>
 </animation>
 
-<animation n="2066">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.004</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.004</property-base>
@@ -697,7 +705,7 @@
 	</emission>
 </animation>
 
-<animation n="2067">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.005</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.005</property-base>
@@ -708,7 +716,7 @@
 	</emission>
 </animation>
 
-<animation n="2068">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.006</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.006</property-base>
@@ -719,7 +727,7 @@
 	</emission>
 </animation>
 
-<animation n="2069">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.007</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.007</property-base>
@@ -730,7 +738,7 @@
 	</emission>
 </animation>
 
-<animation n="2070">
+<animation>
 	<type>material</type>
 	<object-name>HSPRight.008</object-name>
 	<property-base>/sim/model/ch53e/materials/HSPRight.008</property-base>
@@ -741,7 +749,7 @@
 	</emission>
 </animation>
 
-<animation n="2071">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.001</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.001</property-base>
@@ -752,7 +760,7 @@
 	</emission>
 </animation>
 
-<animation n="2072">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.002</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.002</property-base>
@@ -763,7 +771,7 @@
 	</emission>
 </animation>
 
-<animation n="2073">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.003</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.003</property-base>
@@ -774,7 +782,7 @@
 	</emission>
 </animation>
 
-<animation n="2074">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.004</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.004</property-base>
@@ -785,7 +793,7 @@
 	</emission>
 </animation>
 
-<animation n="2075">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.005</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.005</property-base>
@@ -796,7 +804,7 @@
 	</emission>
 </animation>
 
-<animation n="2076">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.006</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.006</property-base>
@@ -807,7 +815,7 @@
 	</emission>
 </animation>
 
-<animation n="2077">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.007</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.007</property-base>
@@ -818,7 +826,7 @@
 	</emission>
 </animation>
 
-<animation n="2078">
+<animation>
 	<type>material</type>
 	<object-name>VSPFore.008</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPFore.008</property-base>
@@ -829,7 +837,7 @@
 	</emission>
 </animation>
 
-<animation n="2079">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.001</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.001</property-base>
@@ -840,7 +848,7 @@
 	</emission>
 </animation>
 
-<animation n="2080">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.002</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.002</property-base>
@@ -851,7 +859,7 @@
 	</emission>
 </animation>
 
-<animation n="2081">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.003</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.003</property-base>
@@ -862,7 +870,7 @@
 	</emission>
 </animation>
 
-<animation n="2082">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.004</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.004</property-base>
@@ -873,7 +881,7 @@
 	</emission>
 </animation>
 
-<animation n="2083">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.005</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.005</property-base>
@@ -884,7 +892,7 @@
 	</emission>
 </animation>
 
-<animation n="2084">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.006</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.006</property-base>
@@ -895,7 +903,7 @@
 	</emission>
 </animation>
 
-<animation n="2085">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.007</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.007</property-base>
@@ -906,7 +914,7 @@
 	</emission>
 </animation>
 
-<animation n="2086">
+<animation>
 	<type>material</type>
 	<object-name>VSPAft.008</object-name>
 	<property-base>/sim/model/ch53e/materials/VSPAft.008</property-base>
@@ -917,7 +925,7 @@
 	</emission>
 </animation>
 
-<animation n="2087">
+<animation>
 	<type>textranslate</type>
 	<object-name>RotBrkIndicator</object-name>
 	<property>sim/model/ch53e/instrument-pos/rot-brake-ind-pos-norm</property>
@@ -928,7 +936,7 @@
 </animation>
 
 <!-- FIXME find actual 100% torque values. -->
-<animation n="2088">
+<animation>
 	<type>textranslate</type>
 	<object-name>TorqueInd1</object-name>
 	<property>rotors/main/torque</property>
@@ -940,7 +948,7 @@
 	</axis>
 </animation>
 
-<animation n="2089">
+<animation>
 	<type>textranslate</type>
 	<object-name>TorqueInd2</object-name>
 	<property>rotors/main/torque</property>
@@ -952,7 +960,7 @@
 	</axis>
 </animation>
 
-<animation n="2090">
+<animation>
 	<type>textranslate</type>
 	<object-name>TorqueInd3</object-name>
 	<property>rotors/main/torque</property>
@@ -966,7 +974,7 @@
 
 <!-- 100% N1 at 157% torque -->
 <!-- FIXME here we assume 100% N1 = 1000 RPM -->
-<animation n="2091">
+<animation>
 	<type>textranslate</type>
 	<object-name>TachInd1</object-name>
 	<property>engines/engine[0]/rpm</property>
@@ -982,7 +990,7 @@
 	</axis>
 </animation>
 
-<animation n="2092">
+<animation>
 	<type>textranslate</type>
 	<object-name>TachInd2</object-name>
 	<property>engines/engine[1]/rpm</property>
@@ -998,7 +1006,7 @@
 	</axis>
 </animation>
 
-<animation n="2093">
+<animation>
 	<type>textranslate</type>
 	<object-name>TachInd3</object-name>
 	<property>engines/engine[2]/rpm</property>
@@ -1014,7 +1022,7 @@
 	</axis>
 </animation>
 
-<animation n="2094">
+<animation>
 	<type>textranslate</type>
 	<object-name>TachIndR</object-name>
 	<property>rotors/main/rpm</property>
@@ -1030,7 +1038,7 @@
 	</axis>
 </animation>
 
-<animation n="2095">
+<animation>
 	<type>rotate</type>
 	<object-name>ProbeExtendSw</object-name>
 	<property>sim/model/ch53e/control-input/probe-extend</property>
@@ -1046,7 +1054,7 @@
 	</axis>
 </animation>
 
-<animation n="2096">
+<animation>
 	<type>material</type>
 	<object-name>CockpitInterior</object-name>
 	<property-base>controls/lighting/dome/emission</property-base>
@@ -1057,7 +1065,7 @@
 	</emission>
 </animation>
 
-<animation n="2097">
+<animation>
 	<type>material</type>
 	<object-name>PanelGroup</object-name>
 	<property-base>controls/lighting/panel/emission</property-base>
@@ -1068,7 +1076,7 @@
 	</emission>
 </animation>
 
-<animation n="2098">
+<animation>
 	<type>material</type>
 	<object-name>PScreen</object-name>
 	<property-base>controls/lighting/instruments/emission</property-base>
@@ -1079,7 +1087,7 @@
 	</emission>
 </animation>
 
-<animation n="2099">
+<animation>
 	<type>material</type>
 	<object-name>CScreen</object-name>
 	<property-base>controls/lighting/instruments/emission</property-base>
@@ -1090,7 +1098,7 @@
 	</emission>
 </animation>
 
-<animation n="2100">
+<animation>
 	<type>material</type>
 	<object-name>FMSScreens</object-name>
 	<property-base>controls/lighting/instruments/emission</property-base>
@@ -1101,7 +1109,7 @@
 	</emission>
 </animation>
 
-<animation n="2101">
+<animation>
 	<type>material</type>
 	<object-name>CIDoorFrame</object-name>
 	<property-base>controls/lighting/dome/emission</property-base>
@@ -1112,7 +1120,7 @@
 	</emission>
 </animation>
 
-<animation n="2102">
+<animation>
 	<type>material</type>
 	<object-name>PIDoorFrame</object-name>
 	<property-base>controls/lighting/dome/emission</property-base>
@@ -1123,8 +1131,85 @@
 	</emission>
 </animation>
 
+<animation>
+	<type>material</type>
+	<object-name>LAUXLight</object-name>
+	<property-base>/sim/model/ch53e/materials/LAUXLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>LMAINLight</object-name>
+	<property-base>/sim/model/ch53e/materials/LMAINLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RMAINLight</object-name>
+	<property-base>/sim/model/ch53e/materials/RMAINLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RAUXLight</object-name>
+	<property-base>/sim/model/ch53e/materials/RAUXLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RefuelPwrLight</object-name>
+	<property-base>/sim/model/ch53e/materials/RefuelPwrLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RefuelProbeLight</object-name>
+	<property-base>/sim/model/ch53e/materials/RefuelProbeLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RefuelPurgeLight</object-name>
+	<property-base>/sim/model/ch53e/materials/RefuelPurgeLight</property-base>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+</animation>
+
 <!-- 27
-<animation n="2000">
+<animation>
 	<type>rotate</type>
 	<object-name></object-name>
 	<property></property>

@@ -38,7 +38,6 @@
 <animation>
    <type>material</type>
    <object-name>RadAltBevel</object-name>
-   <object-name>RadAltDHWarn</object-name>
    <property-base>controls/lighting/panel/emission</property-base>
    <emission>
       <red-prop>red</red-prop>
@@ -50,11 +49,10 @@
 <animation>
 	<type>rotate</type>
 	<object-name>RadAltNeedle</object-name>
-	<property>position/altitude-agl-ft</property>
+	<property>position/gear-agl-ft</property>
 	<interpolation>
 		<entry> <ind>0</ind> <dep>0</dep> </entry>
-		<entry> <ind>200</ind> <dep>243</dep> </entry>
-		<entry> <ind>500</ind> <dep>232</dep> </entry>
+		<entry> <ind>200</ind> <dep>212</dep> </entry>
 		<entry> <ind>1000</ind> <dep>272</dep> </entry>
 		<entry> <ind>5000</ind> <dep>320</dep> </entry>
 	</interpolation>
@@ -69,8 +67,7 @@
 	<property>sim/model/jrb-usn/radar-altitude-decision-height</property>
 	<interpolation>
 		<entry> <ind>0</ind> <dep>0</dep> </entry>
-		<entry> <ind>200</ind> <dep>243</dep> </entry>
-		<entry> <ind>500</ind> <dep>232</dep> </entry>
+		<entry> <ind>200</ind> <dep>212</dep> </entry>
 		<entry> <ind>1000</ind> <dep>272</dep> </entry>
 		<entry> <ind>5000</ind> <dep>320</dep> </entry>
 	</interpolation>
@@ -80,14 +77,33 @@
 </animation>
 
 <animation>
-	<type>select</type>
-	<object-name>RadAltNoTrack</object-name>
-	<condition>
-		<equals>
-			<property>sim/model/jrb-usn/radar-altitude-decision-height-warning</property>
-			<value>1</value>
-		</equals>
-	</condition>
+	<type>material</type>
+   <object-name>RadAltDHWarn</object-name>
+	<property-base>sim/model/jrb-usn/radar-altitude-warning/emission</property-base>
+	<emission>
+		<red-prop>red</red-prop>
+		<green-prop>green</green-prop>
+		<blue-prop>blue</blue-prop>
+	</emission>
 </animation>
+
+<panel>
+   <path>Aircraft/ch53e/Instruments/jrb-usn-rad-alt-hotspots.xml</path>
+   <bottom-right>
+      <x-m>0.009</x-m>
+      <y-m>0.041</y-m>
+      <z-m>-0.041</z-m>
+   </bottom-right>
+   <bottom-left>
+      <x-m>0.009</x-m>
+      <y-m>-0.041</y-m>
+      <z-m>-0.041</z-m>
+   </bottom-left>
+   <top-left>
+      <x-m>0.009</x-m>
+      <y-m>-0.041</y-m>
+      <z-m>0.041</z-m>
+   </top-left>
+</panel>
 
 </PropertyList>

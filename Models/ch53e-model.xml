@@ -1,84 +1,59 @@
 <?xml version="1.0"?>
 
-<PropertyList include="ch53e-body-anim.xml">
+<PropertyList>
 
 <!--
-This file includes debugging animations and "other" type stuff
-The include chain goes like this:
-ch53e-model.xml -> ch53e-body-anim.xml -> ch53e-cockpit-anim.xml -> ch53e-instruments.xml -> ch53e-caution-anim.xml
+This file includes debugging animations and "other" type stuff.
+The meat is broken out into other files.
 -->
 
 <path>ch53e.ac</path>
 
-<animation>
-	<type>noshadow</type>
-	<object-name>Cockpit</object-name>
-	<object-name>FooRotor</object-name>
-	<object-name>FooTailRotor</object-name>
-</animation>
+<!-- external animations -->
+<body-animation include="ch53e-body-anim.xml" omit-node="y"/>
+
+<!-- animations of cockpit objects -->
+<cockpit-animation include="ch53e-cockpit-anim.xml" omit-node="y"/>
+
+<!-- placement of instrument models -->
+<instruments include="ch53e-instruments.xml" omit-node="y"/>
+
+<!-- pick animations and bindings -->
+<controls include="ch53e-controls.xml" omit-node="y"/>
 
 <!-- DEBUGGING AND DEVLEOPMENT SECTION -->
 
 <animation>
-	<type>select</type>
-	<object-name>CenterStandGuide</object-name>
-	<condition>
-		<equals>
-			<property>/sim/model/ch53e/debug-model</property>
-			<value>1</value>
-		</equals>
-	</condition>
+   <name>Development Rotors</name>
+	<type>noshadow</type>
+	<object-name>FooRotor</object-name>
+	<object-name>FooTailRotor</object-name>
 </animation>
 
 <animation>
-	<type>select</type>
-	<object-name>PanelGuide</object-name>
-	<condition>
-		<equals>
-			<property>/sim/model/ch53e/debug-model</property>
-			<value>1</value>
-		</equals>
-	</condition>
+	<type>material</type>
+	<object-name>PanelHood</object-name>
+	<property-base>sim/model/ch53e/test-mat</property-base>
+	<ambient>
+		<red-prop>ambient/red</red-prop>
+		<green-prop>ambient/green</green-prop>
+		<blue-prop>ambient/blue</blue-prop>
+	</ambient>
+	<diffuse>
+		<red-prop>diffuse/red</red-prop>
+		<green-prop>diffuse/green</green-prop>
+		<blue-prop>diffuse/blue</blue-prop>
+	</diffuse>
+	<specular>
+		<red-prop>specular/red</red-prop>
+		<green-prop>specular/green</green-prop>
+		<blue-prop>specular/blue</blue-prop>
+	</specular>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
 </animation>
-
-<!-- HOTSPOTS -->
-
-<panel>
-	<path>Aircraft/ch53e/Models/ch53e-center-stand-hotspots.xml</path>
-	<bottom-right>
-		<x-m>4.192</x-m>
-		<y-m>0.218</y-m>
-		<z-m>0.761</z-m>
-	</bottom-right>
-	<bottom-left>
-		<x-m>4.192</x-m>
-		<y-m>-0.218</y-m>
-		<z-m>0.761</z-m>
-	</bottom-left>
-	<top-left>
-		<x-m>3.600</x-m>
-		<y-m>-0.218</y-m>
-		<z-m>0.813</z-m>
-	</top-left>
-</panel>
-
-<panel n="2">
-	<path>Aircraft/ch53e/Models/ch53e-panel-hotspots.xml</path>
-	<bottom-right>
-		<x-m>3.600</x-m>
-		<y-m>0.759</y-m>
-		<z-m>0.807</z-m>
-	</bottom-right>
-	<bottom-left>
-		<x-m>3.600</x-m>
-		<y-m>-0.759</y-m>
-		<z-m>0.807</z-m>
-	</bottom-left>
-	<top-left>
-		<x-m>3.494</x-m>
-		<y-m>-0.759</y-m>
-		<z-m>1.201</z-m>
-	</top-left>
-</panel>
 
 </PropertyList>

@@ -398,16 +398,10 @@ settimer(initRotorBrake, 0);
 #
 ################
 
-<<<<<<< ch53e.nas
 stickPosIntensity = nil;
 stickPosTest = nil;
 
-=======
-stickPosIntensity = nil;
-stickPosTest = nil;
->>>>>>> 1.3
 pollStickPos = func {
-<<<<<<< ch53e.nas
 	var materials = '/sim/model/ch53e/materials/';
 	var zones = ['HSPLeft.00', 'HSPRight.00', 'VSPFore.00', 'VSPAft.00'];
 
@@ -431,19 +425,12 @@ pollStickPos = func {
 
 	# Figure out what colors we might need
 	if (getprop('controls/lighting/nvg-mode') == 1) {
-=======
-	materials = '/sim/model/ch53e/materials/';
-	quant_pitch = int(((getprop('/controls/flight/elevator'))+1)/0.0606060606);
-	quant_roll = int(((getprop('/controls/flight/aileron'))+1)/0.0606060606);
-	if (getprop('controls/lighting/nvg-mode') == 1) {
->>>>>>> 1.3
 		led_color = 'green';
 		led_intensity = (stickPosIntensity.getValue()*0.5+0.1);
 	} else {
 		led_color = 'red';
 		led_intensity = (stickPosIntensity.getValue()*0.9+0.1);
 	}
-<<<<<<< ch53e.nas
 
 	if (stickPosTest.getValue() == 1) {
 		# Test button is pressed, turn everything on
@@ -451,17 +438,6 @@ pollStickPos = func {
 		foreach (zone; zones) {
 			for (i=1;i<=8;i+=1) {
 				setprop(materials~zone~i~'/emission/'~led_color, led_intensity);
-=======
-	# Turn it all off, or on if the test button is pressed
-	for (i=1;i<=8;i+=1) {
-		foreach (zone; ['HSPLeft.00', 'HSPRight.00', 'VSPFore.00', 'VSPAft.00']) {
-			if (stickPosTest.getValue() == 1) {
-				setprop(materials~zone~i~'/emission/'~led_color, led_intensity);
-			} else {
-				foreach (color; ['red','green','blue']) {
-					setprop(materials~zone~i~'/emission/'~color, '0'); 
-				}
->>>>>>> 1.3
 			}
 		}
 	} else {
@@ -638,7 +614,6 @@ pollStickPos = func {
 			setprop(materials~'VSPFore.008'~'/emission/'~led_color, led_intensity); 
 		}
 	}
-<<<<<<< ch53e.nas
 	settimer(pollStickPos, 0.1);
 }
 
@@ -650,18 +625,6 @@ initStickPos = func {
 	if (stickPosIntensity.getType() != 'DOUBLE') {
 		stickPosIntensity.setDoubleValue(getprop('controls/lighting/instruments-norm'));
 	}
-=======
-	settimer(pollStickPos, 0.1);
-}
-initStickPos = func {
-	# Just to make sure that this property exists and has a sane value.
-	stickPosTest = props.globals.getNode('sim/model/ch53e/control-input/stick-pos-test', 1);
-	stickPosIntensity = props.globals.getNode('sim/model/ch53e/control-input/stick-pos-bright-norm', 1);
-	# We assume that instruments-norm is a proper double. Someday this will cause trouble.
-	if (stickPosIntensity.getType() != 'DOUBLE') {
-		stickPosIntensity.setDoubleValue(getprop('controls/lighting/instruments-norm'));
-	}
->>>>>>> 1.3
 	settimer(pollStickPos, 0);
 }
 settimer(initStickPos, 0);
@@ -770,7 +733,6 @@ debugInit = func {
 	}
 }
 
-<<<<<<< ch53e.nas
 init = func {
 	debugInit();
 	initPanelButtons();
@@ -779,13 +741,4 @@ init = func {
 }
 settimer(init, 0);
 
-=======
-init = func {
-	debugInit();
-	initNvgMode();
-	print("ch53e.nas initialized");
-}
-settimer(init, 0);
-
->>>>>>> 1.3
 

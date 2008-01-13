@@ -126,4 +126,23 @@
 	</axis>
 </animation>
 
+<panel>
+   <path>Aircraft/ch53e/Instruments/jrb-usn-8day-clock-hotspots.xml</path>
+   <bottom-right>
+      <x-m>0.009</x-m>
+      <y-m>0.041</y-m>
+      <z-m>-0.041</z-m>
+   </bottom-right>
+   <bottom-left>
+      <x-m>0.009</x-m>
+      <y-m>-0.041</y-m>
+      <z-m>-0.041</z-m>
+   </bottom-left>
+   <top-left>
+      <x-m>0.009</x-m>
+      <y-m>-0.041</y-m>
+      <z-m>0.041</z-m>
+   </top-left>
+</panel>
+
 </PropertyList>

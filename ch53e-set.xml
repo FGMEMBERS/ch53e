@@ -74,28 +74,25 @@
 			<control-input>
 				<emergency-gear-release type='int'>0</emergency-gear-release>
 				<stick-pos-test type='int'>0</stick-pos-test>
-				<stick-pos-bright-norm type='double'/>
-				<caution-bright-norm type='double'/>
-				<probe-extend type='int'>0</probe-extend>
+				<stick-pos-bright-norm type='double' userarchive='y'/>
+				<caution-bright-norm type='double' userarchive='y'/>
+				<probe-extend type='int' userarchive='y'>0</probe-extend>
+				<fuel-button n="0" type="bool">false</fuel-button>
+				<fuel-button n="1" type="bool">false</fuel-button>
+				<fuel-button n="2" type="bool">false</fuel-button>
+				<fuel-button n="3" type="bool">false</fuel-button>
+				<refuel-pwr type="bool">false</refuel-pwr>
+				<refuel-probe type="bool">false</refuel-probe>
+				<refuel-purge type="bool">false</refuel-purge>
 			</control-input>
 		</ch53e>
 		<jrb-usn>
-			<gyro-needle-source n='0'/>
-			<gyro-needle-source n='1'/>
-			<radar-altitude-decision-height type='int'/>
-			<gyro-bug-heading type='double'/>
+			<gyro-needle-source n='0'>tacan</gyro-needle-source>
+			<gyro-needle-source n='1'>adf</gyro-needle-source>
+			<radar-altitude-decision-height type='int' userarchive='y'/>
+			<id-249-course-deg type="double">0</id-249-course-deg>
 		</jrb-usn>
 	</model>
-
-	<aircraft-data> <!-- save these to ~/.fgfs/aircraft-data/ch53e.xml -->
-		<path>/sim/model/ch53e/control-input/stick-pos-bright-norm</path>
-		<path>/sim/model/ch53e/control-input/caution-bright-norm</path>
-		<path>/sim/model/ch53e/rontrol-input/probe-extend</path>
-		<path>/sim/model/jrb-usn/gyro-needle-source[0]</path>
-		<path>/sim/model/jrb-usn/gyro-needle-source[1]</path>
-		<path>/sim/model/jrb-usn/radar-altitude-decision-height</path>
-		<path>/sim/model/jrb-usn/gyro-bug-heading</path>
-	</aircraft-data>
 
 	<weight>
 		<name>sta-162-222</name>
@@ -196,15 +193,9 @@
 		</config>
 	</view>
 
-	<view n="6">
-		<config>
-			<target-x-offset-m>1.2</target-x-offset-m>
-			<target-z-offset-m>9.5</target-z-offset-m>
-		</config>
-	</view>
-
 	<sound>
-		<path>Aircraft/ch53e/ch53e-sound.xml</path>
+		<!--FIXME-->
+		<path>Aircraft/bo105/Sound/sound.xml</path>
 	</sound>
 </sim>
 
@@ -279,16 +270,16 @@
 
 <nasal>
 	<ch53e>
-		<file>Aircraft/ch53e/ch53e.nas</file>
+		<file>Aircraft/ch53e/Nasal/ch53e.nas</file>
 	</ch53e>
 	<caution-panel>
-		<file>Aircraft/ch53e/ch53e-caution.nas</file>
+		<file>Aircraft/ch53e/Nasal/ch53e-caution.nas</file>
 	</caution-panel>
 	<jrb-usn-adi>
 		<file>Aircraft/ch53e/Instruments/jrb-usn.nas</file>
 	</jrb-usn-adi>
 	<interior-lights>
-		<file>Aircraft/ch53e/interior-lights.nas</file>
+		<file>Aircraft/ch53e/Nasal/interior-lights.nas</file>
 	</interior-lights>
 </nasal>
 

@@ -173,6 +173,99 @@
      </binding>
     </action>
 
+    <action>
+     <name>LeftAuxBtn</name>
+     <button>0</button>
+     <x>-214</x>
+     <y>-302</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/fuel-button[0]</property>
+     </binding>
+    </action>
+
+    <action>
+     <name>LeftMainBtn</name>
+     <button>0</button>
+     <x>-201</x>
+     <y>-302</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/fuel-button[1]</property>
+     </binding>
+    </action>
+
+    <action>
+     <name>RightMainBtn</name>
+     <button>0</button>
+     <x>-188</x>
+     <y>-302</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/fuel-button[2]</property>
+     </binding>
+    </action>
+
+    <action>
+     <name>RightAuxBtn</name>
+     <button>0</button>
+     <x>-175</x>
+     <y>-302</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/fuel-button[3]</property>
+     </binding>
+    </action>
+
+    <action>
+     <name>RefuelPwrBtn</name>
+     <button>0</button>
+     <x>-214</x>
+     <y>-393</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/refuel-pwr</property>
+     </binding>
+    </action>
+
+    <action>
+     <name>RefuelProbeBtn</name>
+     <button>0</button>
+     <x>-201</x>
+     <y>-393</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/refuel-probe</property>
+     </binding>
+    </action>
+
+    <action>
+     <name>RefuelPurgeBtn</name>
+     <button>0</button>
+     <x>-201</x>
+     <y>-441</y>
+     <w>9</w>
+     <h>36</h>
+     <binding>
+      <command>property-toggle</command>
+      <property>sim/model/ch53e/control-input/refuel-purge</property>
+     </binding>
+    </action>
+
+
+
 
    </actions>
   </instrument>

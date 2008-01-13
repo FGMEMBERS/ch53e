@@ -1,5 +1,10 @@
 <?xml version="1.0"?>
 
-<PropertyList include="ch53e-cockpit-anim.xml">
+<PropertyList>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>CockpitInteriorGroup</object-name>
+</animation>
 
 </PropertyList>

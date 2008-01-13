@@ -12,38 +12,39 @@
 	
 	<!-- 3000000 in*lbs torque on d model according to kegwasher at t-online-->
 	<rotor name="main" x="-9.126" y="0.0" z="3.686" nx="0.07" ny="0" nz="1.0" fx="1" fy="0" fz="0"
-		diameter="22" rel-len-blade-start="0.29"
-      chord=".78" twist="-8"
+		diameter="24.08" rel-len-blade-start="0.29"
+      chord="0.744" twist="-8"
       numblades="7" weightperblade="800" relbladecenter="0.61"
-      rel-len-where-incidence-is-measured="0.8"
+      rel-len-where-incidence-is-measured="0.55"
 
-		maxcollective="15.8" mincollective="0.2"
-		mincyclicele="-5" maxcyclicele="5"
-		mincyclicail="-7" maxcyclicail="7"
+		maxcollective="19.6" mincollective="-1.4"
+		mincyclicele="-8.5" maxcyclicele="18"
+		mincyclicail="-6.1" maxcyclicail="9.8"
 
 		flapmin="-18" flapmax="18" flap0="-5"
-		delta="0.23" rellenflaphinge="0.06" delta3="1.15"
+		delta="0.3" rellenflaphinge="0.063" delta3="0.3"
 
-		airfoil-lift-coefficient="5"
-		airfoil-drag-coefficient0="0.01"
-		airfoil-drag-coefficient1="0.32"
+		airfoil-incidence-no-lift="-0.75"
+		airfoil-lift-coefficient="6.3"
+		airfoil-drag-coefficient0="0.0085"
+		airfoil-drag-coefficient1="0.03"
 		lift-factor-stall="0.18"
-		stall-change-over="5.5"
+		stall-change-over="3"
 		drag-factor-stall="2.0"
 		cyclic-factor="0.8"
-		rotor-correction-factor="0.85"
+		rotor-correction-factor="0.65"
 
-		incidence-stall-zero-speed="15"
-		incidence-stall-half-sonic-speed="14"
+		incidence-stall-zero-speed="18"
+		incidence-stall-half-sonic-speed="14.5"
 		translift-ve="20"
 		translift-maxfactor="1.3"
-		ground-effect-constant="1.25"
+		ground-effect-constatnt="1.25"
 
 		pitch-a="12.0" 
 		pitch-b="12.0" 
 
 		dynamic="1" number-of-segments="8" number-of-parts="8"
-		rpm="185" ccw="1" notorque="0" >
+		rpm="177" ccw="1" notorque="0" >
 	
 		<control-input axis="/controls/flight/aileron-trim" control="CYCLICAIL" split="1"/>
 		<control-input axis="/controls/flight/aileron" control="CYCLICAIL" 
@@ -61,36 +62,37 @@
 	</rotor>
 	
 	<rotor name="tail" x="-24.096" y="1.989" z="4.471" nx="0.0" ny="-1" nz="-.36" fx="1" fy="0" fz="0"
-		diameter="4.87" rel-len-blade-start="0.1"
-      chord="0.32" twist="0"
-		numblades="4" weightperblade="50" relbladecenter="0.58"
-      rel-len-where-incidence-is-measured="0.8"
+		diameter="6.1" rel-len-blade-start="0.1"
+      chord="0.39" twist="-8"
+		numblades="4
+		" weightperblade="50" relbladecenter="0.58"
+      rel-len-where-incidence-is-measured="0.7"
 
-		maxcollective="20" mincollective="-10"
+		maxcollective="24" mincollective="-10"
 
 		flapmin="-8" flapmax="8" flap0="0" flap0factor="0"
-		delta="0.5" rellenflaphinge="0.05" delta3="1"
+		delta="0.5" rellenflaphinge="0.043" delta3="1"
 
-		incidence-stall-zero-speed="15"
-		incidence-stall-half-sonic-speed="14"
-		lift-factor-stall="0.28"
-		drag-factor-stall="1.5"
-		stall-change-over="2.0"
+		incidence-stall-zero-speed="15.5"
+		incidence-stall-half-sonic-speed="15.5"
+		lift-factor-stall="0.2"
+		drag-factor-stall="35"
+		stall-change-over="7.0"
 		translift-ve="20"
 		translift-maxfactor="1.3"
 
 		pitch-a="15.8"
 		pitch-b="15.8"
-		airfoil-lift-coefficient="6.4"
-		airfoil-drag-coefficient0="0.0035"
-		airfoil-drag-coefficient1="0.10"
-		rotor-correction-factor="1"
+		airfoil-lift-coefficient="5.7"
+		airfoil-drag-coefficient0="0.0074"
+		airfoil-drag-coefficient1="0.045"
+		rotor-correction-factor="0.8"
 
 		number-of-segments="5"
 		number-of-parts="4"
 
 		dynamic="0.5"
-		rpm="1100" ccw="1" notorque="0" >
+		rpm="700" ccw="1" notorque="0" >
 	
 		<control-input axis="/controls/flight/rudder" control="COLLECTIVE" invert="1"
 			src0="-1.0" src1="1.0"
@@ -100,8 +102,9 @@
 	<rotorgear
 		max-power-engine="70000"
 		engine-prop-factor="0.03"
-		yasimdragfactor="10"
-		yasimliftfactor="140" >
+		yasimdragfactor="35"
+		yasimliftfactor="251"
+	>
 		<control-input axis="/controls/engines/engine[0]/magnetos" control="ROTORGEARENGINEON"/>
 		<control-input axis="/controls/rotor/brake" control="ROTORBRAKE"
 			src0="0.0" src1="1.0"
@@ -111,21 +114,21 @@
 	<!-- FIXME what side is this on? also add the hstab -->
 	<vstab x="-21.5" y="0" z="1.9" taper="0.75" dihedral="110"
 		length="4.0" chord="2.3" sweep="30">
-		<stall aoa="27" width="6" peak="1.3"/>
+		<stall aoa="0" width="6" peak="1.3"/>
 	</vstab>
 	
 	<fuselage ax="-3"    ay="0"  az="0.9" bx="-18.5" by="0"  bz="1.6"
-		width="4"   taper="0.5" midpoint="0.35"/> <!-- Fuse -->
+		width="4"   taper="0.5" midpoint="0.35" idrag="0" cz="0.2"/> <!-- Fuse -->
 	<fuselage ax="-18.5" ay="0"  az="1.6" bx="-23"   by="0"  bz="1.6"
-		width="2"   taper="0.5" midpoint="0"/>    <!-- Boom -->
+		width="2"   taper="0.5" midpoint="0" idrag="0" cz="0.2"/>    <!-- Boom -->
 	<fuselage ax="-6.8"  ay="3"  az="0"   bx="-12.9" by="3"  bz="0"
-		width="1"   taper="0.5" midpoint="0.25"/> <!-- Sponson -->
+		width="1"   taper="0.5" midpoint="0.25" idrag="0" cz="0.2"/> <!-- Sponson -->
 	<fuselage ax="-6.8"  ay="-2" az="0"   bx="-12.9" by="-2" bz="0"
-		width="1"   taper="0.5" midpoint="0.25"/> <!-- Sponson -->
+		width="1"   taper="0.5" midpoint="0.25" idrag="0" cz="0.2"/> <!-- Sponson -->
 	<fuselage ax="-6.1"  ay="2"  az="0"   bx="-12.9" by="2"  bz="0"
-		width="0.8" taper="0.5" midpoint="0.5"/>  <!-- Drop Tank -->
+		width="0.8" taper="0.5" midpoint="0.5" idrag="0" cz="0.2"/>  <!-- Drop Tank -->
 	<fuselage ax="-6.1"  ay="-3" az="0"   bx="-12.9" by="-3" bz="0"
-		width="0.8" taper="0.5" midpoint="0.5"/>  <!-- Drop Tank -->
+		width="0.8" taper="0.5" midpoint="0.5" idrag="0"  cz="0.2"/>  <!-- Drop Tank -->
 	
 	<cockpit x="-0.65" y="-1.3" z="4.4"/>
 	
@@ -133,6 +136,15 @@
 	<tank x="-9.3" y="1.9"  z="-1.0" capacity="5900" jet="true"/>
 	<tank x="-9.3" y="-1.9" z="-1.0" capacity="5900" jet="true"/> 
 	<tank x="-9.3" y="-2.8" z="-1.0" capacity="4368" jet="true"/>
+
+	<ballast x="-6" y="+0.0" z="0.0" mass="1500"/>
+	<ballast x="-8" y="-0.8" z="0.0" mass="1500"/>
+	<ballast x="-6" y="+0.0" z="-1.0" mass="1600"/>
+	<ballast x="-8" y="+0.8" z="0.0" mass="1500"/>
+	<ballast x="-16" y="+0.0" z="0.0" mass="1500"/>
+
+	<ballast x="-9.2" y="+0.0" z="-1.0" mass="10000"/>
+
 
 	<!-- Internal Cargo -->
 	<weight x="-6.374"  y="0" z="-0.7" mass-prop="/sim/weight[0]/weight-lb" size="0"/>
