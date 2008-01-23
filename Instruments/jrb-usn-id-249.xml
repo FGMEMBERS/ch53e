@@ -27,7 +27,7 @@
 
 <animation>
 	<type>material</type>
-	<property-base>controls/lighting/instruments/emission</property-base>
+	<property-base>controls/lighting/flight-instruments/emission</property-base>
 	<emission>
 		<red-prop>red</red-prop>
 		<green-prop>green</green-prop>

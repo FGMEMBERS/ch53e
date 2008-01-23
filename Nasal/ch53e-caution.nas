@@ -47,7 +47,9 @@ lightNodes = {};
 
 ##### Helper functions
 
+#
 # Update one light to make its material reflect its status
+#
 updateLight = func(targetLight) {
 	redNode = targetLight.getNode('emission/red');
 	greenNode = targetLight.getNode('emission/green');
@@ -78,24 +80,36 @@ updateLight = func(targetLight) {
 	}
 }
 
+#
+# Runs updateLight() an all light nodes
+#
 updateAllLights = func(lights) {
 	foreach(light; keys(lights)) {
 		updateLight(lights[light]);
 	}
 }
 
+#
+# Turn off an individual light
+#
 turnOff = func(targetLight) {
 	var status = targetLight.getNode('status');
 	status.setBoolValue(0);
 	updateLight(targetLight);
 }
 
+#
+# Turn on an individual light
+#
 turnOn = func(targetLight) {
 	var status = targetLight.getNode('status');
 	status.setBoolValue(1);
 	updateLight(targetLight);
 }
 
+#
+# Initialize property nodes
+#
 cautionInit = func {
 	# dull green for goggles, red for mark I eyeballs
 	nvgMode = props.globals.getNode('controls/lighting/nvg-mode', 1);
@@ -114,9 +128,10 @@ cautionInit = func {
 		intensityNorm.setDoubleValue(getprop('controls/lighting/instruments-norm'));
 	}
 	testButton =  props.globals.getNode('sim/model/ch53e/control-input/caution-test', 1);
+	testButton.setBoolValue(0);
 	# Make a hash of all the lights in lights[] and then make sure they are populated.
 	foreach(light; lights) {
-		lightNodes[light] = props.globals.getNode('sim/model/ch53e/materials/'~light, 1);
+		lightNodes[light] = props.globals.getNode('sim/model/ch53e/materials/warn/'~light, 1);
 		lightNodes[light].getNode('emission/red', 1);
 		lightNodes[light].getNode('emission/green', 1);
 		lightNodes[light].getNode('emission/blue', 1);
@@ -124,12 +139,12 @@ cautionInit = func {
 		turnOff(lightNodes[light]);
 	}
 	setlistener('controls/lighting/panel/emission', func{updateAllLights(lightNodes)});
-	# setlistener('controls/lighting/panel/emission', func{print('foo')});
-	# settimer(updateAllLights(lights), 2);
 }
 settimer(cautionInit, 0);
 
-# This watches the property that the test button modifies and sets all the material property trees
+#
+# Watch test button and turn on/off all lights when pressed
+#
 testCaution = func {
 	foreach(light; keys(lightNodes)) {
 		if(testButton.getValue() == 1) {

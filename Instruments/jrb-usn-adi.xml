@@ -28,8 +28,15 @@
 </animation-->
 
 <animation>
+	<name>InsideMaterial</name>
    <type>material</type>
-   <property-base>controls/lighting/instruments/emission</property-base>
+	<object-name>ATTFlag</object-name>
+	<object-name>Face</object-name>
+	<object-name>Offset</object-name>
+	<object-name>W</object-name>
+	<object-name>RollIndicator</object-name>
+	<object-name>TurnIndicator</object-name>
+   <property-base>controls/lighting/flight-instruments/emission</property-base>
    <emission>
       <red-prop>red</red-prop>
       <green-prop>green</green-prop>

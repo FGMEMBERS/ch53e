@@ -1,6 +1,6 @@
 AC3Db
-MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
-MATERIAL "MattLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
+MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "MattLit" rgb 0.5 0.5 0.5  amb 0.5 0.5 0.5  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
 kids 11
 OBJECT poly
@@ -9,7 +9,6 @@ data 9
 Plane.208
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.000155 -0.005988 0.02737
 0.000155 0.005564 0.02737
@@ -48,7 +47,6 @@ data 9
 Plane.209
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.001155 -0.002137 0.021292
 0.001155 0.001714 0.021292
@@ -87,7 +85,6 @@ data 9
 Plane.207
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.000155 0.007244 0.009277
 0.000155 -0.008343 0.009277
@@ -126,7 +123,6 @@ data 10
 Circle.031
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 141
 0.006283 -0.027853 0.027706
 0.006283 -0.030087 0.026486
@@ -871,7 +867,6 @@ data 10
 Circle.032
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 24
 0.002155 0.025136 -0.02523
 0.002155 0.01742 -0.031082
@@ -1043,7 +1038,6 @@ data 9
 Plane.118
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.003755 0.026268 -0.007408
 0.003755 -0.006872 -0.007408
@@ -1069,7 +1063,6 @@ data 9
 Plane.210
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.000655 -0.014867 -0.010321
 0.000655 -0.00436 -0.010321
@@ -1108,7 +1101,6 @@ data 9
 Plane.211
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.001655 -0.011365 -0.006333
 0.001655 -0.007863 -0.006333
@@ -1147,7 +1139,6 @@ data 9
 Plane.212
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.001655 -0.011365 -0.006333
 0.001655 -0.011365 -0.010321
@@ -1186,7 +1177,6 @@ data 9
 Plane.213
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.000655 -0.014867 -0.015308
 0.000655 -0.014867 -0.011321
@@ -1225,7 +1215,6 @@ data 9
 Plane.214
 texture "roller-digits.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 8
 0.000655 -0.00436 -0.022592
 0.000655 -0.014867 -0.022592

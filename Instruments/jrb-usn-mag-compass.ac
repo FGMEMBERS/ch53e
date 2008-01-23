@@ -1,7 +1,7 @@
 AC3Db
 MATERIAL "TrueBlack" rgb 0.0001 0.0001 0.0001  amb 0.5 0.5 0.5  emis 0 0 0  spec 0.0001 0.0001 0.0001  shi 32  trans 0
-MATERIAL "MattLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
-MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
+MATERIAL "MattLit" rgb 0.5 0.5 0.5  amb 0.5 0.5 0.5  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
 kids 3
 OBJECT poly
@@ -10,7 +10,6 @@ data 10
 Circle.072
 texture "jrb-usn-mag-compass.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 284
 0.022008 0.009263 -0.001499
 0.022008 0.009263 0.001309
@@ -1468,7 +1467,6 @@ OBJECT poly
 name "InkyDepths"
 data 10
 Circle.074
-crease 30
 numvert 13
 0.021357 0.014908 -0.014906
 0.021357 0.014906 0.014916
@@ -1569,7 +1567,6 @@ data 8
 Mesh.039
 texture "jrb-usn-mag-compass.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 50
 -0.011902 0.006164 -0.011902
 -0.006442 0.006164 -0.01555

@@ -9,6 +9,7 @@ Due to their legion number, the caution panel animations get their own file.
 <PropertyList>
 
 <caution include="ch53e-caution-anim.xml" omit-node="y"/>
+<stick-pos include="ch53e-stick-pos-anim.xml" omit-node="y"/>
 
 <!-- ADF -->
 
@@ -75,6 +76,50 @@ Due to their legion number, the caution panel animations get their own file.
 	</axis>
 </animation>
 
+<!-- EAPS -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>EAPSSw.001</object-name>
+	<property>sim/model/ch53e/control-input/eaps/eaps[0]/mode</property>
+	<factor>15</factor>
+	<center>
+		<x-m>3.956</x-m>
+		<z-m>1.593</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>EAPSSw.002</object-name>
+	<property>sim/model/ch53e/control-input/eaps/eaps[1]/mode</property>
+	<factor>15</factor>
+	<center>
+		<x-m>3.997</x-m>
+		<z-m>1.597</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>EAPSSw.003</object-name>
+	<property>sim/model/ch53e/control-input/eaps/eaps[2]/mode</property>
+	<factor>15</factor>
+	<center>
+		<x-m>3.956</x-m>
+		<z-m>1.593</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
 <!-- Gear -->
 
 <animation>
@@ -110,7 +155,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>ILandingGearHandle</object-name>
-	<property-base>/sim/model/ch53e/instrument-pos/gearHandleGlow</property-base>
+	<property-base>sim/model/ch53e/materials/gearHandleGlow</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -126,7 +171,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>OLandingGearHandle</object-name>
-	<property-base>/sim/model/ch53e/instrument-pos/gearHandleGlow</property-base>
+	<property-base>sim/model/ch53e/materials/gearHandleGlow</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -423,6 +468,7 @@ Due to their legion number, the caution panel animations get their own file.
 	</axis>
 </animation>
 
+<!-- FIXME should be nav0 audio sw
 <animation>
 	<type>rotate</type>
 	<object-name>MBSwitch</object-name>
@@ -437,6 +483,7 @@ Due to their legion number, the caution panel animations get their own file.
 		<y>-1</y>
 	</axis>
 </animation>
+-->
 
 <animation>
 	<type>rotate</type>
@@ -451,6 +498,292 @@ Due to their legion number, the caution panel animations get their own file.
 	<axis>
 		<y>-0.001</y>
 		<z>0.012</z>
+	</axis>
+</animation>
+
+<!-- Lights (exterior) -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>FuseLtDial</object-name>
+	<property>controls/lighting/logo-lights-norm</property>
+	<factor>180</factor>
+	<center>
+		<x-m> 4.128</x-m>
+		<y-m>-0.570</y-m>
+		<z-m> 1.647</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.131</x1-m>
+		<y1-m>-0.570</y1-m>
+		<z1-m> 1.634</z1-m>
+		<x2-m> 4.128</x2-m>
+		<y2-m>-0.570</y2-m>
+		<z2-m> 1.647</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>BladeLtDial</object-name>
+	<property>controls/lighting/blade-tip-lights</property>
+	<factor>180</factor>
+	<center>
+		<x-m> 4.128</x-m>
+		<y-m>-0.502</y-m>
+		<z-m> 1.647</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.131</x1-m>
+		<y1-m>-0.502</y1-m>
+		<z1-m> 1.634</z1-m>
+		<x2-m> 4.128</x2-m>
+		<y2-m>-0.502</y2-m>
+		<z2-m> 1.647</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>ACLightSw</object-name>
+	<property>controls/lighting/strobe</property>
+	<factor>15</factor>
+	<center>
+		<x-m> 4.227</x-m>
+		<z-m> 1.669</z-m>
+	</center>
+	<axis>
+		<y> 1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<name>NavLightAnim</name>
+	<object-name>TailPosLightSw</object-name>
+	<object-name>SidePosLightSw</object-name>
+	<property>controls/lighting/nav-lights</property>
+	<factor>15</factor>
+	<center>
+		<x-m> 4.180</x-m>
+		<z-m> 1.658</z-m>
+	</center>
+	<axis>
+		<y> 1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>LandLightModeSw</object-name>
+	<property>controls/lighting/hover-light</property>
+	<factor>15</factor>
+	<center>
+		<x-m> 4.180</x-m>
+		<z-m> 1.658</z-m>
+	</center>
+	<axis>
+		<y>-1</y>
+	</axis>
+</animation>
+
+<!-- Lights (interior) -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>CockpitWhiteDial</object-name>
+	<property>controls/lighting/dome-norm</property>
+	<factor>300</factor>
+	<center>
+		<x-m> 4.183</x-m>
+		<y-m> 0.582</y-m>
+		<z-m> 1.658</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.186</x1-m>
+		<y1-m> 0.582</y1-m>
+		<z1-m> 1.645</z1-m>
+		<x2-m> 4.183</x2-m>
+		<y2-m> 0.582</y2-m>
+		<z2-m> 1.658</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>PInstFloodDial</object-name>
+	<property>controls/lighting/panel-norm</property>
+	<factor>300</factor>
+	<center>
+		<x-m> 4.110</x-m>
+		<y-m> 0.581</y-m>
+		<z-m> 1.642</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.113</x1-m>
+		<y1-m> 0.581</y1-m>
+		<z1-m> 1.629</z1-m>
+		<x2-m> 4.110</x2-m>
+		<y2-m> 0.581</y2-m>
+		<z2-m> 1.642</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>PFltInstDial</object-name>
+	<property>controls/lighting/flight-instruments-norm</property>
+	<factor>300</factor>
+	<center>
+		<x-m> 4.052</x-m>
+		<y-m> 0.405</y-m>
+		<z-m> 1.629</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.055</x1-m>
+		<y1-m> 0.405</y1-m>
+		<z1-m> 1.616</z1-m>
+		<x2-m> 4.052</x2-m>
+		<y2-m> 0.405</y2-m>
+		<z2-m> 1.629</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>PFltInstDial</object-name>
+	<property>controls/lighting/flight-instruments-norm</property>
+	<factor>300</factor>
+	<center>
+		<x-m> 4.052</x-m>
+		<y-m> 0.405</y-m>
+		<z-m> 1.629</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.055</x1-m>
+		<y1-m> 0.405</y1-m>
+		<z1-m> 1.616</z1-m>
+		<x2-m> 4.052</x2-m>
+		<y2-m> 0.405</y2-m>
+		<z2-m> 1.629</z2-m>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>NonFltInstDial</object-name>
+	<property>controls/lighting/instruments-norm</property>
+	<factor>300</factor>
+	<center>
+		<x-m> 4.052</x-m>
+		<y-m> 0.336</y-m>
+		<z-m> 1.629</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.055</x1-m>
+		<y1-m> 0.336</y1-m>
+		<z1-m> 1.616</z1-m>
+		<x2-m> 4.052</x2-m>
+		<y2-m> 0.336</y2-m>
+		<z2-m> 1.629</z2-m>
+	</axis>
+</animation>
+
+<!-- PCL -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>PCL1</object-name>
+	<property>sim/model/ch53e/control-pos/pcl[0]/position-norm</property>
+	<factor>90</factor>
+	<center>
+		<x-m>3.890</x-m>
+		<z-m>1.585</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>PCL2</object-name>
+	<property>sim/model/ch53e/control-pos/pcl[1]/position-norm</property>
+	<factor>90</factor>
+	<center>
+		<x-m>3.890</x-m>
+		<z-m>1.585</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>PCL3</object-name>
+	<property>sim/model/ch53e/control-pos/pcl[2]/position-norm</property>
+	<factor>90</factor>
+	<center>
+		<x-m>3.890</x-m>
+		<z-m>1.585</z-m>
+	</center>
+	<axis>
+		<y>1</y>
+	</axis>
+</animation>
+
+<!-- Pitot -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>PitotHeatSw</object-name>
+	<property>controls/anti-ice/pitot-heat</property>
+	<factor>30</factor>
+	<center>
+		<x-m>4.132</x-m>
+		<z-m>1.613</z-m>
+	</center>
+	<axis>
+		<y>1></y>
+	</axis>
+</animation>
+
+<!-- Ramp -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>RampKnob</object-name>
+	<property>sim/model/ch53e/control-input/ramp/knob-pos</property>
+	<factor>50</factor>
+	<center>
+		<x-m> 4.474</x-m>
+		<y-m>-0.179</y-m>
+		<z-m> 1.645</z-m>
+	</center>
+	<axis>
+		<x1-m> 4.474</x1-m>
+		<y1-m>-0.180</y1-m>
+		<z1-m> 1.638</z1-m>
+		<x2-m> 4.472</x2-m>
+		<y2-m>-0.180</y2-m>
+		<z2-m> 1.651</z2-m>
+	</axis>
+</animation>
+
+<!-- Rotor -->
+
+<animation>
+	<type>rotate</type>
+	<object-name>RotorBrakeSw</object-name>
+	<property>controls/rotor/brake</property>
+	<factor>30</factor>
+	<center>
+		<x-m>3.954</x-m>
+		<z-m>1.592</z-m>
+	</center>
+	<axis>
+		<y>1></y>
 	</axis>
 </animation>
 
@@ -558,371 +891,6 @@ Due to their legion number, the caution panel animations get their own file.
 		<y>-0.001</y>
 		<z>0.012</z>
 	</axis>
-</animation>
-
-<!-- Stick Position Indicator -->
-
-<animation>
-	<type>material</type>
-	<object-name>CenterStickPos</object-name>
-	<property-base>/sim/model/ch53e/materials/CenterStickPos</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.001</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.001</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.002</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.002</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.003</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.003</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.004</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.004</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.005</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.005</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.006</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.006</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.007</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.007</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPLeft.008</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPLeft.008</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.001</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.001</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.002</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.002</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.003</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.003</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.004</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.004</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.005</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.005</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.006</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.006</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.007</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.007</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>HSPRight.008</object-name>
-	<property-base>/sim/model/ch53e/materials/HSPRight.008</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.001</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.001</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.002</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.002</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.003</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.003</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.004</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.004</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.005</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.005</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.006</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.006</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.007</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.007</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPFore.008</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPFore.008</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.001</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.001</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.002</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.002</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.003</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.003</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.004</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.004</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.005</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.005</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.006</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.006</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.007</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.007</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
-</animation>
-
-<animation>
-	<type>material</type>
-	<object-name>VSPAft.008</object-name>
-	<property-base>/sim/model/ch53e/materials/VSPAft.008</property-base>
-	<emission>
-		<red-prop>emission/red</red-prop>
-		<green-prop>emission/green</green-prop>
-		<blue-prop>emission/blue</blue-prop>
-	</emission>
 </animation>
 
 <animation>
@@ -1056,6 +1024,7 @@ Due to their legion number, the caution panel animations get their own file.
 
 <animation>
 	<type>material</type>
+	<name>CockpitInteriorLighting</name>
 	<object-name>CockpitInterior</object-name>
 	<property-base>controls/lighting/dome/emission</property-base>
 	<emission>
@@ -1067,6 +1036,7 @@ Due to their legion number, the caution panel animations get their own file.
 
 <animation>
 	<type>material</type>
+	<name>PanelGroupLightingAnimation</name>
 	<object-name>PanelGroup</object-name>
 	<property-base>controls/lighting/panel/emission</property-base>
 	<emission>
@@ -1134,7 +1104,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>LAUXLight</object-name>
-	<property-base>/sim/model/ch53e/materials/LAUXLight</property-base>
+	<property-base>sim/model/ch53e/materials/LAUXLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -1145,7 +1115,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>LMAINLight</object-name>
-	<property-base>/sim/model/ch53e/materials/LMAINLight</property-base>
+	<property-base>sim/model/ch53e/materials/LMAINLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -1156,7 +1126,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>RMAINLight</object-name>
-	<property-base>/sim/model/ch53e/materials/RMAINLight</property-base>
+	<property-base>sim/model/ch53e/materials/RMAINLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -1167,7 +1137,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>RAUXLight</object-name>
-	<property-base>/sim/model/ch53e/materials/RAUXLight</property-base>
+	<property-base>sim/model/ch53e/materials/RAUXLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -1178,7 +1148,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>RefuelPwrLight</object-name>
-	<property-base>/sim/model/ch53e/materials/RefuelPwrLight</property-base>
+	<property-base>sim/model/ch53e/materials/RefuelPwrLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -1189,7 +1159,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>RefuelProbeLight</object-name>
-	<property-base>/sim/model/ch53e/materials/RefuelProbeLight</property-base>
+	<property-base>sim/model/ch53e/materials/RefuelProbeLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>
@@ -1200,7 +1170,7 @@ Due to their legion number, the caution panel animations get their own file.
 <animation>
 	<type>material</type>
 	<object-name>RefuelPurgeLight</object-name>
-	<property-base>/sim/model/ch53e/materials/RefuelPurgeLight</property-base>
+	<property-base>sim/model/ch53e/materials/RefuelPurgeLight</property-base>
 	<emission>
 		<red-prop>emission/red</red-prop>
 		<green-prop>emission/green</green-prop>

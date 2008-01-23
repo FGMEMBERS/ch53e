@@ -4,7 +4,7 @@
 
 <animation>
 	<type>noshadow</type>
-	<object-name>CockpitInteriorGroup</object-name>
+	<object-name>CockpitInterior</object-name>
 </animation>
 
 </PropertyList>

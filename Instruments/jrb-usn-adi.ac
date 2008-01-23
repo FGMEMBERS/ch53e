@@ -1,6 +1,6 @@
 AC3Db
-MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
-MATERIAL "MattLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
+MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "MattLit" rgb 0.5 0.5 0.5  amb 0.5 0.5 0.5  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 MATERIAL "TrueBlack" rgb 0.0001 0.0001 0.0001  amb 0.5 0.5 0.5  emis 0 0 0  spec 0.0001 0.0001 0.0001  shi 32  trans 0
 OBJECT world
 kids 11
@@ -10,7 +10,6 @@ data 9
 Plane.110
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.001791 -0.017639 0.047019
 0.001791 -0.034033 0.037116
@@ -36,7 +35,6 @@ data 8
 Cube.378
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 59
 0.0012 -0.053522 -0.0163
 0.0012 -0.055625 -0.0055
@@ -447,7 +445,6 @@ data 8
 Cube.389
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 131
 -0.006415 -0.070054 0.067727
 -0.006415 -0.070054 -0.067727
@@ -1151,7 +1148,6 @@ data 8
 Cube.016
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 1
 numvert 33
 -0.024283 0.043711 -0.018314
 -0.024283 0.047354 0
@@ -1405,7 +1401,6 @@ data 8
 0 0 .003
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 51
 -0.015418 -0.048541 -0.015654
 -0.015418 -0.030138 0.040983
@@ -1944,7 +1939,6 @@ OBJECT poly
 name "Panel.001"
 data 9
 Plane.109
-crease 80
 numvert 4
 -0.002798 -0.057993 0.058243
 -0.002798 0.057994 0.058243
@@ -1957,7 +1951,6 @@ data 12
 .074 * -.077
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 79
 0.031319 -0.050291 -0.045322
 0.028479 -0.050291 -0.045322
@@ -2303,7 +2296,6 @@ data 8
 Cube.379
 texture "jrb-usn-adi-clear.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 -0.001905 0.047878 -0.002884
 -0.001905 0.039464 -0.002884
@@ -2329,7 +2321,6 @@ data 13
 -.076 * -.076
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 79
 0.012403 -0.048504 0.039585
 0.012403 -0.054668 0.040048
@@ -2675,7 +2666,6 @@ data 8
 Cube.387
 texture "jrb-usn-adi.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 6
 0.003071 -0.061429 -0.001533
 0.003071 -0.061429 0.00153
@@ -2705,7 +2695,6 @@ data 9
 Plane.108
 texture "jrb-usn-adi-clear.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.009746 0.00539 -0.01344
 0.009746 -0.005196 -0.01344

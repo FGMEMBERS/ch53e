@@ -2,6 +2,8 @@
 
 <PropertyList>
 
+<foo type='double'>0</foo>
+
 <sim>
 	<name>CH-53E</name>
 	<description>Sikorsky CH-53E Super Stallion</description>
@@ -16,6 +18,7 @@
 		<path>Aircraft/ch53e/Models/ch53e-model.xml</path>
 		<ch53e>
 			<debug-model type='int'>0</debug-model>
+			<use-old-style-shadow type='bool'>true</use-old-style-shadow>
 			<materials>
 				<gearHandleGlow>
 					<emission>
@@ -65,6 +68,18 @@
 						<blue type='double'>0.3</blue>
 					</unaided>
 				</instrument-light-color>
+				<flight-instrument-light-color>
+					<nvg>
+						<red type='double'>0.2</red>
+						<green type='double'>0.7</green>
+						<blue type='double'>0.0</blue>
+					</nvg>
+					<unaided>
+						<red type='double'>1.0</red>
+						<green type='double'>0.1</green>
+						<blue type='double'>0.3</blue>
+					</unaided>
+				</flight-instrument-light-color>
 			</materials>
 			<control-pos>
 				<LandingGearEmergExt-pos-norm type='double'>0</LandingGearEmergExt-pos-norm>
@@ -84,13 +99,35 @@
 				<refuel-pwr type="bool">false</refuel-pwr>
 				<refuel-probe type="bool">false</refuel-probe>
 				<refuel-purge type="bool">false</refuel-purge>
+				<eaps>
+					<cutoff-speed-kts type='int'>40</cutoff-speed-kts>
+					<sensitivity-kts type='int'>3</sensitivity-kts>
+					<eaps n='0'>
+						<command-open type='bool'/>
+						<mode type='int' userarchive='y'/>
+						<pos-norm type='double'/>
+					</eaps>
+					<eaps n='1'>
+						<command-open type='bool'/>
+						<mode type='int' userarchive='y'/>
+						<pos-norm type='double'/>
+					</eaps>
+					<eaps n='2'>
+						<command-open type='bool'/>
+						<mode type='int' userarchive='y'/>
+						<pos-norm type='double'/>
+					</eaps>
+				</eaps>
+				<ramp>
+					<knob-pos type='int'>0</knob-pos>
+				</ramp>
 			</control-input>
 		</ch53e>
 		<jrb-usn>
-			<gyro-needle-source n='0'>tacan</gyro-needle-source>
-			<gyro-needle-source n='1'>adf</gyro-needle-source>
+			<gyro-needle-source n='0'>adf</gyro-needle-source>
+			<gyro-needle-source n='1'>tacan</gyro-needle-source>
 			<radar-altitude-decision-height type='int' userarchive='y'/>
-			<id-249-course-deg type="double">0</id-249-course-deg>
+			<id-249-course-deg type="double" userarchive='y'>0</id-249-course-deg>
 		</jrb-usn>
 	</model>
 
@@ -148,13 +185,10 @@
 	<view n="0">
 		<internal>true</internal>
 		<config>
-			<!-- FIXME -->
-			<pitch-offset-deg>-10</pitch-offset-deg>
-			<x-offset-m>0.65</x-offset-m>
-			<!--x-offset-m>0</x-offset-m-->
-			<y-offset-m>1.3</y-offset-m>
+			<pitch-offset-deg>-15</pitch-offset-deg>
+			<x-offset-m>0.49</x-offset-m>
+			<y-offset-m>1.4</y-offset-m>
 			<z-offset-m>4.4</z-offset-m>
-			<!--z-offset-m>4.2</z-offset-m-->
 		</config>
 	</view>
 
@@ -194,13 +228,12 @@
 	</view>
 
 	<sound>
-		<!--FIXME-->
-		<path>Aircraft/bo105/Sound/sound.xml</path>
+		<!--path>Aircraft/ch53e/Sound/ch53e-sound.xml</path-->
 	</sound>
 </sim>
 
 <instrumentation>
-	<comm n="0">
+	<!--comm n="0">
 		<power type="bool">1</power>
 	</comm>
 	<comm n="1">
@@ -209,32 +242,30 @@
 	<tacan>
 		<mode/>
 		<channel-select-mode>0</channel-select-mode>
-	</tacan>
+	</tacan-->
 	<stick-position-indicator>
 		<serviceable type="bool">true</serviceable>
 	</stick-position-indicator>
 	<hydraulic-quantity>
 		<tank n="0">
-			<vol-norm type="double">0</vol-norm>
+			<vol-norm type="double">1</vol-norm>
 		</tank>
 		<tank n="1">
-			<vol-norm type="double">0</vol-norm>
+			<vol-norm type="double">1</vol-norm>
 		</tank>
 		<tank n="2">
-			<vol-norm type="double">0</vol-norm>
+			<vol-norm type="double">1</vol-norm>
 		</tank>
 		<tank n="3">
-			<vol-norm type="double">0</vol-norm>
+			<vol-norm type="double">1</vol-norm>
 		</tank>
 	</hydraulic-quantity>
 </instrumentation>
 
 <controls>
-	<gear>
-		<brake-parking>1</brake-parking>
-	</gear>
 	<lighting>
 		<nvg-mode type='bool'>false</nvg-mode>
+		<hover-light type='int'>1</hover-light>
 	</lighting>
 	<rotor>
 		<brake type='bool'>false</brake>
@@ -245,6 +276,21 @@
 	<!--electrical>
 		<path>Aircraft/ch53e/ch53e-electrical.xml</path>
 	</electrical-->
+	<hydraulic>
+		<system n='0'>
+			<stage n='0'>
+				<psi type='double'>0</psi>
+			</stage>
+			<stage n='1'>
+				<psi type='double'>0</psi>
+			</stage>
+		</system>
+		<system n='1'>
+			<stage n='0'>
+				<psi type='double'>0</psi>
+			</stage>
+		</system>
+	</hydraulic>
 </systems>
 
 <consumables>
@@ -268,19 +314,36 @@
 	</hydraulic>
 </consumables>
 
+<engines>
+	<engine n='0'>
+		<gear-oil-temp-degf type='double'>70</gear-oil-temp-degf>
+		<egt-degf type='double'>70</egt-degf>
+	</engine>
+	<engine n='1'>
+		<gear-oil-temp-degf type='double'>70</gear-oil-temp-degf>
+		<egt-degf type='double'>70</egt-degf>
+	</engine>
+	<engine n='2'>
+		<gear-oil-temp-degf type='double'>70</gear-oil-temp-degf>
+		<egt-degf type='double'>70</egt-degf>
+	</engine>
+</engines>
+
 <nasal>
 	<ch53e>
 		<file>Aircraft/ch53e/Nasal/ch53e.nas</file>
+		<!--script>material.showDialog("/sim/model/ch53e/test-mat-2");</script>
+		<script>material.showDialog("/sim/model/ch53e/test-mat-1");</script-->
 	</ch53e>
-	<caution-panel>
+	<cautionPanel>
 		<file>Aircraft/ch53e/Nasal/ch53e-caution.nas</file>
-	</caution-panel>
-	<jrb-usn-adi>
+	</cautionPanel>
+	<jrbUsnAdi>
 		<file>Aircraft/ch53e/Instruments/jrb-usn.nas</file>
-	</jrb-usn-adi>
-	<interior-lights>
+	</jrbUsnAdi>
+	<interiorLights>
 		<file>Aircraft/ch53e/Nasal/interior-lights.nas</file>
-	</interior-lights>
+	</interiorLights>
 </nasal>
 
 </PropertyList>

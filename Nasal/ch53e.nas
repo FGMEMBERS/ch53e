@@ -172,9 +172,91 @@ setlistener('/instrumentation/comm[1]/frequencies/selected-mhz', func{adjustComm
 
 ################
 #
+# EAPS
+#
+# Adjust animation properties based on switch positions and airspeed.
+#
+################
+
+EAPSASIServicable = nil;
+EAPSAirSpeed = nil;
+EAPSCutoff = nil; # Airspeed above which to open EAPS doors in auto mode
+EAPSSens = nil;   # To prevent banging back and forth when speed is around EAPSCutoff
+EAPSNodes = [];
+EAPSDoors = [];
+
+EAPSAnimator = func {
+	foreach (node; EAPSNodes) {
+	}
+}
+
+EAPSAsWatcher = func {
+	# Check to see that the switch positions match the status of the EAPS doors.
+	# If not, adjust the status.
+	foreach (node; EAPSNodes) {
+		if (node.getNode('mode').getValue() == 1) {
+			# Automatic mode, but only if the ASI is serviceable
+			if (EAPSASIServicable.getBoolValue() == 1) {
+				if (((EAPSAirSpeed.getValue() - EAPSSens.getValue()) > EAPSCutoff.getValue()) and (node.getNode('command-open').getBoolValue() != 1)) {
+					node.getNode('command-open').setBoolValue(1);
+					EAPSAnimator();
+				} elsif (((EAPSAirSpeed.getValue() + EAPSSens.getValue()) < EAPSCutoff.getValue()) and (node.getNode('command-open').getBoolValue() != 0)) {
+					node.getNode('command-open').setBoolValue(0);
+					EAPSAnimator();
+				}
+			}
+		} elsif ((node.getNode('mode').getValue() == 0) and (node.getNode('command-open').getBoolValue() != 0)) {
+			# Manual close
+			node.getNode('command-open').setBoolValue(0);
+			EAPSAnimator();
+		} elsif ((node.getNode('mode').getValue() == 2) and (node.getNode('command-open').getBoolValue() != 1)) {
+			# Manual open
+			node.getNode('command-open').setBoolValue(1);
+			EAPSAnimator();
+		}
+	}
+	settimer(EAPSAsWatcher, 0.05);
+}
+
+EAPSInit = func {
+	EAPSASIServicable = props.globals.getNode('instrumentation/airspeed-indicator/serviceable', 1);
+	EAPSAirSpeed = props.globals.getNode('instrumentation/airspeed-indicator/indicated-speed-kts', 1);
+	EAPSCutoff = props.globals.getNode('sim/model/ch53e/control-input/eaps/cutoff-speed-kts', 1);
+	EAPSSens = props.globals.getNode('sim/model/ch53e/control-input/eaps/sensitivity-kts', 1);
+	EAPSNodes = [ props.globals.getNode('sim/model/ch53e/control-input/eaps/eaps[0]', 1), props.globals.getNode('sim/model/ch53e/control-input/eaps/eaps[1]', 1), props.globals.getNode('sim/model/ch53e/control-input/eaps/eaps[2]', 1) ];
+	if (EAPSASIServicable.getValue() == nil) {
+		EAPSAirSpeed.setBoolValue(1);
+	}
+	if (EAPSAirSpeed.getValue() == nil) {
+		EAPSAirSpeed.setDoubleValue(0);
+	}
+	if (EAPSCutoff.getValue() == nil) {
+		EAPSCutoff.setIntValue(40);
+	}
+	if (EAPSSens.getValue() == nil) {
+		EAPSSens.setIntValue(3);
+	}
+	foreach (node; EAPSNodes) {
+		if (node.getNode('mode').getValue() == nil) {
+			node.getNode('mode').setIntValue(1);
+		}
+		if (node.getNode('command-open').getValue() == nil) {
+			node.getNode('command-open').setBoolValue(1);
+		}
+		if (node.getNode('pos-norm').getValue() == nil) {
+			node.getNode('pos-norm').setDoubleValue(0);
+		}
+		# TODO add a door.new for pos-norm to EAPSDoors
+	}
+	settimer(EAPSAsWatcher, 0);
+	settimer(EAPSAnimator, 0);
+}
+settimer(EAPSInit, 0);
+
+################
+#
 # Engine
 # A sophisticated YASim style turbine simulation.
-# Booyah.
 #
 ################
 
@@ -197,7 +279,36 @@ engineInit = func {
 	rpmR.setDoubleValue(0);
 	engineSim();
 }
-settimer(engineInit, 0 );
+settimer(engineInit, 0);
+
+################
+#
+# Fuel system
+#
+################
+
+tank0Level = '';
+tank1Level = '';
+tank2Level = '';
+tank3Level = '';
+tank4Level = '';
+tank5Level = '';
+totalFuel = '';
+fuelTotalerInit = func {
+	tank0Level = props.globals.getNode('consumables/fuel/tank[0]/level-lbs', 1);
+	tank1Level = props.globals.getNode('consumables/fuel/tank[1]/level-lbs', 1);
+	tank2Level = props.globals.getNode('consumables/fuel/tank[2]/level-lbs', 1);
+	tank3Level = props.globals.getNode('consumables/fuel/tank[3]/level-lbs', 1);
+	tank4Level = props.globals.getNode('consumables/fuel/tank[4]/level-lbs', 1);
+	tank5Level = props.globals.getNode('consumables/fuel/tank[5]/level-lbs', 1);
+	totalFuel = props.globals.getNode('consumables/fuel/total-fuel-lbs', 1);
+	settimer(fuelTotaler, 0);
+}
+fuelTotaler = func {
+	totalFuel.setDoubleValue(tank0Level.getValue()+tank1Level.getValue()+tank2Level.getValue()+tank3Level.getValue()+tank4Level.getValue()+tank5Level.getValue());
+	settimer(fuelTotaler, 0.1);
+}
+settimer(fuelTotalerInit, 0);
 
 ################
 #
@@ -313,6 +424,9 @@ initNvgMode = func {
 			instrumentsLightRed.setDoubleValue(instrumentsLightRedNvg.getValue());
 			instrumentsLightGreen.setDoubleValue(instrumentsLightGreenNvg.getValue());
 			instrumentsLightBlue.setDoubleValue(instrumentsLightBlueNvg.getValue());
+			flightInstrumentsLightRed.setDoubleValue(flightInstrumentsLightRedNvg.getValue());
+			flightInstrumentsLightGreen.setDoubleValue(flightInstrumentsLightGreenNvg.getValue());
+			flightInstrumentsLightBlue.setDoubleValue(flightInstrumentsLightBlueNvg.getValue());
 		} else {
 			domeLightRed.setDoubleValue(domeLightRedUnaided.getValue());
 			domeLightGreen.setDoubleValue(domeLightGreenUnaided.getValue());
@@ -323,6 +437,9 @@ initNvgMode = func {
 			instrumentsLightRed.setDoubleValue(instrumentsLightRedUnaided.getValue());
 			instrumentsLightGreen.setDoubleValue(instrumentsLightGreenUnaided.getValue());
 			instrumentsLightBlue.setDoubleValue(instrumentsLightBlueUnaided.getValue());
+			flightInstrumentsLightRed.setDoubleValue(flightInstrumentsLightRedUnaided.getValue());
+			flightInstrumentsLightGreen.setDoubleValue(flightInstrumentsLightGreenUnaided.getValue());
+			flightInstrumentsLightBlue.setDoubleValue(flightInstrumentsLightBlueUnaided.getValue());
 		}
 	}
 
@@ -356,12 +473,38 @@ initNvgMode = func {
 	instrumentsLightBlueNvg      = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/nvg/blue', 1);
 	instrumentsLightBlueUnaided  = props.globals.getNode('sim/model/ch53e/materials/instrument-light-color/unaided/blue', 1);
 
+	flightInstrumentsLightRed          = props.globals.getNode('controls/lighting/flight-instruments/color/red', 1);
+	flightInstrumentsLightRedNvg       = props.globals.getNode('sim/model/ch53e/materials/flight-instrument-light-color/nvg/red', 1);
+	flightInstrumentsLightRedUnaided   = props.globals.getNode('sim/model/ch53e/materials/flight-instrument-light-color/unaided/red', 1);
+	flightInstrumentsLightGreen        = props.globals.getNode('controls/lighting/flight-instruments/color/green', 1);
+	flightInstrumentsLightGreenNvg     = props.globals.getNode('sim/model/ch53e/materials/flight-instrument-light-color/nvg/green', 1);
+	flightInstrumentsLightGreenUnaided = props.globals.getNode('sim/model/ch53e/materials/flight-instrument-light-color/unaided/green', 1);
+	flightInstrumentsLightBlue         = props.globals.getNode('controls/lighting/flight-instruments/color/blue', 1);
+	flightInstrumentsLightBlueNvg      = props.globals.getNode('sim/model/ch53e/materials/flight-instrument-light-color/nvg/blue', 1);
+	flightInstrumentsLightBlueUnaided  = props.globals.getNode('sim/model/ch53e/materials/flight-instrument-light-color/unaided/blue', 1);
+
 	nvgMode = props.globals.getNode('controls/lighting/nvg-mode', 1);
 
 	adjustNvgMode();
 	setlistener(nvgMode, adjustNvgMode);
 }
 
+################
+#
+# PCL animation.
+#
+################
+
+PCL1 = nil;
+PCL2 = nil;
+PCL3 = nil;
+
+PCLInit = func {
+	PCL1 = aircraft.door.new('sim/model/ch53e/control-pos/pcl[0]', 2.0, 0);
+	PCL2 = aircraft.door.new('sim/model/ch53e/control-pos/pcl[1]', 2.0, 0);
+	PCL3 = aircraft.door.new('sim/model/ch53e/control-pos/pcl[2]', 2.0, 0);
+}
+settimer(PCLInit, 0);
 
 ################
 #
@@ -402,7 +545,7 @@ stickPosIntensity = nil;
 stickPosTest = nil;
 
 pollStickPos = func {
-	var materials = '/sim/model/ch53e/materials/';
+	var materials = '/sim/model/ch53e/materials/stick-pos/';
 	var zones = ['HSPLeft.00', 'HSPRight.00', 'VSPFore.00', 'VSPAft.00'];
 
 	# Helper function
@@ -634,6 +777,7 @@ settimer(initStickPos, 0);
 # TACAN
 #
 ################
+#TODO: on off from mode switch?
 tacanChan1 = '';
 tacanChan2 = '';
 tacanChan3 = '';
@@ -672,6 +816,7 @@ settimer(adjustTacanMode, 0);
 #
 ################
 
+# TODO simulate as a system, with PSI
 # TODO switch off based on 2B pri AC bus    26v/QUAD HYDR QTY breaker   set value to -.2
 hydVol0 = '';
 hydVol1 = '';

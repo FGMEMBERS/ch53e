@@ -1,6 +1,6 @@
 AC3Db
-MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
-MATERIAL "MattLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
+MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0 0 0  shi 0  trans 0
+MATERIAL "MattLit" rgb 0.5 0.5 0.5  amb 0.5 0.5 0.5  emis 0 0 0  spec 0 0 0  shi 0  trans 0
 OBJECT world
 kids 6
 OBJECT poly
@@ -9,7 +9,6 @@ data 10
 Circle.048
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 122
 0.013199 -0.020092 0.020175
 0.013199 -0.022327 0.018955
@@ -603,7 +602,6 @@ data 10
 Circle.047
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 24
 0.002155 0.017952 -0.018046
 0.002155 0.01244 -0.022226
@@ -775,7 +773,6 @@ data 9
 Plane.131
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.002955 0.01207 -0.003507
 0.002955 -0.003379 -0.003507
@@ -801,7 +798,6 @@ data 9
 Plane.132
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.003795 0.014919 -0.003164
 0.003795 -0.003042 -0.003164
@@ -827,7 +823,6 @@ data 9
 Plane.133
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.004648 0.022212 -0.002713
 0.004648 -0.002776 -0.002713
@@ -853,7 +848,6 @@ data 9
 Plane.134
 texture "jrb-usn.rgb"
 texrep 1.0 1.0
-crease 30
 numvert 4
 0.005448 0.022212 -0.002713
 0.005448 -0.002776 -0.002713

@@ -95,6 +95,18 @@ initGyroCompass = func {
 	# TODO
 	# gpsHeading = props.globals.getNode('');
 
+	foreach (node; [source1, source2]){
+		if (node.getValue() == nil) {
+			node.setValue('');
+		}
+	}
+
+	foreach (node; [gyroNeedle1, gyroNeedle2, nav1Heading, nav2Heading, adfHeading, tacanHeading]){
+		if (node.getValue() == nil) {
+			node.setDoubleValue(0);
+		}
+	}
+
 	updateGyroNeedles = func {
 		if (source1.getValue() == 'nav1') {
 			gyroNeedle1.setDoubleValue(nav1Heading.getValue());
@@ -147,6 +159,19 @@ initId249 = func {
 	var pattern = [0.33,0.22];
 	var markerBlinker = aircraft.light.new(markerSwitch, pattern);
 
+	foreach (node; [tacanInRange, markerBeacon, markerSwitch, markerLightState]){
+		if (node.getValue() == nil) {
+			node.setBoolValue(0);
+		}
+	}
+
+	foreach (node; [deviationFlagPos, markerRed, markerGreen, markerBlue, panelRed, panelGreen, panelBlue]){
+		if (node.getValue() == nil) {
+			node.setDoubleValue(0);
+		}
+	}
+
+	# TODO make a door object
    animateDeviationFlag = func {
       if (tacanInRange.getValue()) {
          interpolate(deviationFlagPos, 1, 0.25);
@@ -215,12 +240,22 @@ initRadAlt = func {
 	var pattern = [0.25,0.25,   0.25,0.25,   0.25,0.75];
 	var light = aircraft.light.new(animProp, 0.75, pattern);
 
-	if (dh.getType() == 'nil') {
-		dh.setIntValue(0);
+	foreach (node; [state]) {
+		if (node.getValue() == nil) {
+			node.setBoolValue(0);
+		}
 	}
 
-	if (alt.getType() == 'NONE') {
-		alt.setDoubleValue(0);
+	foreach (node; [dh, animProp]) {
+		if (node.getValue() == nil) {
+			node.setIntValue(0);
+		}
+	}
+
+	foreach (node; [alt, panelRed, panelGreen, panelBlue, warnRed, warnGreen, warnBlue]) {
+		if (node.getValue() == nil) {
+			node.setDoubleValue(0);
+		}
 	}
 
 	watchRadAlt = func {

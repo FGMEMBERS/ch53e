@@ -38,7 +38,8 @@
 
 <animation>
    <type>material</type>
-	<object-name>RingRotate</object-name>
+	<!-- object-name>RingRotate</object-name -->
+	<object-name>Ring</object-name>
    <property-base>controls/lighting/instruments/emission</property-base>
    <emission>
       <red-prop>red</red-prop>
@@ -74,7 +75,6 @@
 </animation-->
 
 <animation>
-	<name>RingRotate</name>
 	<type>rotate</type>
 	<object-name>Ring</object-name>
 	<property>instrumentation/magnetic-compass/indicated-heading-deg</property>
