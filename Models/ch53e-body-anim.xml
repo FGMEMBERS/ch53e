@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>CockpitInterior</object-name>
+</animation>
+
+</PropertyList>

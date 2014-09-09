@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!--
+This file includes debugging animations and "other" type stuff.
+The meat is broken out into other files.
+-->
+
+<path>ch53e.ac</path>
+
+<!-- INCLUDES -->
+
+<!-- external animations -->
+<body-animation include="ch53e-body-anim.xml" omit-node="y"/>
+
+<!-- animations of cockpit objects -->
+<cockpit-animation include="ch53e-cockpit-anim.xml" omit-node="y"/>
+
+<!-- placement of instrument models -->
+<instruments include="ch53e-instruments.xml" omit-node="y"/>
+
+<!-- pick animations and bindings -->
+<controls include="ch53e-controls.xml" omit-node="y"/>
+
+<!-- DEBUGGING AND DEVLEOPMENT SECTION -->
+
+<!--animation>
+	<type>scale</type>
+	<object-name>RotorThingy</object-name>
+	<property>rotors/main/cone-deg</property>
+	<x-factor>0</x-factor>
+	<x-offset>1</x-offset>
+	<y-factor>0</y-factor>
+	<y-offset>1</y-offset>
+	<z-factor>0.01543</z-factor>
+	<center>
+		<z-m>0.932</z-m>
+	</center>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RotorThingy</object-name>
+	<property-base>sim/model/ch53e/materials/rotor-thingy</property-base>
+	<diffuse>
+		<red-prop>diffuse/red</red-prop>
+		<green-prop>diffuse/green</green-prop>
+		<blue-prop>diffuse/blue</blue-prop>
+	</diffuse>
+	<ambient>
+		<red-prop>ambient/red</red-prop>
+		<green-prop>ambient/green</green-prop>
+		<blue-prop>ambient/blue</blue-prop>
+	</ambient>
+	<specular>
+		<red-prop>specular/red</red-prop>
+		<green-prop>specular/green</green-prop>
+		<blue-prop>specular/blue</blue-prop>
+	</specular>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+	<shininess>0</shininess>
+	<transparency>
+		<alpha>1</alpha>
+	</transparency>
+</animation>
+
+<animation>
+	<type>material</type>
+	<object-name>RotorThingy</object-name>
+	<emission>
+		<red-prop>rotors/main/stall</red-prop>
+		<green>0</green>
+		<blue>0</blue>
+	</emission>
+</animation-->
+
+<!--animation>
+	<type>material</type>
+	<name>testanim1</name>
+	<object-name>testgroup1</object-name>
+	<property-base>sim/model/ch53e/test-mat-1</property-base>
+	<diffuse>
+		<red-prop>diffuse/red</red-prop>
+		<green-prop>diffuse/green</green-prop>
+		<blue-prop>diffuse/blue</blue-prop>
+	</diffuse>
+	<ambient>
+		<red-prop>ambient/red</red-prop>
+		<green-prop>ambient/green</green-prop>
+		<blue-prop>ambient/blue</blue-prop>
+	</ambient>
+	<specular>
+		<red-prop>specular/red</red-prop>
+		<green-prop>specular/green</green-prop>
+		<blue-prop>specular/blue</blue-prop>
+	</specular>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+	<shininess/>
+</animation>
+
+<animation>
+	<type>material</type>
+	<name>testanim2</name>
+	<object-name>testgroup2</object-name>
+	<property-base>sim/model/ch53e/test-mat-2</property-base>
+	<diffuse>
+		<red-prop>diffuse/red</red-prop>
+		<green-prop>diffuse/green</green-prop>
+		<blue-prop>diffuse/blue</blue-prop>
+	</diffuse>
+	<ambient>
+		<red-prop>ambient/red</red-prop>
+		<green-prop>ambient/green</green-prop>
+		<blue-prop>ambient/blue</blue-prop>
+	</ambient>
+	<specular>
+		<red-prop>specular/red</red-prop>
+		<green-prop>specular/green</green-prop>
+		<blue-prop>specular/blue</blue-prop>
+	</specular>
+	<emission>
+		<red-prop>emission/red</red-prop>
+		<green-prop>emission/green</green-prop>
+		<blue-prop>emission/blue</blue-prop>
+	</emission>
+	<shininess/>
+</animation-->
+
+
+
+
+<animation>
+   <name>Development Rotors</name>
+	<type>noshadow</type>
+	<object-name>FooRotor</object-name>
+	<object-name>FooTailRotor</object-name>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>Shadow</object-name>
+	<property>orientation/roll-deg</property>
+	<axis>
+		<x>1</x>
+	</axis>
+</animation>
+
+<animation>
+	<type>rotate</type>
+	<object-name>Shadow</object-name>
+	<property>orientation/pitch-deg</property>
+	<axis>
+		<y>-1</y>
+	</axis>
+</animation>
+
+<animation>
+	<type>translate</type>
+	<object-name>Shadow</object-name>
+	<property>position/altitude-agl-ft</property>
+	<factor>0.3040</factor>
+	<axis>
+		<z>-1</z>
+	</axis>
+</animation>
+
+<animation>
+	<type>noshadow</type>
+	<object-name>Shadow</object-name>
+</animation>
+
+<animation>
+	<type>alpha-test</type>
+	<object-name>Shadow</object-name>
+	<alpha-factor>0.01</alpha-factor>
+</animation>
+
+<animation>
+	<type>select</type>
+	<object-name>Shadow</object-name>
+	<condition>
+		<equals>
+			<property>sim/model/ch53e/use-old-style-shadow</property>
+			<value>true</value>
+		</equals>
+	</condition>
+</animation>
+
+</PropertyList>
