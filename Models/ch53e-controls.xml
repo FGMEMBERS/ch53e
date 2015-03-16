@@ -1,10 +1,11 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!--
 All pick animations are kept in this file.
 -->
 
 <PropertyList>
+
 
 <!-- *** Front Panel *** -->
 
@@ -741,7 +742,7 @@ All pick animations are kept in this file.
 
 <!-- Gear -->
 
-<animation>
+<!--animation>
 	<type>pick</type>
 	<object-name>OLandingGearHandle</object-name>
 	<action>
@@ -769,7 +770,7 @@ All pick animations are kept in this file.
 			<value>1</value>
 		</binding>
 	</action>
-</animation>
+</animation-->
 
 <!-- Marker Beacon / Nav 1 Volume-->
 
