@@ -1,4 +1,4 @@
-﻿This is just a little bit CH-53E more detailed 3d model I made not to replace the original one built by Josh Babcock, but to make
+This is just a little bit CH-53E more detailed 3d model I made not to replace the original one built by Josh Babcock, but to make
 something more suitable with his incredibely beautiful work: Detailed panels and instruments with an ambient occlusion layer on textures plus a good FDM which just needed some enhancement.
 
 I do not say I've made something perfect. I just wanted to revive this legendary super helicopter for FlightGer
