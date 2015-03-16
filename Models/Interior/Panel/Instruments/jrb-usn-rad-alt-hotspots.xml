@@ -2,7 +2,7 @@
 <PropertyList>
 
 <name>Radar Altimeter Hotspots</name>
-<background>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/transparent.png</background>
+<background>Aircraft/ch53e/Models/Interior/Panel/Instruments/transparent.png</background>
 <w>1024</w>
 <h>1024</h>
 <y-offset>0</y-offset>

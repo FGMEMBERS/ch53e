@@ -9,7 +9,7 @@
   </animation>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-8day-clock.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-8day-clock.xml</path>
 	<offsets>
 		<x-m>0.053</x-m>
 		<y-m>0.356</y-m>
@@ -19,7 +19,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-8day-clock.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-8day-clock.xml</path>
 	<offsets>
 		<x-m>0.05</x-m>
 		<y-m>-0.368</y-m>
@@ -29,7 +29,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gyro-compass.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gyro-compass.xml</path>
 	<offsets>
 		<x-m>-0.005</x-m>
 		<y-m>0.618</y-m>
@@ -39,7 +39,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gyro-compass.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gyro-compass.xml</path>
 	<offsets>
 		<x-m>0.035</x-m>
 		<y-m>0.26</y-m>
@@ -49,7 +49,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gyro-compass.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gyro-compass.xml</path>
 	<offsets>
 		<x-m>-0.005</x-m>
 		<y-m>-0.461</y-m>
@@ -59,7 +59,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-alt.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-alt.xml</path>
 	<offsets>
 		<x-m>-0.011</x-m>
 		<y-m>0.71</y-m>
@@ -69,7 +69,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-adi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-adi.xml</path>
 	<offsets>
 		<x-m>-0.005</x-m>
 		<y-m>0.494</y-m>
@@ -79,7 +79,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-adi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-adi.xml</path>
 	<offsets>
 		<x-m>-0.005</x-m>
 		<y-m>-0.585</y-m>
@@ -89,7 +89,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-alt.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-alt.xml</path>
 	<offsets>
 		<x-m>-0.017</x-m>
 		<y-m>-0.379</y-m>
@@ -99,7 +99,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-asi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-asi.xml</path>
 	<offsets>
 		<x-m>-0.023</x-m>
 		<y-m>0.371</y-m>
@@ -109,7 +109,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-asi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-asi.xml</path>
 	<offsets>
 		<x-m>-0.011</x-m>
 		<y-m>-0.71</y-m>
@@ -119,7 +119,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-eng-oil-tmp-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-eng-oil-tmp-0.xml</path>
 	<offsets>
 		<x-m>0.016</x-m>
 		<y-m>-0.019</y-m>
@@ -129,7 +129,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-eng-oil-tmp-1.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-eng-oil-tmp-1.xml</path>
 	<offsets>
 		<x-m>0.016</x-m>
 		<y-m>0.043</y-m>
@@ -139,7 +139,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-eng-oil-tmp-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-eng-oil-tmp-0.xml</path>
 	<offsets>
 		<x-m>0.016</x-m>
 		<y-m>0.106</y-m>
@@ -149,7 +149,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-16000.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-16000.xml</path>
 	<offsets>
 		<x-m>0.035</x-m>
 		<y-m>-0.286</y-m>
@@ -159,7 +159,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-0-4500.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-0-4500.xml</path>
 	<offsets>
 		<x-m>0.059</x-m>
 		<y-m>-0.211</y-m>
@@ -169,7 +169,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-1-2200.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-1-2200.xml</path>
 	<offsets>
 		<x-m>0.035</x-m>
 		<y-m>-0.226</y-m>
@@ -179,7 +179,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-2-3-1400.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-2-3-1400.xml</path>
 	<offsets>
 		<x-m>0.035</x-m>
 		<y-m>-0.166</y-m>
@@ -189,7 +189,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-4-2200.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-4-2200.xml</path>
 	<offsets>
 		<x-m>0.035</x-m>
 		<y-m>-0.105</y-m>
@@ -199,7 +199,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-5-4500.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-5-4500.xml</path>
 	<offsets>
 		<x-m>0.059</x-m>
 		<y-m>-0.14</y-m>
@@ -209,7 +209,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-flow-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-flow-0.xml</path>
 	<offsets>
 		<x-m>0.003</x-m>
 		<y-m>-0.019</y-m>
@@ -219,7 +219,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-flow-1.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-flow-1.xml</path>
 	<offsets>
 		<x-m>0.003</x-m>
 		<y-m>0.043</y-m>
@@ -229,7 +229,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-flow-2.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-fuel-flow-2.xml</path>
 	<offsets>
 		<x-m>0.003</x-m>
 		<y-m>0.106</y-m>
@@ -239,7 +239,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-psi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-psi.xml</path>
 	<offsets>
 		<x-m>0.031</x-m>
 		<y-m>0.019</y-m>
@@ -249,7 +249,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-tmp-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-tmp-0.xml</path>
 	<offsets>
 		<x-m>0.031</x-m>
 		<y-m>-0.028</y-m>
@@ -259,7 +259,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-tmp-1.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-tmp-1.xml</path>
 	<offsets>
 		<x-m>0.031</x-m>
 		<y-m>0.064</y-m>
@@ -269,7 +269,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-tmp-2.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-gear-oil-tmp-2.xml</path>
 	<offsets>
 		<x-m>0.031</x-m>
 		<y-m>0.111</y-m>
@@ -279,7 +279,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-hyd-psi-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-hyd-psi-0.xml</path>
 	<offsets>
 		<x-m>0.051</x-m>
 		<y-m>-0.023</y-m>
@@ -289,7 +289,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-hyd-psi-1.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-hyd-psi-1.xml</path>
 	<offsets>
 		<x-m>0.051</x-m>
 		<y-m>0.041</y-m>
@@ -299,7 +299,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-hyd-psi-2.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-hyd-psi-2.xml</path>
 	<offsets>
 		<x-m>0.051</x-m>
 		<y-m>0.105</y-m>
@@ -309,7 +309,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-id-249.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-id-249.xml</path>
 	<offsets>
 		<x-m>0.003</x-m>
 		<y-m>0.371</y-m>
@@ -319,7 +319,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-id-249.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-id-249.xml</path>
 	<offsets>
 		<x-m>0.021</x-m>
 		<y-m>-0.71</y-m>
@@ -329,7 +329,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-itt-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-itt-0.xml</path>
 	<offsets>
 		<x-m>-0.01</x-m>
 		<y-m>-0.019</y-m>
@@ -339,7 +339,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-itt-1.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-itt-1.xml</path>
 	<offsets>
 		<x-m>-0.01</x-m>
 		<y-m>0.043</y-m>
@@ -349,7 +349,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-itt-2.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-itt-2.xml</path>
 	<offsets>
 		<x-m>-0.01</x-m>
 		<y-m>0.106</y-m>
@@ -359,7 +359,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-mag-compass.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-mag-compass.xml</path>
 	<offsets>
 		<x-m>0.051</x-m>
 		<y-m>0</y-m>
@@ -368,7 +368,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-rad-alt.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-rad-alt.xml</path>
 	<offsets>
 		<x-m>0.039</x-m>
 		<y-m>0.71</y-m>
@@ -378,7 +378,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-rad-alt.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-rad-alt.xml</path>
 	<offsets>
 		<x-m>0.033</x-m>
 		<y-m>-0.379</y-m>
@@ -388,7 +388,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-rpm-0.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-rpm-0.xml</path>
 	<offsets>
 		<x-m>-0.024</x-m>
 		<y-m>-0.019</y-m>
@@ -398,7 +398,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-rpm-1.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-rpm-1.xml</path>
 	<offsets>
 		<x-m>-0.024</x-m>
 		<y-m>0.043</y-m>
@@ -408,7 +408,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-rpm-2.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-rpm-2.xml</path>
 	<offsets>
 		<x-m>-0.024</x-m>
 		<y-m>0.106</y-m>
@@ -418,7 +418,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-vsi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-vsi.xml</path>
 	<offsets>
 		<x-m>0.014</x-m>
 		<y-m>0.71</y-m>
@@ -428,7 +428,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-vsi.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-vsi.xml</path>
 	<offsets>
 		<x-m>0.008</x-m>
 		<y-m>-0.379</y-m>
@@ -438,7 +438,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-acc-rpm.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-acc-rpm.xml</path>
 	<offsets>
 		<x-m>0.809</x-m>
 		<y-m>0.197</y-m>
@@ -448,7 +448,7 @@
 </model>
 
 <model>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-acc-exh-tmp.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-acc-exh-tmp.xml</path>
 	<offsets>
 		<x-m>0.809</x-m>
 		<y-m>0.125</y-m>

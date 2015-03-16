@@ -86,7 +86,7 @@
 <!-- Hotspots -->
 
 <panel>
-	<path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/Instruments/jrb-usn-adi-hotspots.xml</path>
+	<path>Aircraft/ch53e/Models/Interior/Panel/Instruments/jrb-usn-adi-hotspots.xml</path>
 	<bottom-right>
 		<x-m>.015</x-m>
 		<y-m>.068</y-m>

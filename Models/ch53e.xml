@@ -337,7 +337,7 @@
 
   <!-- Interior -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/interior.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/interior.xml</path>
     <offsets>
       <x-m> 0 </x-m>
       <y-m> 0 </y-m>

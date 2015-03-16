@@ -7,7 +7,7 @@
   
   <!-- LStick -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Stick/Stick.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Stick/Stick.xml</path>
     <offsets>
       <x-m> -5.43679 </x-m>
       <y-m> -0.60106 </y-m>
@@ -17,7 +17,7 @@
   
   <!-- RStick -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Stick/Stick.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Stick/Stick.xml</path>
     <offsets>
       <x-m> -5.43679 </x-m>
       <y-m>  0.60106 </y-m>
@@ -29,7 +29,7 @@
 
   <!-- Planches de bord -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Panel/panel.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Panel/panel.xml</path>
     <offsets>
       <x-m> -5.739 </x-m>
       <y-m>  0.000 </y-m>
@@ -40,7 +40,7 @@
   <!-- Seats -->
   <!-- PilotSeat -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PilotSeat/PilotSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PilotSeat/PilotSeat.xml</path>
     <offsets>
       <x-m> -4.668 </x-m>
       <y-m>  0.600 </y-m>
@@ -50,7 +50,7 @@
   
   <!-- Co-PilotSeat -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/Co-PilotSeat/Co-PilotSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/Co-PilotSeat/Co-PilotSeat.xml</path>
     <offsets>
       <x-m> -4.673 </x-m>
       <y-m> -0.600 </y-m>
@@ -60,7 +60,7 @@
   
   <!-- Left Deployed Passengers Seats -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LOpened-upSeat/LOPSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LOpened-upSeat/LOPSeat.xml</path>
     <offsets>
       <x-m> -2.478 </x-m>
       <y-m> -0.984 </y-m>
@@ -69,7 +69,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LOpened-upSeat/LOPSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LOpened-upSeat/LOPSeat.xml</path>
     <offsets>
       <x-m> -1.862 </x-m>
       <y-m> -0.984 </y-m>
@@ -78,7 +78,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LOpened-upSeat/LOPSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LOpened-upSeat/LOPSeat.xml</path>
     <offsets>
       <x-m> -1.248 </x-m>
       <y-m> -0.984 </y-m>
@@ -88,7 +88,7 @@
   
   <!-- Right Deployed Passengers Seats -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/ROpened-upSeat/ROPSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/ROpened-upSeat/ROPSeat.xml</path>
     <offsets>
       <x-m> -2.478 </x-m>
       <y-m>  0.984 </y-m>
@@ -97,7 +97,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/ROpened-upSeat/ROPSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/ROpened-upSeat/ROPSeat.xml</path>
     <offsets>
       <x-m> -1.862 </x-m>
       <y-m>  0.984 </y-m>
@@ -108,7 +108,7 @@
   
   <!-- Left Stowed Passengers Seats -->      
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m> -0.632 </x-m>
       <y-m> -1.021 </y-m>
@@ -117,7 +117,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m> -0.018 </x-m>
       <y-m> -1.021 </y-m>
@@ -126,7 +126,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  0.598 </x-m>
       <y-m> -1.021 </y-m>
@@ -135,7 +135,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  1.213 </x-m>
       <y-m> -1.021 </y-m>
@@ -144,7 +144,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  1.828 </x-m>
       <y-m> -1.021 </y-m>
@@ -153,7 +153,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  2.443 </x-m>
       <y-m> -1.021 </y-m>
@@ -162,7 +162,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  3.061 </x-m>
       <y-m> -1.021 </y-m>
@@ -171,7 +171,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  3.675 </x-m>
       <y-m> -1.021 </y-m>
@@ -180,7 +180,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/LFolded-upSeat/LSeat.xml</path>
     <offsets>
       <x-m>  4.571 </x-m>
       <y-m> -1.021 </y-m>
@@ -190,7 +190,7 @@
   
   <!-- Right Stowed Passengers Seats --> 
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m> -1.248 </x-m>
       <y-m>  1.021 </y-m>
@@ -199,7 +199,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m> -0.632 </x-m>
       <y-m>  1.021 </y-m>
@@ -208,7 +208,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m> -0.018 </x-m>
       <y-m>  1.021 </y-m>
@@ -217,7 +217,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  0.598 </x-m>
       <y-m>  1.021 </y-m>
@@ -226,7 +226,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  1.213 </x-m>
       <y-m>  1.021 </y-m>
@@ -235,7 +235,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  1.828 </x-m>
       <y-m>  1.021 </y-m>
@@ -244,7 +244,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  2.443 </x-m>
       <y-m>  1.021 </y-m>
@@ -253,7 +253,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  3.061 </x-m>
       <y-m>  1.021 </y-m>
@@ -262,7 +262,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  3.675 </x-m>
       <y-m>  1.021 </y-m>
@@ -271,7 +271,7 @@
   </model>
   
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Seats/PassengersSeats/RFolded-upSeat/RSeat.xml</path>
     <offsets>
       <x-m>  4.571 </x-m>
       <y-m>  1.021 </y-m>
@@ -282,7 +282,7 @@
   <!-- Pedals -->
   <!-- LPedals -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Pedals/Pedals.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Pedals/Pedals.xml</path>
     <offsets>
       <x-m> -5.90513 </x-m>
       <y-m> -0.60377 </y-m>
@@ -292,7 +292,7 @@
   
   <!-- RPedals -->
   <model>
-    <path>Aircraft/Sikorsky-ch53e/Models/Interior/Pedals/Pedals.xml</path>
+    <path>Aircraft/ch53e/Models/Interior/Pedals/Pedals.xml</path>
     <offsets>
       <x-m> -5.90513 </x-m>
       <y-m>  0.60377 </y-m>
