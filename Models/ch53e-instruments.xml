@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+
+<!--
+Place instrument models.
+-->
+
+<PropertyList>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-8day-clock.xml</path>
+	<offsets>
+		<x-m>3.576</x-m>
+		<y-m>0.356</y-m>
+		<z-m>0.865</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-8day-clock.xml</path>
+	<offsets>
+		<x-m>3.573</x-m>
+		<y-m>-0.368</y-m>
+		<z-m>0.867</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gyro-compass.xml</path>
+	<offsets>
+		<x-m>3.518</x-m>
+		<y-m>0.618</y-m>
+		<z-m>1.082</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gyro-compass.xml</path>
+	<offsets>
+		<x-m>3.558</x-m>
+		<y-m>0.26</y-m>
+		<z-m>0.929</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gyro-compass.xml</path>
+	<offsets>
+		<x-m>3.518</x-m>
+		<y-m>-0.461</y-m>
+		<z-m>1.081</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-alt.xml</path>
+	<offsets>
+		<x-m>3.512</x-m>
+		<y-m>0.71</y-m>
+		<z-m>1.103</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-adi.xml</path>
+	<offsets>
+		<x-m>3.518</x-m>
+		<y-m>0.494</y-m>
+		<z-m>1.1</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-adi.xml</path>
+	<offsets>
+		<x-m>3.518</x-m>
+		<y-m>-0.585</y-m>
+		<z-m>1.1</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-alt.xml</path>
+	<offsets>
+		<x-m>3.506</x-m>
+		<y-m>-0.379</y-m>
+		<z-m>1.127</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-asi.xml</path>
+	<offsets>
+		<x-m>3.5</x-m>
+		<y-m>0.371</y-m>
+		<z-m>1.146</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-asi.xml</path>
+	<offsets>
+		<x-m>3.512</x-m>
+		<y-m>-0.71</y-m>
+		<z-m>1.103</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-eng-oil-tmp-0.xml</path>
+	<offsets>
+		<x-m>3.539</x-m>
+		<y-m>-0.019</y-m>
+		<z-m>1.002</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-eng-oil-tmp-1.xml</path>
+	<offsets>
+		<x-m>3.539</x-m>
+		<y-m>0.043</y-m>
+		<z-m>1.002</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-eng-oil-tmp-0.xml</path>
+	<offsets>
+		<x-m>3.539</x-m>
+		<y-m>0.106</y-m>
+		<z-m>1.002</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-16000.xml</path>
+	<offsets>
+		<x-m>3.558</x-m>
+		<y-m>-0.286</y-m>
+		<z-m>0.932</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-0-4500.xml</path>
+	<offsets>
+		<x-m>3.582</x-m>
+		<y-m>-0.211</y-m>
+		<z-m>0.84</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-1-2200.xml</path>
+	<offsets>
+		<x-m>3.558</x-m>
+		<y-m>-0.226</y-m>
+		<z-m>0.932</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-2-3-1400.xml</path>
+	<offsets>
+		<x-m>3.558</x-m>
+		<y-m>-0.166</y-m>
+		<z-m>0.932</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-4-2200.xml</path>
+	<offsets>
+		<x-m>3.558</x-m>
+		<y-m>-0.105</y-m>
+		<z-m>0.932</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-5-4500.xml</path>
+	<offsets>
+		<x-m>3.582</x-m>
+		<y-m>-0.14</y-m>
+		<z-m>0.84</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-flow-0.xml</path>
+	<offsets>
+		<x-m>3.526</x-m>
+		<y-m>-0.019</y-m>
+		<z-m>1.049</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-flow-1.xml</path>
+	<offsets>
+		<x-m>3.526</x-m>
+		<y-m>0.043</y-m>
+		<z-m>1.049</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-fuel-flow-2.xml</path>
+	<offsets>
+		<x-m>3.526</x-m>
+		<y-m>0.106</y-m>
+		<z-m>1.049</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gear-oil-psi.xml</path>
+	<offsets>
+		<x-m>3.554</x-m>
+		<y-m>0.019</y-m>
+		<z-m>0.947</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gear-oil-tmp-0.xml</path>
+	<offsets>
+		<x-m>3.554</x-m>
+		<y-m>-0.028</y-m>
+		<z-m>0.947</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gear-oil-tmp-1.xml</path>
+	<offsets>
+		<x-m>3.554</x-m>
+		<y-m>0.064</y-m>
+		<z-m>0.947</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-gear-oil-tmp-2.xml</path>
+	<offsets>
+		<x-m>3.554</x-m>
+		<y-m>0.111</y-m>
+		<z-m>0.947</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-hyd-psi-0.xml</path>
+	<offsets>
+		<x-m>3.574</x-m>
+		<y-m>-0.023</y-m>
+		<z-m>0.872</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-hyd-psi-1.xml</path>
+	<offsets>
+		<x-m>3.574</x-m>
+		<y-m>0.041</y-m>
+		<z-m>0.872</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-hyd-psi-2.xml</path>
+	<offsets>
+		<x-m>3.574</x-m>
+		<y-m>0.105</y-m>
+		<z-m>0.872</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-id-249.xml</path>
+	<offsets>
+		<x-m>3.526</x-m>
+		<y-m>0.371</y-m>
+		<z-m>1.05</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-id-249.xml</path>
+	<offsets>
+		<x-m>3.544</x-m>
+		<y-m>-0.71</y-m>
+		<z-m>1.02</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-itt-0.xml</path>
+	<offsets>
+		<x-m>3.513</x-m>
+		<y-m>-0.019</y-m>
+		<z-m>1.1</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-itt-1.xml</path>
+	<offsets>
+		<x-m>3.513</x-m>
+		<y-m>0.043</y-m>
+		<z-m>1.1</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-itt-2.xml</path>
+	<offsets>
+		<x-m>3.513</x-m>
+		<y-m>0.106</y-m>
+		<z-m>1.1</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-mag-compass.xml</path>
+	<offsets>
+		<x-m>3.574</x-m>
+		<y-m>0</y-m>
+		<z-m>1.288</z-m>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-rad-alt.xml</path>
+	<offsets>
+		<x-m>3.562</x-m>
+		<y-m>0.71</y-m>
+		<z-m>0.915</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-rad-alt.xml</path>
+	<offsets>
+		<x-m>3.556</x-m>
+		<y-m>-0.379</y-m>
+		<z-m>0.938</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-rpm-0.xml</path>
+	<offsets>
+		<x-m>3.499</x-m>
+		<y-m>-0.019</y-m>
+		<z-m>1.152</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-rpm-1.xml</path>
+	<offsets>
+		<x-m>3.499</x-m>
+		<y-m>0.043</y-m>
+		<z-m>1.152</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-rpm-2.xml</path>
+	<offsets>
+		<x-m>3.499</x-m>
+		<y-m>0.106</y-m>
+		<z-m>1.152</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-vsi.xml</path>
+	<offsets>
+		<x-m>3.537</x-m>
+		<y-m>0.71</y-m>
+		<z-m>1.008</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-vsi.xml</path>
+	<offsets>
+		<x-m>3.531</x-m>
+		<y-m>-0.379</y-m>
+		<z-m>1.031</z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-acc-rpm.xml</path>
+	<offsets>
+		<x-m>4.332</x-m>
+		<y-m>0.197</y-m>
+		<z-m>1.636</z-m>
+		<pitch-deg>83.5</pitch-deg>
+	</offsets>
+</model>
+
+<model>
+	<path>Aircraft/ch53e/Instruments/jrb-usn-acc-exh-tmp.xml</path>
+	<offsets>
+		<x-m>4.332</x-m>
+		<y-m>0.125</y-m>
+		<z-m>1.636</z-m>
+		<pitch-deg>83.5</pitch-deg>
+	</offsets>
+</model>
+
+<!-- 10 lines
+<model>
+	<path>Aircraft/ch53e/Instruments/.xml</path>
+	<offsets>
+		<x-m></x-m>
+		<y-m></y-m>
+		<z-m></z-m>
+		<pitch-deg>-15</pitch-deg>
+	</offsets>
+</model>
+
+-->
+
+</PropertyList>
