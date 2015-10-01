@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+   <key n="68">
+    <name>D</name>
+    <desc>Passenger door</desc>
+    <binding>
+     <command>nasal</command>
+     <script>ch53e.doorsystem.passengerexport();</script>
+    </binding>
+   </key>
+
+   <key n="100">
+    <name>d</name>
+    <desc>Crew door</desc>
+    <binding>
+     <command>nasal</command>
+     <script>ch53e.doorsystem.crewexport();</script>
+    </binding>
+   </key>
+
+    <key n="78">
+      <name>N</name>
+      <desc>Toggle rotor brake</desc>
+      <binding>
+        <command>nasal</command>
+        <script>
+          var p = "/controls/rotor/brake";
+          setprop(p, !getprop(p));
+        </script>
+      </binding>
+    </key>
+	
+	<key n="102">
+    <name>f</name>
+    <desc>Wings</desc>
+    <binding>
+     <command>nasal</command>
+     <script>ch53e.doorsystem.wingsexport();</script>
+    </binding>
+   </key>
+
+    <key n="110">
+      <name>n</name>
+      <desc>Apply rotor brake</desc>
+      <binding>
+        <command>nasal</command>
+        <script>interpolate("/controls/rotor/brake", 1.0, 2)</script>
+      </binding>
+      <mod-up>
+        <binding>
+          <command>nasal</command>
+          <script>interpolate("/controls/rotor/brake", 0.0, 2)</script>
+        </binding>
+      </mod-up>
+    </key>
+
+    <key n="123">
+      <name>{</name>
+      <desc>Shutdown Engines</desc>
+      <binding>
+        <command>nasal</command>
+        <script>ch53e.engines(0)</script>
+      </binding>
+    </key>
+
+    <key n="125">
+      <name>}</name>
+      <desc>Start Engines</desc>
+      <binding>
+        <command>nasal</command>
+        <script>ch53e.engines(1)</script>
+      </binding>
+    </key>
+
+</PropertyList>
+

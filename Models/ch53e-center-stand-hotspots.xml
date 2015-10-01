@@ -1,8 +1,9 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <PropertyList>
 
+
 <name>Center-Hotspots</name>
-<background>Aircraft/ch53e/Models/transparent.rgb</background>
+<background>Aircraft/ch53e/Models/transparent.png</background>
 <w>1024</w>
 <h>1024</h>
 <y-offset>0</y-offset>

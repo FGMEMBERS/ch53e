@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!--
 Animate various objects in the cockpit.
 Pick animations go in ch53e-controls.xml
@@ -152,7 +151,7 @@ Due to their legion number, the caution panel animations get their own file.
 	</axis>
 </animation>
 
-<animation>
+<!--animation>
 	<type>material</type>
 	<object-name>ILandingGearHandle</object-name>
 	<property-base>sim/model/ch53e/materials/gearHandleGlow</property-base>
@@ -166,9 +165,9 @@ Due to their legion number, the caution panel animations get their own file.
       <green-prop>ambient/green</green-prop>
       <blue-prop>ambient/blue</blue-prop>
 	</ambient>
-</animation>
+</animation-->
 
-<animation>
+<!--animation>
 	<type>material</type>
 	<object-name>OLandingGearHandle</object-name>
 	<property-base>sim/model/ch53e/materials/gearHandleGlow</property-base>
@@ -183,7 +182,7 @@ Due to their legion number, the caution panel animations get their own file.
       <blue-prop>ambient/blue</blue-prop>
 	</ambient>
 
-</animation>
+</animation-->
 
 <!-- Hydraulics -->
 
@@ -223,7 +222,7 @@ Due to their legion number, the caution panel animations get their own file.
 
 <!-- Gear -->
 
-<animation>
+<!--animation>
 	<type>rotate</type>
 	<object-name>LandingGearHandle</object-name>
 	<property>/sim/model/ch53e/control-pos/LandingGearHandle-pos-norm</property>
@@ -262,7 +261,7 @@ Due to their legion number, the caution panel animations get their own file.
 		<x>0.001</x>
 		<z>0.012</z>
 	</axis>
-</animation>
+</animation-->
 
 <!-- Comm[0] -->
 
@@ -629,27 +628,8 @@ Due to their legion number, the caution panel animations get their own file.
 	</axis>
 </animation>
 
-<animation>
-	<type>rotate</type>
-	<object-name>PFltInstDial</object-name>
-	<property>controls/lighting/flight-instruments-norm</property>
-	<factor>300</factor>
-	<center>
-		<x-m> 4.052</x-m>
-		<y-m> 0.405</y-m>
-		<z-m> 1.629</z-m>
-	</center>
-	<axis>
-		<x1-m> 4.055</x1-m>
-		<y1-m> 0.405</y1-m>
-		<z1-m> 1.616</z1-m>
-		<x2-m> 4.052</x2-m>
-		<y2-m> 0.405</y2-m>
-		<z2-m> 1.629</z2-m>
-	</axis>
-</animation>
 
-<animation>
+<!--<animation>
 	<type>rotate</type>
 	<object-name>PFltInstDial</object-name>
 	<property>controls/lighting/flight-instruments-norm</property>
@@ -667,7 +647,7 @@ Due to their legion number, the caution panel animations get their own file.
 		<y2-m> 0.405</y2-m>
 		<z2-m> 1.629</z2-m>
 	</axis>
-</animation>
+</animation>-->
 
 <animation>
 	<type>rotate</type>
@@ -691,7 +671,7 @@ Due to their legion number, the caution panel animations get their own file.
 
 <!-- PCL -->
 
-<animation>
+<!--animation>
 	<type>rotate</type>
 	<object-name>PCL1</object-name>
 	<property>sim/model/ch53e/control-pos/pcl[0]/position-norm</property>
@@ -731,7 +711,7 @@ Due to their legion number, the caution panel animations get their own file.
 	<axis>
 		<y>1</y>
 	</axis>
-</animation>
+</animation-->
 
 <!-- Pitot -->
 
@@ -1022,7 +1002,7 @@ Due to their legion number, the caution panel animations get their own file.
 	</axis>
 </animation>
 
-<animation>
+<!--animation>
 	<type>material</type>
 	<name>CockpitInteriorLighting</name>
 	<object-name>CockpitInterior</object-name>
@@ -1032,9 +1012,9 @@ Due to their legion number, the caution panel animations get their own file.
 		<green-prop>green</green-prop>
 		<blue-prop>blue</blue-prop>
 	</emission>
-</animation>
+</animation-->
 
-<animation>
+<!--animation>
 	<type>material</type>
 	<name>PanelGroupLightingAnimation</name>
 	<object-name>PanelGroup</object-name>
@@ -1044,7 +1024,7 @@ Due to their legion number, the caution panel animations get their own file.
 		<green-prop>green</green-prop>
 		<blue-prop>blue</blue-prop>
 	</emission>
-</animation>
+</animation-->
 
 <animation>
 	<type>material</type>
@@ -1079,7 +1059,7 @@ Due to their legion number, the caution panel animations get their own file.
 	</emission>
 </animation>
 
-<animation>
+<!--animation>
 	<type>material</type>
 	<object-name>CIDoorFrame</object-name>
 	<property-base>controls/lighting/dome/emission</property-base>
@@ -1088,9 +1068,9 @@ Due to their legion number, the caution panel animations get their own file.
 		<green-prop>green</green-prop>
 		<blue-prop>blue</blue-prop>
 	</emission>
-</animation>
+</animation-->
 
-<animation>
+<!--animation>
 	<type>material</type>
 	<object-name>PIDoorFrame</object-name>
 	<property-base>controls/lighting/dome/emission</property-base>
@@ -1099,7 +1079,7 @@ Due to their legion number, the caution panel animations get their own file.
 		<green-prop>green</green-prop>
 		<blue-prop>blue</blue-prop>
 	</emission>
-</animation>
+</animation-->
 
 <animation>
 	<type>material</type>
@@ -1207,5 +1187,5 @@ Due to their legion number, the caution panel animations get their own file.
 </animation>
 
 -->
-
+  
 </PropertyList>
