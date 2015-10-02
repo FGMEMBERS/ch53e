@@ -102,7 +102,8 @@ adjustDomeColor = func {
 }
 
 adjustPanelColor = func {
-	
+	setprop('controls/lighting/panel-eff-norm', getprop('controls/lighting/panel-norm'));
+
 	# Mix multiple light sources
 	var red   = ((
 		  (panelRed.getValue() * panelNorm.getValue())
@@ -233,6 +234,7 @@ init = func {
 
 	if (panelNorm.getValue() == nil) {
 		panelNorm.setDoubleValue(0);
+    	setprop('controls/lighting/panel-eff-norm', getprop('controls/lighting/panel-norm'));
 	}
 
 	if (instrumentsNorm.getValue() == nil) {

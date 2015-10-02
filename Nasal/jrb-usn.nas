@@ -82,57 +82,61 @@ initAdi = func {
 #
 ########
 
-initGyroCompass = func {
 	var gyroNeedle1 = props.globals.getNode('sim/model/jrb-usn/gyro-needle-heading[0]', 1);
 	var gyroNeedle2 = props.globals.getNode('sim/model/jrb-usn/gyro-needle-heading[1]', 1);
 	var source1 = props.globals.getNode('sim/model/jrb-usn/gyro-needle-source[0]', 1);
 	var source2 = props.globals.getNode('sim/model/jrb-usn/gyro-needle-source[1]', 1);
-
 	var nav1Heading = props.globals.getNode('instrumentation/nav[0]/heading-deg');
 	var nav2Heading = props.globals.getNode('instrumentation/nav[1]/heading-deg');
 	var adfHeading = props.globals.getNode('instrumentation/adf/indicated-bearing-deg');
 	var tacanHeading = props.globals.getNode('instrumentation/tacan/indicated-bearing-true-deg');
-	# TODO
-	# gpsHeading = props.globals.getNode('');
 
-	foreach (node; [source1, source2]){
-		if (node.getValue() == nil) {
-			node.setValue('');
-		}
-	}
+    initGyroCompass = func
+    {
+# TODO
+# gpsHeading = props.globals.getNode('');
 
-	foreach (node; [gyroNeedle1, gyroNeedle2, nav1Heading, nav2Heading, adfHeading, tacanHeading]){
-		if (node.getValue() == nil) {
-			node.setDoubleValue(0);
-		}
-	}
+        foreach (node; [source1, source2]){
+            if (node.getValue() == nil) {
+                node.setValue('');
+            }
+        }
+        foreach (node; [gyroNeedle1, gyroNeedle2, source1, source2, nav1Heading, nav2Heading, adfHeading, tacanHeading]){
+            if (node.getValue() == nil) {
+                node.setValue(0);
+            }
+        }
 
-	updateGyroNeedles = func {
-		if (source1.getValue() == 'nav1') {
-			gyroNeedle1.setDoubleValue(nav1Heading.getValue());
-		} elsif (source1.getValue() == 'nav2') {
-			gyroNeedle1.setDoubleValue(nav2Heading.getValue());
-		} elsif (source1.getValue(adfHeading.getValue()) == 'adf') {
-			gyroNeedle1.setDoubleValue();
-		} elsif (source1.getValue(tacanHeading.getValue()) == 'tacan') {
-			gyroNeedle1.setDoubleValue();
-		}
+        foreach (node; [gyroNeedle1, gyroNeedle2, nav1Heading, nav2Heading, adfHeading, tacanHeading]){
+            if (node.getValue() == nil) {
+                node.setDoubleValue(0);
+            }
+        }
 
-		if (source2.getValue() == 'nav1') {
-			gyroNeedle2.setDoubleValue(nav1Heading.getValue());
-		} elsif (source2.getValue() == 'nav2') {
-			gyroNeedle2.setDoubleValue(nav2Heading.getValue());
-		} elsif (source2.getValue(adfHeading.getValue()) == 'adf') {
-			gyroNeedle2.setDoubleValue();
-		} elsif (source2.getValue(tacanHeading.getValue()) == 'tacan') {
-			gyroNeedle2.setDoubleValue();
-		}
+    };
 
-		settimer(updateGyroNeedles, 0.1);
-	}
+    updateGyroNeedles = func
+    {
+        if (source1.getValue() == 'nav1') {
+            gyroNeedle1.setDoubleValue(nav1Heading.getValue());
+        } elsif (source1.getValue() == 'nav2') {
+            gyroNeedle1.setDoubleValue(nav2Heading.getValue());
+        } elsif (source1.getValue(adfHeading.getValue()) == 'adf') {
+            gyroNeedle1.setDoubleValue();
+        } elsif (source1.getValue(tacanHeading.getValue()) == 'tacan') {
+            gyroNeedle1.setDoubleValue();
+        }
 
-	updateGyroNeedles();
-}
+        if (source2.getValue() == 'nav1') {
+            gyroNeedle2.setDoubleValue(nav1Heading.getValue());
+        } elsif (source2.getValue() == 'nav2') {
+            gyroNeedle2.setDoubleValue(nav2Heading.getValue());
+        } elsif (source2.getValue(adfHeading.getValue()) == 'adf') {
+            gyroNeedle2.setDoubleValue();
+        } elsif (source2.getValue(tacanHeading.getValue()) == 'tacan') {
+            gyroNeedle2.setDoubleValue();
+        }
+    }
 
 ################
 #
@@ -284,7 +288,7 @@ initRadAlt = func {
 	watchRadAlt();
 }
 
-init = func {
+usn_init = func {
 	# Some globally used properties
 
 	# These are supplied by interior-lights.nas, reflected light from various sources
@@ -301,4 +305,13 @@ init = func {
 
 	print("jrb-usn.nas initialized");
 }
-settimer(init, 0);
+
+adjustATTFlag = func {
+	if (getprop('instrumentation/attitude-indicator/serviceable') and (getprop('instrumentation/attitude-indicator/spin') > 0.99)) {
+		interpolate('sim/model/jrb-usn-adi/ATTFlag-pos-norm', 1, 0.25);
+	} else {
+		interpolate('sim/model/jrb-usn-adi/ATTFlag-pos-norm', 0, 0.25);
+	}
+}
+setlistener('instrumentation/attitude-indicator/serviceable', adjustATTFlag);
+setlistener('instrumentation/attitude-indicator/spin', adjustATTFlag);

@@ -391,108 +391,36 @@
   
   <animation>
     <type>rotate</type>
-    <object-name>MovMainRotor</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS1</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS2</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS3</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS4</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS5</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS6</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
-      <y1-m>  0.000 </y1-m>
-      <z1-m>  3.806 </z1-m>
-      <x2-m>  0.100 </x2-m>
-      <y2-m>  0.000 </y2-m>
-      <z2-m>  3.293 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
-    <object-name>BS7</object-name>
-    <property>rotors/main/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  0.055 </x1-m>
+      <object-name>MovMainRotor</object-name>
+      <object-name>BS1</object-name>
+      <object-name>BS2</object-name>
+      <object-name>BS3</object-name>
+      <object-name>BS4</object-name>
+      <object-name>BS5</object-name>
+      <object-name>BS6</object-name>
+      <object-name>BS7</object-name>
+      <expression>
+          <product>
+              <property>rotors/main/blade[0]/position-deg</property>
+              <table>
+                  <property>surface-positions/wing-fold-pos-norm</property>
+                  <entry>
+                          <ind> 0.0</ind>
+                          <dep> 1.0</dep>
+                      </entry>
+                      <entry>
+                          <ind> 0.01</ind>
+                          <dep> 0.0</dep>
+                      </entry>
+              </table>
+              <!--<dif>
+                  <value>1</value>
+                  <property>surface-positions/wing-fold-pos-norm</property>
+              </dif>-->
+          </product>
+      </expression>
+      <axis>
+          <x1-m>  0.055 </x1-m>
       <y1-m>  0.000 </y1-m>
       <z1-m>  3.806 </z1-m>
       <x2-m>  0.100 </x2-m>
@@ -515,71 +443,11 @@
   <animation>
         <type>select</type>
 		<object-name>BS1</object-name>
-        <condition>
-            <less-than>
-			<property>rotors/main/rpm</property>
-                <value>151</value>
-            </less-than>
-        </condition>
-    </animation>
-	
-	<animation>
-        <type>select</type>
 		<object-name>BS2</object-name>
-        <condition>
-            <less-than>
-			<property>rotors/main/rpm</property>
-                <value>151</value>
-            </less-than>
-        </condition>
-    </animation>
-	
-	<animation>
-        <type>select</type>
 		<object-name>BS3</object-name>
-        <condition>
-            <less-than>
-			<property>rotors/main/rpm</property>
-                <value>151</value>
-            </less-than>
-        </condition>
-    </animation>
-	
-	<animation>
-        <type>select</type>
 		<object-name>BS4</object-name>
-        <condition>
-            <less-than>
-			<property>rotors/main/rpm</property>
-                <value>151</value>
-            </less-than>
-        </condition>
-    </animation>
-	
-	<animation>
-        <type>select</type>
 		<object-name>BS5</object-name>
-        <condition>
-            <less-than>
-			<property>rotors/main/rpm</property>
-                <value>151</value>
-            </less-than>
-        </condition>
-    </animation>
-	
-	<animation>
-        <type>select</type>
 		<object-name>BS6</object-name>
-        <condition>
-            <less-than>
-			<property>rotors/main/rpm</property>
-                <value>151</value>
-            </less-than>
-        </condition>
-    </animation>
-	
-	<animation>
-        <type>select</type>
 		<object-name>BS7</object-name>
         <condition>
             <less-than>
@@ -594,35 +462,28 @@
   <animation>
     <type>rotate</type>
     <object-name>TailRotorBlades</object-name>
-    <property>rotors/tail/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  14.031 </x1-m>
-      <y1-m>  -2.041 </y1-m>
-      <z1-m>  3.757 </z1-m>
-      <x2-m>  14.031 </x2-m>
-      <y2-m>  -1.566 </y2-m>
-      <z2-m>  3.930 </z2-m>
-    </axis>
-  </animation>
-  
-  <animation>
-    <type>rotate</type>
     <object-name>TailRotBase</object-name>
-    <property>rotors/tail/blade[0]/position-deg</property>
-    <axis>
-      <x1-m>  14.031 </x1-m>
-      <y1-m>  -2.041 </y1-m>
-      <z1-m>  3.757 </z1-m>
-      <x2-m>  14.031 </x2-m>
-      <y2-m>  -1.566 </y2-m>
-      <z2-m>  3.930 </z2-m>
-    </axis>
-  </animation>
-
-<animation>
-    <type>rotate</type>
     <object-name>TailRotProp</object-name>
-    <property>rotors/tail/blade[0]/position-deg</property>
+      <expression>
+          <product>
+              <property>rotors/tail/blade[0]/position-deg</property>
+              <table>
+                  <property>surface-positions/wing-fold-pos-norm</property>
+                  <entry>
+                      <ind> 0.0</ind>
+                      <dep> 1.0</dep>
+                  </entry>
+                  <entry>
+                      <ind> 0.01</ind>
+                      <dep> 0.0</dep>
+                  </entry>
+              </table>
+              <!--<dif>
+                  <value>1</value>
+                  <property>surface-positions/wing-fold-pos-norm</property>
+              </dif>-->
+          </product>
+      </expression>
     <axis>
       <x1-m>  14.031 </x1-m>
       <y1-m>  -2.041 </y1-m>

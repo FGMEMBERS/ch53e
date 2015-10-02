@@ -51,6 +51,10 @@ lightNodes = {};
 # Update one light to make its material reflect its status
 #
 updateLight = func(targetLight) {
+if (!caution_initialized)
+{
+return;
+}
 	redNode = targetLight.getNode('emission/red');
 	greenNode = targetLight.getNode('emission/green');
 	blueNode = targetLight.getNode('emission/blue');
@@ -106,6 +110,7 @@ turnOn = func(targetLight) {
 	status.setBoolValue(1);
 	updateLight(targetLight);
 }
+var caution_initialized = 0;
 
 #
 # Initialize property nodes
@@ -139,8 +144,10 @@ cautionInit = func {
 		turnOff(lightNodes[light]);
 	}
 	setlistener('controls/lighting/panel/emission', func{updateAllLights(lightNodes)});
+    setlistener('sim/model/ch53e/control-input/caution-test', testCaution);
+print('ch53e-caution Initialization completed');
+caution_initialized=1;
 }
-settimer(cautionInit, 0);
 
 #
 # Watch test button and turn on/off all lights when pressed
@@ -154,6 +161,5 @@ testCaution = func {
 		}
 	}
 }
-setlistener('sim/model/ch53e/control-input/caution-test', testCaution);
 
 print('ch53e-caution.nas initialized');

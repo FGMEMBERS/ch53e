@@ -628,27 +628,8 @@ Due to their legion number, the caution panel animations get their own file.
 	</axis>
 </animation>
 
-<animation>
-	<type>rotate</type>
-	<object-name>PFltInstDial</object-name>
-	<property>controls/lighting/flight-instruments-norm</property>
-	<factor>300</factor>
-	<center>
-		<x-m> 4.052</x-m>
-		<y-m> 0.405</y-m>
-		<z-m> 1.629</z-m>
-	</center>
-	<axis>
-		<x1-m> 4.055</x1-m>
-		<y1-m> 0.405</y1-m>
-		<z1-m> 1.616</z1-m>
-		<x2-m> 4.052</x2-m>
-		<y2-m> 0.405</y2-m>
-		<z2-m> 1.629</z2-m>
-	</axis>
-</animation>
 
-<animation>
+<!--<animation>
 	<type>rotate</type>
 	<object-name>PFltInstDial</object-name>
 	<property>controls/lighting/flight-instruments-norm</property>
@@ -666,7 +647,7 @@ Due to their legion number, the caution panel animations get their own file.
 		<y2-m> 0.405</y2-m>
 		<z2-m> 1.629</z2-m>
 	</axis>
-</animation>
+</animation>-->
 
 <animation>
 	<type>rotate</type>

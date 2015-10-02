@@ -209,6 +209,11 @@
 		<y>1</y>
 	</axis>
 </animation>
-
+    <effect>
+        <name>ch-53e-panel-knob</name>
+        <inherits-from>Models/Effects/interior/ch-53e-panel-knob</inherits-from>
+        <object-name>PitchKnob</object-name>
+        <object-name>RollKnob</object-name>
+    </effect>
 </PropertyList>
 
