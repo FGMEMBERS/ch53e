@@ -2,17 +2,17 @@
 
 <PropertyList>
 
-   <key n="68">
-    <name>D</name>
-    <desc>Passenger door</desc>
+   <key n="12">
+    <name>CTRL-l</name>
+    <desc>Loading Bay Door</desc>
     <binding>
      <command>nasal</command>
      <script>ch53e.doorsystem.passengerexport();</script>
     </binding>
    </key>
 
-   <key n="100">
-    <name>d</name>
+   <key n="4">
+    <name>CTRL-d</name>
     <desc>Crew door</desc>
     <binding>
      <command>nasal</command>
