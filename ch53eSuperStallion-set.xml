@@ -7,7 +7,7 @@
 ************************************************************************
 -->
 
-<PropertyList>
+<PropertyList include="Aircraft/Generic/Human/Include/walker-include.xml">
     <sim include="Nasal/views.xml">
 
         <description>Sikorsky CH-53E Super Stallion (Yasim)</description>
@@ -45,6 +45,13 @@
             <livery>
                 <file type="string">default</file>
             </livery>
+            <map>
+                <default_exit>
+                    <x-offset-m type ="float">-4.5</x-offset-m>
+                    <y-offset-m type ="float">2</y-offset-m>
+                    <head-offset-deg type="double">90.0</head-offset-deg>
+                </default_exit>
+            </map>
             <ch53e>
                 <debug-model type='int'>0</debug-model>
                 <state type="int">0</state>
@@ -204,12 +211,12 @@
             <title>Sikorsky CH-53E - background and help</title>
             <line></line>
             <key>
-                <name>d</name>
+                <name>CTRL-d</name>
                 <desc>Crew door and left Window</desc>
             </key>
             <key>
-                <name>D</name>
-                <desc>Bay Door</desc>
+                <name>CTRL-l</name>
+                <desc>Loading Bay Door</desc>
             </key>
             <key>
                 <name>n</name>
@@ -220,11 +227,9 @@
                 <desc>Rotor blades and tailboom folding</desc>
             </key>
             <text>
-                ___CAUTION___
-                As there is no automatic rotor positioning system implemented yet,for executing a correct Rotor blades and tailboom folding, please have a quick exterior look to the 7th main rotor blade(initial position) marked with "V" letter: it is exactly pointing out to the tailboom before starting the engines.
-                To execute this procedure without making a "wrong folding" on the left or on the right, and after shuting-down the engines press "n" to slow down the main rotor movement.
-                Relax and take it as a game: just try to align correctly the "V" letter with the midddle of the tailboom.
-                If necessary start the engines again for 2 seconds and shut them down to gain some power til you succeed to make a perfect alignment. Once done, you can press "f" for folding everything...Enjoy.
+                Rotor Folding.
+                The rotor folding is quite simple and works best when the rotors are nearly at the correct position. There are no interlocks so it is possible to fold whilst rotating.
+                To align correctly use the rotor brake (press and hold N to increase braking). The 7th main rotor blade is marked with "V" letter which should be pointing out to the tailboom.
             </text>
         </help>
 
