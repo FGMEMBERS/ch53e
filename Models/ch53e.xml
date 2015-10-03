@@ -165,8 +165,31 @@
     <object-name>Circle.028</object-name>
 	<object-name>Circle</object-name>     
   </animation>
-  
-  <animation>
+    
+    <effect>
+        <inherits-from>Effects/model-transparent</inherits-from>
+        <object-name>GL</object-name>
+        <object-name>GLup</object-name>
+        <object-name>LSwindowGL</object-name>
+        <object-name>CrewDoorGL</object-name>
+        <object-name>BayDoorGL</object-name>
+        <object-name>Plane.005</object-name>
+        <object-name>Plane.006</object-name>
+        <object-name>Circle.023</object-name>
+        <object-name>Circle.024</object-name>
+        <object-name>MLBglass</object-name>
+        <object-name>LBglass</object-name>
+        <object-name>RBglass</object-name>
+        <object-name>TLB.002</object-name>
+        <object-name>Circle.018</object-name>
+        <object-name>Circle.020</object-name>
+        <object-name>Circle.028</object-name>
+        <object-name>Circle</object-name>
+        <object-name>MainRotProp</object-name>
+        <object-name>TailRotProp</object-name>
+    </effect>
+
+    <animation>
     <type>material</type>
     <object-name>FuselageM</object-name>
 	<object-name>FuselageUP</object-name>
