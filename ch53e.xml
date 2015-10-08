@@ -2,7 +2,7 @@
 <!-- This FDM is based on Josh Babcock's CH-53E original one. Most of the values in 
 the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been changed -->
 
-<airplane mass="33228">
+<airplane mass="33228" version="YASIM_VERSION_CURRENT">
 
 	<approach speed="60" aoa="16">
 		<control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>

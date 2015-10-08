@@ -4,7 +4,20 @@
 
   <path>ch53e.ac</path>
 
+    <nasal>
+        <load>
+            <![CDATA[ 
+            var self = cmdarg();
+            var livery_update = aircraft.livery_update.new("Aircraft/ch53e/Models/Liveries", 10 );
+        ]]>
+        </load>
 
+        <unload>
+            <![CDATA[ 
+            livery_update.stop();
+            ]]>
+        </unload>
+    </nasal>
 
   <!-- All objects -->
   
@@ -144,29 +157,10 @@
 	<object-name>PaleFix5</object-name>
 	<object-name>PaleFix6</object-name>
 	<object-name>PaleFix7</object-name>
-	
-	
-    <!-- Transparent Objects -->
-    <object-name>GL</object-name>
-    <object-name>GLup</object-name>
-    <object-name>LSwindowGL</object-name>
-    <object-name>CrewDoorGL</object-name>
-	<object-name>BayDoorGL</object-name>
-	<object-name>Plane.005</object-name>
-	<object-name>Plane.006</object-name>
-	<object-name>Circle.023</object-name>
-	<object-name>Circle.024</object-name>
-	<object-name>MLBglass</object-name>
-	<object-name>LBglass</object-name>
-    <object-name>RBglass</object-name>
-	<object-name>TLB.002</object-name>
-    <object-name>Circle.018</object-name>
-	<object-name>Circle.020</object-name>
-    <object-name>Circle.028</object-name>
-	<object-name>Circle</object-name>     
   </animation>
-    
-    <effect>
+
+  <!-- Transparent Objects -->
+  <effect>
         <inherits-from>Effects/model-transparent</inherits-from>
         <object-name>GL</object-name>
         <object-name>GLup</object-name>
