@@ -30,6 +30,8 @@
         <aero>ch53e</aero>
         <fuel-fraction>0.8</fuel-fraction>
 
+        <flight-recorder include="Systems/flight-recorder.xml"/>
+
         <startup>
             <splash-texture>Aircraft/ch53e/ch53e-splash.jpg</splash-texture>
         </startup>
@@ -206,6 +208,35 @@
             <max-lb>300</max-lb>
         </weight>
 
+        <weight n="4">
+            <name>Utility Hoist</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>600</max-lb>
+        </weight>
+
+        <weight n="5">
+            <name>Internal</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>30000</max-lb>
+        </weight>
+        
+        <weight n="6">
+            <name>Fore Hook</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>21600</max-lb>
+        </weight>
+
+        <weight n="7">
+            <name>Center Hook</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>32000</max-lb>
+        </weight>
+
+        <weight n="8">
+            <name>Aft Hook</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>21600</max-lb>
+        </weight>
 
         <help>
             <title>Sikorsky CH-53E - background and help</title>
