@@ -8,7 +8,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 		<control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
 	</approach>
 
-	<cruise speed="172" alt="0">
+	<cruise speed="170" alt="0">
 		<control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
 	</cruise>
 
@@ -18,14 +18,14 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 		 x="-0.057" y="0.0"    z="3.528"
 		nx="0.085"  ny="-0.00" nz="1.0"
 		fx="1"     fy="0"     fz="0"
-		diameter="22.79" rel-len-blade-start="0.29"
+		diameter="24.079" rel-len-blade-start="0.29"
       chord="0.744" twist="-14"
       numblades="7" weightperblade="600" relbladecenter="0.61"
       rel-len-where-incidence-is-measured="0.55"
 
-		maxcollective="33.6" mincollective="-5.5"
-		mincyclicele="-25.8" maxcyclicele="21"
-		mincyclicail="-8.1" maxcyclicail="12.7"
+		maxcollective="26.6" mincollective="-5.5"
+		mincyclicele="-12.6" maxcyclicele="17"
+		mincyclicail="-6.1" maxcyclicail="9.8"
 
 		flapmin="-18" flapmax="18" flap0="-5"
 		delta="0.5" rellenflaphinge="0.063" delta3="0"
@@ -61,13 +61,13 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	
 	
 	
-	<rotor name="tail" x="-14.030" y="1.716" z="3.875" nx="0.0" ny="-0.99" nz="0.36" fx="1" fy="0" fz="0"
-		diameter="4.67" rel-len-blade-start="0.1"
+	<rotor name="tail" x="-15.194" y="1.716" z="4.314" nx="0.0" ny="-0.99" nz="0.36" fx="1" fy="0" fz="0"
+		diameter="6.096" rel-len-blade-start="0.1"
       chord="0.39" twist="-8"
 		numblades="4" weightperblade="100" relbladecenter="0.58"
       rel-len-where-incidence-is-measured="0.7"
 
-		maxcollective="29.9" mincollective="-15"
+		maxcollective="21" mincollective="-5"
 
 		flapmin="-8" flapmax="8" flap0="0" flap0factor="0"
 		delta="0.5" rellenflaphinge="0.043" delta3="1"
@@ -96,6 +96,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	
 	
 	
+    <!-- Need max speed at given weights to get the drag factor right -->
     <!--3 off General Electric T64-GE-416/416A turboshaft, 4,380 shp(3,270 kW) each -->
 	<rotorgear
 		max-power-engine="9810"
@@ -118,7 +119,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 
 	<fuselage ax="-4.861" ay="0" az="0.566" bx="-11.014" by="0" bz="1.493" width="2.77" taper="0.3" midpoint="0.0"  cz="0.2" idrag="0"/>
     
-	<fuselage ax="-10.947" ay="0" az="1.493" bx="-13.053" by="0" bz="1.493" width="0.82" taper="1.0" midpoint="0.0"  cz="0.2" idrag="0"/>
+	<fuselage ax="-10.947" ay="0" az="1.493" bx="-14.053" by="0" bz="1.493" width="0.82" taper="1.0" midpoint="0.0"  cz="0.2" idrag="0"/>
     
 	<fuselage ax="2.880" ay="1.909" az="-0.152" bx="-3.927" by="1.909" bz="-0.152" width="1.0" taper="0.8" midpoint="0.5"  cz="0.2" idrag="0"/>
 	
@@ -144,19 +145,19 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	<fuselage ax=".4" ay="1.0" az="2.5" bx="-1.9" by="1.0" bz="2.5" width="1.25" taper=".5" midpoint="0.5" idrag="0"/>
 
 	<!--Rudder -->	
-	<vstab x="-12.253" y="0" z="1.9" taper="0.75" dihedral="70" length="3.3" chord="1.85" sweep="33"
+	<vstab x="-13.253" y="0" z="1.9" taper="0.75" dihedral="70" length="4.01" chord="1.85" sweep="33"
 		camber="0.2" effectiveness="0.9">
 		<stall aoa="16" width="4" peak="1.5"/>
 	</vstab>
 
 	<!-- Hstab -->
-    <hstab x="-13.301" y="-3.315" z="4.166" taper="1.0" effectiveness="0.5" length="2.197" chord="1.081" sweep="0">
+    <hstab x="-15.2" y="-3.315" z="4.6" taper="1.0" effectiveness="0.5" length="2.197" chord="1.081" sweep="0">
 		<stall aoa="0" width="0" peak="1.5"/>
 	</hstab>
 	
   
 <!-- nose gear -->
-<gear x="5.797" y="0.00" z="-1.4" compression="0.4" sfric="1.5" dfric="0.8"  retract-time="5"
+<gear x="5.797" y="0.00" z="-1.25" compression="0.4" sfric="1.5" dfric="0.8"  retract-time="5"
     spring="2.3" damp="1.0" initial-load="0">
     <control-input axis="/controls/flight/rudder" control="STEER" square="true"/>
     <control-input axis="/controls/gear/gear-down" control="EXTEND"/>
@@ -165,7 +166,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
   </gear>
 
 	<!-- right gear -->
-<gear x="-2.497" y="-1.98" z="-1.4" compression="0.4" sfric="1.5" dfric="0.8" retract-time="5"
+<gear x="-2.497" y="-1.98" z="-1.25" compression="0.4" sfric="1.5" dfric="0.8" retract-time="5"
     spring="1.7" damp="1.0" initial-load="0">
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
@@ -175,7 +176,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
   </gear>
   
   <!-- left gear -->
-<gear x="-2.497" y="1.98" z="-1.4" compression="0.4" sfric="1.5" dfric="0.8"  retract-time="5"
+<gear x="-2.497" y="1.98" z="-1.25" compression="0.4" sfric="1.5" dfric="0.8"  retract-time="5"
     spring="1.7" damp="1.0" initial-load="0">
     <control-input axis="/controls/gear/brake-right" control="BRAKE"/>
     <control-input axis="/controls/gear/brake-parking" control="BRAKE"/>
