@@ -4,7 +4,7 @@
 
     <path>LightCone.ac</path>
 
-    <!--<animation>
+    <animation>
         <type>blend</type>
         <expression>
             <max>
@@ -15,7 +15,7 @@
                 <value>0.8</value>
             </max>
         </expression>
-    </animation>-->
+    </animation>
     <effect>
         <inherits-from>Effects/light-cone</inherits-from>
         <object-name>Cone</object-name>
