@@ -172,7 +172,6 @@ if(gearBind) {
 	});
 }
 setupALSLights = func {
-print("Setting up ALS secondary lights");
     if (getprop("sim/current-view/internal"))
     {
         setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", -2);

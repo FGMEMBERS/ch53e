@@ -1253,13 +1253,20 @@ var config_dialog = nil;
 
 
 # initialization
+var ch53_init_done = 0;
+
 setlistener("sim/position-finalized", func (is_done)
 #setlistener("/sim/signals/fdm-initialized", func
 {
+    if (ch53_init_done)
+        return;
+
+    ch53_init_done=1;
+
     if (is_done.getValue())
     {
         usn_init();
-        init_rotoranim();
+#        init_rotoranim();
         collective.setDoubleValue(1);
 
         setlistener("/sim/signals/reinit", func(n) {
