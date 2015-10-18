@@ -2,47 +2,42 @@
 
 <PropertyList>
 
-  <path>LightCone.ac</path>
+    <path>LightCone.ac</path>
 
-  <animation>
-    <type>blend</type>
-    <expression>
-      <sum>
-        <product>
-          <product>
-            <property>lightpack/landing-lights-intensity</property>
-            <value>-1</value>
-          </product>
-          <sum>
+    <!--<animation>
+        <type>blend</type>
+        <expression>
             <max>
-              <pow>
-                <cos><property>/sim/time/sun-angle-rad</property></cos>
-                <value>0.3</value>
-              </pow>
-              <value>0</value>
+                <product>
+                    <property>lightpack/landing-lights-intensity</property>
+                    <property>/rendering/scene/diffuse/red</property>
+                </product>
+                <value>0.8</value>
             </max>
-            <value>-1.8</value>
-          </sum>
-          <value>-0.2</value>
-        </product>
-        <value>1</value>
-      </sum>
-    </expression>
-  </animation>
+        </expression>
+    </animation>-->
+    <effect>
+        <inherits-from>Effects/light-cone</inherits-from>
+        <object-name>Cone</object-name>
+    </effect>
 
-  <effect>
-    <inherits-from>Effects/light-cone</inherits-from>
-    <object-name>Cone</object-name>
-  </effect>
-  
     <animation>
-    <type>select</type>
-    <object-name>Cone</object-name>
-    <object-name>Cone-texture</object-name>
-    <object-name>Light</object-name>
-    <condition>
-      <not><property>/sim/rendering/rembrandt/enabled</property></not>
-    </condition>
-  </animation>
-  
- </PropertyList>
+        <type>select</type>
+        <object-name>Cone</object-name>
+        <object-name>Cone-texture</object-name>
+        <object-name>Light</object-name>
+        <condition>
+            <not>
+                <property>/sim/rendering/rembrandt/enabled</property>
+            </not>
+            <less-than>
+                <property>/rendering/scene/diffuse/red</property>
+                <value>0.9</value>
+            </less-than>
+            <not>
+                <property>/sim/rendering/shaders/skydome</property>
+            </not>
+        </condition>
+    </animation>
+
+</PropertyList>

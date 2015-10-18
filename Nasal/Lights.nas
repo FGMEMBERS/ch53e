@@ -171,6 +171,22 @@ if(gearBind) {
 		}
 	});
 }
+setupALSLights = func {
+print("Setting up ALS secondary lights");
+    if (getprop("sim/current-view/internal"))
+    {
+        setprop("sim/rendering/als-secondary-lights/landing-light1-offset-deg", -2);
+        setprop("sim/rendering/als-secondary-lights/landing-light2-offset-deg", 2);
+        setprop("sim/rendering/als-secondary-lights/use-landing-light", 1);
+        setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 1);
+    }
+    else
+    {
+        setprop("sim/rendering/als-secondary-lights/use-landing-light", 0);
+        setprop("sim/rendering/als-secondary-lights/use-alt-landing-light", 0);
+    }
+}
+setlistener("/sim/current-view/internal", setupALSLights);
 
 print("Lightpack light system initialized");
 
