@@ -654,7 +654,7 @@ fadeWhite = lightFadeInOut.new(whiteSwitch, lightsPath~"white-light-intensity");
                   <property>surface-positions/wing-fold-pos-norm</property>
                   <entry>
                           <ind> 0.0</ind>
-                          <dep> 1.0</dep>
+                          <dep>-1.0</dep>
                       </entry>
                       <entry>
                           <ind> 0.01</ind>
