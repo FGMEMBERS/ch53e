@@ -4,6 +4,12 @@
 
   <path>interior.ac</path>
   
+  <animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>200</max-m>
+    </animation>
+  
   
   <!-- LStick -->
   <model>
