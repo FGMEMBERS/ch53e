@@ -150,11 +150,18 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 		<stall aoa="16" width="4" peak="1.5"/>
 	</vstab>
 
-	<!-- Hstab -->
-    <hstab x="-15.2" y="-3.315" z="4.6" taper="1.0" effectiveness="0.5" length="2.197" chord="1.081" sweep="0">
+	<!-- horizontal stabilizer on right side -->
+    <!-- note: use unmirrored vstab with dihedral of 0 degrees (all other surfaces are mirrored) -->
+    <vstab x="-15.2" y="-3.315" z="4.6"
+        taper="1.0"
+        length="2.2"
+        chord="1.081"
+        camber="0"
+        sweep="0"
+        dihedral="0"
+        effectiveness="0.5">
 		<stall aoa="0" width="0" peak="1.5"/>
-	</hstab>
-	
+    </vstab>
   
 <!-- nose gear -->
 <gear x="5.797" y="0.00" z="-1.25" compression="0.4" sfric="1.5" dfric="0.8"  retract-time="5"
