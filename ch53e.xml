@@ -8,7 +8,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 		<control-setting axis="/controls/engines/engine[0]/throttle" value="0.3"/>
 	</approach>
 
-	<cruise speed="172" alt="0">
+	<cruise speed="170" alt="0">
 		<control-setting axis="/controls/engines/engine[0]/throttle" value="1.0"/>
 	</cruise>
 
@@ -18,7 +18,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 		 x="-0.057" y="0.0"    z="3.528"
 		nx="0.085"  ny="-0.00" nz="1.0"
 		fx="1"     fy="0"     fz="0"
-		diameter="22.79" rel-len-blade-start="0.29"
+		diameter="24.079" rel-len-blade-start="0.29"
       chord="0.744" twist="-14"
       numblades="7" weightperblade="600" relbladecenter="0.61"
       rel-len-where-incidence-is-measured="0.55"
@@ -61,8 +61,8 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	
 	
 	
-	<rotor name="tail" x="-14.030" y="1.716" z="3.875" nx="0.0" ny="-0.99" nz="0.36" fx="1" fy="0" fz="0"
-		diameter="4.67" rel-len-blade-start="0.1"
+	<rotor name="tail" x="-15.194" y="1.716" z="4.314" nx="0.0" ny="-0.99" nz="0.36" fx="1" fy="0" fz="0"
+		diameter="6.096" rel-len-blade-start="0.1"
       chord="0.39" twist="-8"
 		numblades="4" weightperblade="100" relbladecenter="0.58"
       rel-len-where-incidence-is-measured="0.7"
@@ -97,8 +97,9 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	
 	
     <!-- Need max speed at given weights to get the drag factor right -->
+    <!--3 off General Electric T64-GE-416/416A turboshaft, 4,380 shp(3,270 kW) each -->
 	<rotorgear
-		max-power-engine="70000"
+		max-power-engine="9810"
 		max-power-rotor-brake="600"
 		rotorgear-friction="1.5"
 		engine-prop-factor="0.03"
@@ -118,7 +119,7 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 
 	<fuselage ax="-4.861" ay="0" az="0.566" bx="-11.014" by="0" bz="1.493" width="2.77" taper="0.3" midpoint="0.0"  cz="0.2" idrag="0"/>
     
-	<fuselage ax="-10.947" ay="0" az="1.493" bx="-13.053" by="0" bz="1.493" width="0.82" taper="1.0" midpoint="0.0"  cz="0.2" idrag="0"/>
+	<fuselage ax="-10.947" ay="0" az="1.493" bx="-14.053" by="0" bz="1.493" width="0.82" taper="1.0" midpoint="0.0"  cz="0.2" idrag="0"/>
     
 	<fuselage ax="2.880" ay="1.909" az="-0.152" bx="-3.927" by="1.909" bz="-0.152" width="1.0" taper="0.8" midpoint="0.5"  cz="0.2" idrag="0"/>
 	
@@ -128,17 +129,39 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	
 	<fuselage ax="2.880" ay="-3.026" az="-0.152" bx="-3.985" by="-3.026" bz="-0.152" width="0.8" taper="0.7" midpoint="0.5"  cz="0.2" idrag="0"/>
 	
+    <!-- probe -->
+	<fuselage ax="9.850" ay="-.975" az="-0.1" bx="4.3" by="-.975" bz="-0.1" width="0.4" taper=".25" midpoint="1.0" idrag="0"/>
+
+    <!-- fuselage top -->
+	<fuselage ax="4.426" ay="0" az="2.0" bx="-6.0" by="0" bz="2.0" width="2.0" taper=".5" midpoint="0.5" idrag="0"/>
+
+    <!-- fuselage right engine -->
+	<fuselage ax="4.0" ay="1.7" az="2.0" bx="-0.5" by="1.7" bz="2.0" width="1.25" taper=".5" midpoint="0.25" idrag="0"/>
+
+    <!-- fuselage left engine -->
+	<fuselage ax="4.0" ay="-1.7" az="2.0" bx="-0.5" by="-1.7" bz="2.0" width="1.25" taper=".5" midpoint="0.25" idrag="0"/>
+
+    <!-- fuselage engine #3 -->
+	<fuselage ax=".4" ay="1.0" az="2.5" bx="-1.9" by="1.0" bz="2.5" width="1.25" taper=".5" midpoint="0.5" idrag="0"/>
+
 	<!--Rudder -->	
-	<vstab x="-12.253" y="0" z="1.9" taper="0.75" dihedral="70" length="3.3" chord="1.85" sweep="33"
+	<vstab x="-13.253" y="0" z="1.9" taper="0.75" dihedral="70" length="4.01" chord="1.85" sweep="33"
 		camber="0.2" effectiveness="0.9">
 		<stall aoa="16" width="4" peak="1.5"/>
 	</vstab>
 
-	<!-- Hstab -->
-    <hstab x="-13.301" y="-3.315" z="4.166" taper="1.0" effectiveness="0.5" length="2.197" chord="1.081" sweep="0">
+	<!-- horizontal stabilizer on right side -->
+    <!-- note: use unmirrored vstab with dihedral of 0 degrees (all other surfaces are mirrored) -->
+    <vstab x="-15.2" y="-3.315" z="4.6"
+        taper="1.0"
+        length="2.2"
+        chord="1.081"
+        camber="0"
+        sweep="0"
+        dihedral="0"
+        effectiveness="0.5">
 		<stall aoa="0" width="0" peak="1.5"/>
-	</hstab>
-	
+    </vstab>
   
 <!-- nose gear -->
 <gear x="5.797" y="0.00" z="-1.25" compression="0.4" sfric="1.5" dfric="0.8"  retract-time="5"
@@ -213,5 +236,17 @@ the "MainRotor","TailRotor","RotorGear" & Fuel tanks capacity have not been chan
 	<weight x="2.474" y="0.806" z="-0.026" mass-prop="/sim/weight[2]/weight-lb"/>
     <!-- aircrewman2 -->
 	<weight x="2.474" y="-0.806" z="-0.026" mass-prop="/sim/weight[3]/weight-lb"/>
+
+    <!-- payload -->
+    <!-- utility hoist -->
+    <weight x="3.634" y="-1.849" z="1.172" mass-prop="/sim/weight[4]/weight-lb"/>
+    <!-- internal -->
+    <weight x="0.0" y="0.0" z=".5" mass-prop="/sim/weight[5]/weight-lb"/>
+    <!-- fore hook-->
+    <weight x="1.379" y="0.0" z="-0.546" mass-prop="/sim/weight[6]/weight-lb"/>
+    <!-- center hook -->
+    <weight x="-0.662" y="0.0" z="-0.546" mass-prop="/sim/weight[7]/weight-lb"/>
+    <!-- aft hook -->
+    <weight x="-2.0" y="0.0" z="-0.546" mass-prop="/sim/weight[8]/weight-lb"/>
 
 </airplane>

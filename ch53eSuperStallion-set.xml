@@ -12,15 +12,16 @@
 
         <description>Sikorsky CH-53E Super Stallion (Yasim)</description>
         <author>Pierre Duval, Josh Babcok</author>
-        <status>beta</status>
+        <status>1.5</status>
         <license>GPL v2</license>
 
         <tags>
             <tag>helicopter</tag>
             <tag>2-engine</tag>
         </tags>
+        
         <rating>
-            <FDM type="int">3</FDM>
+            <FDM type="int">4</FDM>
             <systems type="int">2</systems>
             <cockpit type="int">5</cockpit>
             <model type="int">5</model>
@@ -29,6 +30,8 @@
         <flight-model>yasim</flight-model>
         <aero>ch53e</aero>
         <fuel-fraction>0.8</fuel-fraction>
+
+        <flight-recorder include="Systems/flight-recorder.xml"/>
 
         <startup>
             <splash-texture>Aircraft/ch53e/ch53e-splash.jpg</splash-texture>
@@ -53,6 +56,10 @@
                 </default_exit>
             </map>
             <ch53e>
+                <particles>
+                    <enabled type="bool">true</enabled>
+                </particles>
+
                 <debug-model type='int'>0</debug-model>
                 <state type="int">0</state>
                 <engine type="float">0.0</engine>
@@ -161,6 +168,9 @@
                         <knob-pos type='int'>0</knob-pos>
                     </ramp>
                 </control-input>
+				
+				
+				
             </ch53e>
             <jrb-usn>
                 <gyro-needle-source n='0'>adf</gyro-needle-source>
@@ -173,12 +183,20 @@
         <multiplay>
             <chat_display>1</chat_display>
             <generic>
-                <int type="int" n="0">0</int>
-                <int type="int" n="1">0</int>
-                <int type="int" n="2">0</int>
-                <int type="int" n="3">0</int>
-                <int type="int" n="4">0</int>
-                <int type="int" n="5">0</int>
+                <!-- Nav lights on -->
+                <int n="0" alias="/controls/switches/nav-lights-switch" />
+
+                <!-- Beacon on -->
+                <int n="1" alias="/controls/switches/beacon-switch" />
+                
+                <!-- Landing lights on -->
+                <int n="2" alias="/controls/switches/landing-lights-switch" />
+                
+                <!-- Taxi light on -->
+                <int n="3" alias="/controls/switches/strobe-switch" />
+                
+                <!-- Crashed -->
+                <int n="7" alias="/sim/crashed" />
             </generic>
         </multiplay>
 
@@ -206,6 +224,35 @@
             <max-lb>300</max-lb>
         </weight>
 
+        <weight n="4">
+            <name>Utility Hoist</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>600</max-lb>
+        </weight>
+
+        <weight n="5">
+            <name>Internal</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>30000</max-lb>
+        </weight>
+        
+        <weight n="6">
+            <name>Fore Hook</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>21600</max-lb>
+        </weight>
+
+        <weight n="7">
+            <name>Center Hook</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>32000</max-lb>
+        </weight>
+
+        <weight n="8">
+            <name>Aft Hook</name>
+            <weight-lb>0</weight-lb>
+            <max-lb>21600</max-lb>
+        </weight>
 
         <help>
             <title>Sikorsky CH-53E - background and help</title>
@@ -236,6 +283,12 @@
         <menubar include="Dialogs/ch53e-menu.xml"/>
 
     </sim>
+	
+	<environment>
+    <turbulence>
+      <use-cloud-turbulence>true</use-cloud-turbulence>
+    </turbulence>
+  </environment>
 
     <controls>
         <engines>
@@ -263,15 +316,43 @@
     </controls>
 
     <instrumentation>
+	
+	 <rwr>
+      <display-lighting-intens type="double">0.4</display-lighting-intens>
+      <symbology-lighting-intens type="double">1</symbology-lighting-intens>
+    </rwr>
+        <enav>
+            <selected type="int">3</selected>
+        </enav>
+        <radar>
+            <range type="int" archive="y">40</range>
+            <range-factor type="double" archive="n">0.001888</range-factor>
+            <minimized type="bool" archive="y">false</minimized>
+            <selected type="int">3</selected>
+            <!-- inicio en pruebas -->
+            <enabled type="bool">true</enabled>
+            <az-field type="double">140</az-field>
+            <range type="double">150</range>
+            <range-selected type="double">40</range-selected>
+            <radar2-range type="double">150</radar2-range>
+            <display-rdr type="bool">true</display-rdr>
+            <radar-standby type="int">0</radar-standby>
+            <mode>
+                <rws type="bool">true</rws>
+                <tws-auto type="bool">false</tws-auto>
+            </mode>
+        </radar>
+
         <gsdi>
             <serviceable type="bool">true</serviceable>
             <enabled type="bool">true</enabled>
         </gsdi>
     </instrumentation>
+
     <systems>
-        <!--electrical>
-		<path>Aircraft/ch53e/ch53e-electrical.xml</path>
-	</electrical-->
+        <!--<electrical>
+            <path>Aircraft/ch53e/ch53e-electrical.xml</path>
+        </electrical>-->
         <hydraulic>
             <system n='0'>
                 <stage n='0'>
@@ -287,6 +368,11 @@
                 </stage>
             </system>
         </hydraulic>
+
+        <refuel>
+            <type>probe</type>
+            <serviceable type="bool">true</serviceable>
+        </refuel>
     </systems>
 
     <consumables>
@@ -348,14 +434,34 @@
             <file>Aircraft/ch53e/Nasal/doors.nas</file>
             <file>Aircraft/ch53e/Nasal/ch53e.nas</file>
             <file>Aircraft/ch53e/Nasal/liveries.nas</file>
-            <file>Aircraft/ch53e/Nasal/light.nas</file>
+
             <file>Aircraft/ch53e/Nasal/jrb-usn.nas</file>
             <file>Aircraft/ch53e/Nasal/interior-lights.nas</file>
             <file>Aircraft/ch53e/Nasal/ch53e-caution.nas</file>
             <file>Aircraft/ch53e/Nasal/EngSim.nas</file>
         </ch53e>
-    </nasal>
 
+        <lights>
+            <file>Aircraft/ch53e/Nasal/Lights.nas</file>
+        </lights>
+
+        <aar>
+            <file>Aircraft/Generic/aar.nas</file>
+        </aar>
+
+        <dual_control_tools>
+            <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+        </dual_control_tools>
+
+        <aircraft_dual_control>
+            <file>Aircraft/ch53e/Nasal/ch53-dual-control.nas</file>
+        </aircraft_dual_control>
+        
+        <dual_control>
+            <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+        </dual_control>
+
+    </nasal>
 
 </PropertyList>
 

@@ -3,25 +3,270 @@
 <PropertyList>
 
   <path>ch53e.ac</path>
+   <!-- MP sound call -->
+  <sound><path>Aircraft/ch53e/Sounds/mp-sound.xml</path></sound>
 
     <nasal>
         <load>
-            <![CDATA[ 
-            var self = cmdarg();
+            <![CDATA[
             var livery_update = aircraft.livery_update.new("Aircraft/ch53e/Models/Liveries", 10 );
-        ]]>
+            var self = cmdarg();
+           
+var root = cmdarg();
+var rootindex = root.getIndex();
+srand(); #set seed for random generator
+
+var mpPath = "/ai/models/multiplayer["~ rootindex ~"]/";
+
+var lightsPath = mpPath~"lightpack/"; #path to the property node, where all internal values are placed
+
+props.globals.initNode(mpPath~"sim/is-MP-Aircraft", 1, "BOOL");
+      
+srand();
+#wherever you want to add randomization of time, use something like:  + rand()*0.05-0.025 (included by default where appropriate)
+
+
+#list of switches for lights - if you don't intend to use some light, assign it nil value instead, like whateverSwitch = nil; and you don't need to care about anything else
+#IMPORTANT: don't put / on the start of the string, it's already included in the mpPath property
+var navSwitch = mpPath~"controls/lighting/nav-lights-switch";
+var beaconSwitch = mpPath~"controls/lighting/beacon-switch";
+var strobeSwitch = mpPath~"controls/lighting/strobe-switch";
+var landingSwitch = mpPath~"controls/lighting/landing-lights-switch";
+var taxiSwitch = nil;
+var probeSwitch = nil;
+var whiteSwitch = nil;
+
+
+#I need to set listener on some MP transferred properties; this doesn't seem to work well sometimes, so I mirror them to the original location on any change
+#This also simplifies work as I can use almost the same code for MP as is the local Nasal. Furthermore, I can use meaningful property names in the model XML files instead of referencing the MP properties. 
+var mpVar = {
+	new: func(propIn, propOut) {
+		var m = { parents: [mpVar] };
+		m.propIn = propIn;
+		m.propOut = propOut;
+		if(propIn==nil or propOut==nil) return m;
+		m.value = getprop(propIn);
+		setprop(propOut, m.value);
+		return m;
+	},
+	check: func {
+		if(me.propIn==nil or me.propOut==nil) return;
+		var newValue = getprop(me.propIn);
+		if(newValue != me.value) {
+			setprop(me.propOut, newValue);
+			me.value = newValue;
+#print("value of "~me.propOut~" changed: "~newValue);
+		}
+	},
+};
+#init any property copy object needed in this array (anything you need to transfer over MP, but you are using the original paths in your xmls)
+#also used for properties you are using a listener on, or properties which you maybe want to manipulate during the <unload> 
+#if you're just using the pack, change the values according to the MP bindings in the -set.xml file
+#you don't need to delete the entries if the path is nil - it gets skipped automatically and the MP path is just ignored
+var mirrorValues = [
+	mpVar.new(mpPath~"sim/multiplay/generic/int[7]", mpPath~"sim/crashed"),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[0]", navSwitch),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[1]", beaconSwitch),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[1]", strobeSwitch),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[2]", landingSwitch),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[3]", taxiSwitch),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[3]", probeSwitch),
+	mpVar.new(mpPath~"sim/multiplay/generic/int[0]", whiteSwitch),
+    ];
+#loop at the default MP transfer frequency (10Hz)
+var mirrorTimer = maketimer(0.1, func {
+                                foreach(var mir; mirrorValues) {
+                                    mir.check();
+                                }
+                            });
+mirrorTimer.start();
+
+
+
+#### NAV LIGHTS ####
+
+#class for a periodic fade in/out animation - for flashing, use rather standard aircraft.light.new(), as in Beacon and Strobe section
+var lightCycle = {
+#constructor
+	new: func(propSwitch, propOut) {
+		m = { parents: [lightCycle] };
+		props.globals.initNode(propOut, 0, "DOUBLE");
+		props.globals.initNode(propSwitch, 1, "BOOL");
+		m.fadeIn = 0.4 + rand()*0.05-0.025; #fade in time
+		m.fadeOut = 0.4 + rand()*0.05-0.025; #fade out time
+		m.stayOn = 1.5 + rand()*0.05-0.025; #stable on period
+		m.stayOff = 1 + rand()*0.05-0.025; #stable off period
+		m.turnOff = 0.12; #fade out time when turned off
+		m.phase = 0; #phase to be run on next timer call: 0 -> fade in, 1 -> stay on, 2 -> fade out, 3 -> stay off
+		m.cycleTimer = maketimer(0.1, func {
+                                     if(getprop(propSwitch)) {
+                                         if(m.phase == 0) {
+                                             interpolate(propOut, 1, m.fadeIn);
+                                             m.phase = 1;
+                                             m.cycleTimer.restart(m.fadeIn);
+                                         }
+                                         else if(m.phase == 1){
+                                             m.phase = 2;
+                                             m.cycleTimer.restart(m.stayOn);
+                                         }
+                                         else if(m.phase == 2){
+                                             interpolate(propOut, 0, m.fadeOut);
+                                             m.phase = 3;
+                                             m.cycleTimer.restart(m.fadeOut);
+                                         }
+                                         else if(m.phase == 3){
+                                             m.phase = 0;
+                                             m.cycleTimer.restart(m.stayOff);
+                                         }
+                                     }
+                                     else {
+                                         interpolate(propOut, 0, m.turnOff); #kills any currently ongoing interpolation
+                                         m.phase = 0;
+                                     }
+                                 });
+		m.cycleTimer.singleShot = 1;
+		if(propSwitch==nil) {
+			m.listen = nil;
+			return m;
+		}
+		m.listen = setlistener(propSwitch, func{m.cycleTimer.restart(0);}); #handle switch changes
+		m.cycleTimer.restart(0); #start the looping
+		return m;
+	},
+#destructor
+	del: func {
+		if(me.listen!=nil) removelistener(me.listen);
+		me.cycleTimer.stop();
+	},
+};
+
+#By default, the switch property is initialized to 1 (only if no value is already assigned). Don't change the class implementation! To override this, set the property manually. You don't need to care if any other code already does it for you. 
+navLights = lightCycle.new(navSwitch, lightsPath~"nav-lights-intensity");
+
+### Uncomment and tune those to customize times ###
+#navLights.fadeIn = 0.0; #fade in time 
+#navLights.fadeOut = 0.0; #fade out time
+#navLights.stayOn = 100; #stable on period
+#navLights.stayOff = 0.0; #stable off period
+#navLights.turnOff = 0.12; #fade out time when turned off
+
+setlistener(navSwitch, func{navS=getprop(navSwitch);if(navS){setprop(lightsPath~"nav-lights-intensity", 1)}else{setprop(lightsPath~"nav-lights-intensity", 0)}});setprop(lightsPath~"nav-lights-intensity", 1);
+
+
+
+### BEACON ###
+var beacon = nil;
+if(beaconSwitch!=nil) {
+	props.globals.initNode(beaconSwitch, 1, "BOOL");
+	beacon = aircraft.light.new(lightsPath~"beacon-state", 
+                                [0.0, 1.0 + rand()*0.05-0.025], beaconSwitch);
+}
+	
+	
+### STROBE ###
+var strobe = nil;
+if(strobeSwitch!=nil) {
+	props.globals.initNode(strobeSwitch, 1, "BOOL");
+	strobe = aircraft.light.new(lightsPath~"strobe-state", 
+                                [0.0, 0.87 + rand()*0.05-0.025], strobeSwitch);
+}
+
+
+### LIGHT FADING ###
+
+#class for controlling fade in/out behavior - propIn is a control property (handled as a boolean) and propOut is interpolated
+#all light brightness animations in xmls depend on propOut (Rembrandt brightness, material emission, flares transparency, ...)
+var lightFadeInOut = {
+#constructor
+	new: func(propSwitch, propOut) {
+		m = { parents: [lightFadeInOut] };
+		m.fadeIn = 0.3; #some sane defaults
+		m.fadeOut = 0.4;
+		if(propSwitch==nil) {
+			m.listen = nil;
+			return m;
+		}
+		props.globals.initNode(propSwitch, 1, "BOOL");
+		m.isOn = getprop(propSwitch);
+		props.globals.initNode(propOut, m.isOn, "DOUBLE");
+		m.listen = setlistener(propSwitch, 
+                               func {
+                                   if(m.isOn and !getprop(propSwitch)) {
+                                       interpolate(propOut, 0, m.fadeOut);
+                                       m.isOn = 0;
+                                   }
+                                   if(!m.isOn and getprop(propSwitch)) {
+                                       interpolate(propOut, 1, m.fadeIn);
+                                       m.isOn = 1;
+                                   }
+                               }
+            );
+		return m;
+	},
+#destructor
+	del: func {
+		if(me.listen!=nil) removelistener(me.listen);
+	},
+};
+
+fadeLanding = lightFadeInOut.new(landingSwitch, lightsPath~"landing-lights-intensity");
+fadeTaxi = lightFadeInOut.new(taxiSwitch, lightsPath~"taxi-light-intensity");
+fadeProbe = lightFadeInOut.new(probeSwitch, lightsPath~"probe-light-intensity");
+fadeWhite = lightFadeInOut.new(whiteSwitch, lightsPath~"white-light-intensity");
+#manipulate times if defaults don't fit your needs:
+#fadeLanding.fadeIn = 0.5;
+#fadeLanding.fadeOut = 0.8;
+
+### the rest of your model load embedded Nasal code ###
+
+
+
+    ]]>
         </load>
 
         <unload>
-            <![CDATA[ 
+            <![CDATA[
+            stopFire();
+            disintegrated = 0;
+            removelistener(listenCrash);
+      
+            #prevent multiple timers and listeners from running and fighting on next connect
+            #cleanly destroy MP property mirroring
+            mirrorTimer.stop();
+            mirrorTimer = nil;
+            mirrorValues = nil;
+      
+            #cleanly destroy nav lights
+            if(navSwitch!=nil) setprop(navSwitch, 0);
+            navLights.del();
+            if(navSwitch!=nil) navLights.cycleTimer = nil;
+            navLights = nil;
+      
+            #cleanly destroy beacon
+            if(beaconSwitch!=nil) setprop(beaconSwitch, 0);
+            beacon.del();
+            beacon = nil;
+      
+            #cleanly destroy strobe
+            if(strobeSwitch!=nil) setprop(strobeSwitch, 0);
+            strobe.del();
+            strobe = nil;
+      
+            #cleanly destroy light fade in/out animation objects
+            fadeLanding.del();
+            fadeTaxi.del();
+            fadeProbe.del();
+            fadeWhite.del();
+      
+            ### the rest of your model unload embedded Nasal code ###
+           
             livery_update.stop();
-            ]]>
+        ]]>
         </unload>
     </nasal>
 
   <!-- All objects -->
   
-  <!-- Empty objects -->
   <!-- objects -->  
   <animation>		
     <object-name>FuselageM</object-name>
@@ -184,175 +429,161 @@
     </effect>
 
     <animation>
-    <type>material</type>
-    <object-name>FuselageM</object-name>
-	<object-name>FuselageUP</object-name>
-	<object-name>Eng1</object-name>
-	<object-name>Eng2</object-name>
-	<object-name>Eng3</object-name>
-	<object-name>Circle.012</object-name>
-	<object-name>Circle.016</object-name>
-	<object-name>Circle.015</object-name>
-	<object-name>Circle.017</object-name>
-	<object-name>BlastWarn</object-name>
-	<object-name>Eng1sup</object-name>
-	<object-name>Eng2sup</object-name>
-	<object-name>Circle.056</object-name>
-	<object-name>Circle.006</object-name>
-	<object-name>Circle.077</object-name>
-	<object-name>Circle.003</object-name>
-	<object-name>Cube.022</object-name>
-	<object-name>Cube.021</object-name>
-	<object-name>Cube.016</object-name>
-	<object-name>Cube.020</object-name>
-	<object-name>RefuelBoom</object-name>
-	<object-name>Plane.008</object-name>
-	<object-name>Cylinder.026</object-name>
-	<object-name>Cylinder</object-name>
-	<object-name>Plane.023</object-name>
-	<object-name>Circle.060</object-name>
-	<object-name>Circle.011</object-name>
-	<object-name>Plane.020</object-name>
-	<object-name>Plane</object-name>
-	<object-name>FuselageM.001</object-name>
-	<object-name>Cube.009</object-name>
-	<object-name>NgearComp</object-name>
-	<object-name>NGD1</object-name>
-	<object-name>NGD2</object-name>
-	<object-name>OleoCylNG</object-name>
-	<object-name>NGDbrace</object-name>
-	<object-name>OleoPNG</object-name>
-	<object-name>NW</object-name>
-	<object-name>RLOleoCyl</object-name>
-	<object-name>RLOleoP</object-name>
-	<object-name>Ltorque1</object-name>
-	<object-name>Ltorque2</object-name>
-	<object-name>LRDbrace</object-name>
-	<object-name>LW</object-name>
-	<object-name>RROleoCyl</object-name>
-	<object-name>RROleoP</object-name>
-	<object-name>Rtorque1</object-name>
-	<object-name>Rtorque2</object-name>
-	<object-name>RRDbrace</object-name>
-	<object-name>RW</object-name>
-	<object-name>LtankSup</object-name>
-	<object-name>RtankSup</object-name>
-	<object-name>Ltank</object-name>
-	<object-name>Rtank</object-name>
-	<object-name>Cube.006</object-name>
-	<object-name>Cube</object-name>
-	<object-name>Cube.008</object-name>
-	<object-name>Cylinder.012</object-name>
-	<object-name>Cylinder.015</object-name>
-	<object-name>Cylinder.013</object-name>
-	<object-name>Cylinder.014</object-name>
-	<object-name>Cylinder.031</object-name>
-	<object-name>Cylinder.003</object-name>
-	<object-name>Cylinder.001</object-name>
-	<object-name>Plane.025</object-name>
-	<object-name>Plane.002</object-name>
-	<object-name>Circle.033</object-name>
-	<object-name>Circle.002</object-name>
-	<object-name>Circle.036</object-name>
-	<object-name>Circle.022</object-name>
-	<object-name>Plane.004</object-name>
-	<object-name>TailBoom</object-name>
-	<object-name>RearD</object-name>
-	<object-name>TBrotAxis</object-name>
-	<object-name>TBsupUP</object-name>
-	<object-name>TBsup</object-name>
-	<object-name>TBsupL</object-name>
-	<object-name>InterGbox</object-name>
-	<object-name>TailPsup</object-name>
-	<object-name>TailP</object-name>
-	<object-name>TailBumper</object-name>
-	<object-name>Circle.021</object-name>
-	<object-name>TailRotBase</object-name>
-	<object-name>TailRotorBlades</object-name>
-	<object-name>TLB</object-name>
-	<object-name>MLB</object-name>
-	<object-name>CrewDoorL</object-name>
-	<object-name>CrewDoorUP</object-name>
-	<object-name>Plane.026</object-name>
-	<object-name>CDoorSP</object-name>
-	<object-name>LSwindow</object-name>
-	<object-name>Plane.024</object-name>
-	<object-name>Plane.007</object-name>
-	<object-name>Plane.063</object-name>
-	<object-name>Plane.076</object-name>
-	<object-name>Plane.069</object-name>
-	<object-name>BayDoorL</object-name>
-	<object-name>BayDoorUP</object-name>
-	<object-name>SP</object-name>
-	<object-name>Hub-Top</object-name>
-	<object-name>Hub-C</object-name>
-	<object-name>Hub-base</object-name>
-	<object-name>Hub-base.001</object-name>
-	<object-name>Hub-base.005</object-name>
-	<object-name>BS1</object-name>
-	<object-name>BS2</object-name>
-	<object-name>BS3</object-name>
-	<object-name>BS4</object-name>
-	<object-name>BS5</object-name>
-	<object-name>BS6</object-name>
-	<object-name>BS7</object-name>
-	<object-name>BS1.001</object-name>
-	<object-name>BS2.001</object-name>
-	<object-name>BS3.001</object-name>
-	<object-name>BS4.001</object-name>
-	<object-name>BS5.001</object-name>
-	<object-name>BS6.001</object-name>
-	<object-name>BS7.001</object-name>
-	<object-name>PfixM1</object-name>
-	<object-name>PfixM2</object-name>
-	<object-name>PfixM3</object-name>
-	<object-name>PfixM4</object-name>
-	<object-name>PfixM5</object-name>
-	<object-name>PfixM6</object-name>
-	<object-name>PfixM7</object-name>
-	<object-name>PaleFix1</object-name>
-	<object-name>PaleFix2</object-name>
-	<object-name>PaleFix3</object-name>
-	<object-name>PaleFix4</object-name>
-	<object-name>PaleFix5</object-name>
-	<object-name>PaleFix6</object-name>
-	<object-name>PaleFix7</object-name>
-    
-    <property-base>sim/model/livery</property-base>
-    <texture-prop>texture</texture-prop>
-    <texture>TextureMain.png</texture>
-<!--
-    <diffuse>
-      <red-prop>diffuse/red</red-prop>
-      <green-prop>diffuse/green</green-prop>
-      <blue-prop>diffuse/blue</blue-prop>
-    </diffuse>
+        <type>shader</type>
+        <shader>chrome</shader>
+        <texture>Aircraft/Generic/Effects/glass_shader.png</texture>
+        <object-name>GL</object-name>
+        <object-name>GLup</object-name>
+        <object-name>LSwindowGL</object-name>
+        <object-name>CrewDoorGL</object-name>
+        <object-name>BayDoorGL</object-name>
+        <object-name>MLBglass</object-name>
+        <object-name>LBglass</object-name>
+        <object-name>RBglass</object-name>
+    </animation>
 
-    <ambient>
-      <red-prop>ambient/red</red-prop>
-      <green-prop>ambient/green</green-prop>
-      <blue-prop>ambient/blue</blue-prop>
-    </ambient>
--->
-    <specular>
-      <red-prop>specular/red</red-prop>
-      <green-prop>specular/green</green-prop>
-      <blue-prop>specular/blue</blue-prop>
-    </specular>
+    <animation>
+        <type>material</type>
+        <object-name>FuselageM</object-name>
+        <object-name>FuselageUP</object-name>
+        <object-name>Eng1</object-name>
+        <object-name>Eng2</object-name>
+        <object-name>Eng3</object-name>
+        <object-name>Circle.012</object-name>
+        <object-name>Circle.016</object-name>
+        <object-name>Circle.015</object-name>
+        <object-name>Circle.017</object-name>
+        <object-name>BlastWarn</object-name>
+        <object-name>Eng1sup</object-name>
+        <object-name>Eng2sup</object-name>
+        <object-name>Circle.056</object-name>
+        <object-name>Circle.006</object-name>
+        <object-name>Circle.077</object-name>
+        <object-name>Circle.003</object-name>
+        <object-name>Cube.022</object-name>
+        <object-name>Cube.021</object-name>
+        <object-name>Cube.016</object-name>
+        <object-name>Cube.020</object-name>
+        <object-name>RefuelBoom</object-name>
+        <object-name>Plane.008</object-name>
+        <object-name>Cylinder.026</object-name>
+        <object-name>Cylinder</object-name>
+        <object-name>Plane.023</object-name>
+        <object-name>Circle.060</object-name>
+        <object-name>Circle.011</object-name>
+        <object-name>Plane.020</object-name>
+        <object-name>Plane</object-name>
+        <object-name>FuselageM.001</object-name>
+        <object-name>Cube.009</object-name>
+        <object-name>NgearComp</object-name>
+        <object-name>NGD1</object-name>
+        <object-name>NGD2</object-name>
+        <object-name>OleoCylNG</object-name>
+        <object-name>NGDbrace</object-name>
+        <object-name>OleoPNG</object-name>
+        <object-name>NW</object-name>
+        <object-name>RLOleoCyl</object-name>
+        <object-name>RLOleoP</object-name>
+        <object-name>Ltorque1</object-name>
+        <object-name>Ltorque2</object-name>
+        <object-name>LRDbrace</object-name>
+        <object-name>LW</object-name>
+        <object-name>RROleoCyl</object-name>
+        <object-name>RROleoP</object-name>
+        <object-name>Rtorque1</object-name>
+        <object-name>Rtorque2</object-name>
+        <object-name>RRDbrace</object-name>
+        <object-name>RW</object-name>
+        <object-name>LtankSup</object-name>
+        <object-name>RtankSup</object-name>
+        <object-name>Ltank</object-name>
+        <object-name>Rtank</object-name>
+        <object-name>Cube.006</object-name>
+        <object-name>Cube</object-name>
+        <object-name>Cube.008</object-name>
+        <object-name>Cylinder.012</object-name>
+        <object-name>Cylinder.015</object-name>
+        <object-name>Cylinder.013</object-name>
+        <object-name>Cylinder.014</object-name>
+        <object-name>Cylinder.031</object-name>
+        <object-name>Cylinder.003</object-name>
+        <object-name>Cylinder.001</object-name>
+        <object-name>Plane.025</object-name>
+        <object-name>Plane.002</object-name>
+        <object-name>Circle.033</object-name>
+        <object-name>Circle.002</object-name>
+        <object-name>Circle.036</object-name>
+        <object-name>Circle.022</object-name>
+        <object-name>Plane.004</object-name>
+        <object-name>TailBoom</object-name>
+        <object-name>RearD</object-name>
+        <object-name>TBrotAxis</object-name>
+        <object-name>TBsupUP</object-name>
+        <object-name>TBsup</object-name>
+        <object-name>TBsupL</object-name>
+        <object-name>InterGbox</object-name>
+        <object-name>TailPsup</object-name>
+        <object-name>TailP</object-name>
+        <object-name>TailBumper</object-name>
+        <object-name>Circle.021</object-name>
+        <object-name>TailRotBase</object-name>
+        <object-name>TailRotorBlades</object-name>
+        <object-name>TLB</object-name>
+        <object-name>MLB</object-name>
+        <object-name>CrewDoorL</object-name>
+        <object-name>CrewDoorUP</object-name>
+        <object-name>Plane.026</object-name>
+        <object-name>CDoorSP</object-name>
+        <object-name>LSwindow</object-name>
+        <object-name>Plane.024</object-name>
+        <object-name>Plane.007</object-name>
+        <object-name>Plane.063</object-name>
+        <object-name>Plane.076</object-name>
+        <object-name>Plane.069</object-name>
+        <object-name>BayDoorL</object-name>
+        <object-name>BayDoorUP</object-name>
+        <object-name>SP</object-name>
+        <object-name>Hub-Top</object-name>
+        <object-name>Hub-C</object-name>
+        <object-name>Hub-base</object-name>
+        <object-name>Hub-base.001</object-name>
+        <object-name>Hub-base.005</object-name>
+        <object-name>BS1</object-name>
+        <object-name>BS2</object-name>
+        <object-name>BS3</object-name>
+        <object-name>BS4</object-name>
+        <object-name>BS5</object-name>
+        <object-name>BS6</object-name>
+        <object-name>BS7</object-name>
+        <object-name>BS1.001</object-name>
+        <object-name>BS2.001</object-name>
+        <object-name>BS3.001</object-name>
+        <object-name>BS4.001</object-name>
+        <object-name>BS5.001</object-name>
+        <object-name>BS6.001</object-name>
+        <object-name>BS7.001</object-name>
+        <object-name>PfixM1</object-name>
+        <object-name>PfixM2</object-name>
+        <object-name>PfixM3</object-name>
+        <object-name>PfixM4</object-name>
+        <object-name>PfixM5</object-name>
+        <object-name>PfixM6</object-name>
+        <object-name>PfixM7</object-name>
+        <object-name>PaleFix1</object-name>
+        <object-name>PaleFix2</object-name>
+        <object-name>PaleFix3</object-name>
+        <object-name>PaleFix4</object-name>
+        <object-name>PaleFix5</object-name>
+        <object-name>PaleFix6</object-name>
+        <object-name>PaleFix7</object-name>
 
-    <emission>
-      <red-prop>emission/red</red-prop>
-      <green-prop>emission/green</green-prop>
-      <blue-prop>emission/blue</blue-prop>
-    </emission>
-<!--
-    <shininess>
-      <shininess-prop>shininess</shininess-prop>
-    </shininess>
--->
-  </animation>
+        <property-base>sim/model/livery</property-base>
+        <texture-prop>texture</texture-prop>
+        <texture>TextureMain.png</texture>
 
-  <!-- Interior -->
+    </animation>
+
+    <!-- Interior -->
   <model>
     <path>Aircraft/ch53e/Models/Interior/interior.xml</path>
     <offsets>
@@ -371,42 +602,42 @@
   <body-animation include="ch53e-stick-pos-anim.xml" omit-node="y"/>
   <body-animation include="hotspots-template.xml" omit-node="y"/>
 
- 
 
-  <!-- MainRotor  -->
-  <animation>
-    <name>MovMainRotor</name>
-    <object-name>Hub-Top</object-name>
-	<object-name>Hub-C</object-name>
-	<object-name>Hub-base</object-name>
-	<object-name>Hub-base.001</object-name>
-	<object-name>Hub-base.005</object-name>
-	<object-name>BS1.001</object-name>
-	<object-name>BS2.001</object-name>
-	<object-name>BS3.001</object-name>
-	<object-name>BS4.001</object-name>
-	<object-name>BS5.001</object-name>
-	<object-name>BS6.001</object-name>
-	<object-name>BS7.001</object-name>
-	<object-name>PfixM1</object-name>
-	<object-name>PfixM2</object-name>
-	<object-name>PfixM3</object-name>
-	<object-name>PfixM4</object-name>
-	<object-name>PfixM5</object-name>
-	<object-name>PfixM6</object-name>
-	<object-name>PfixM7</object-name>
-	<object-name>PaleFix1</object-name>
-	<object-name>PaleFix2</object-name>
-	<object-name>PaleFix3</object-name>
-	<object-name>PaleFix4</object-name>
-	<object-name>PaleFix5</object-name>
-	<object-name>PaleFix6</object-name>
-	<object-name>PaleFix7</object-name>
-	
-	<object-name>MainRotProp</object-name>
-  </animation>
-  
-  <animation>
+
+    <!-- MainRotor  -->
+    <animation>
+        <name>MovMainRotor</name>
+        <object-name>Hub-Top</object-name>
+        <object-name>Hub-C</object-name>
+        <object-name>Hub-base</object-name>
+        <object-name>Hub-base.001</object-name>
+        <object-name>Hub-base.005</object-name>
+        <object-name>BS1.001</object-name>
+        <object-name>BS2.001</object-name>
+        <object-name>BS3.001</object-name>
+        <object-name>BS4.001</object-name>
+        <object-name>BS5.001</object-name>
+        <object-name>BS6.001</object-name>
+        <object-name>BS7.001</object-name>
+        <object-name>PfixM1</object-name>
+        <object-name>PfixM2</object-name>
+        <object-name>PfixM3</object-name>
+        <object-name>PfixM4</object-name>
+        <object-name>PfixM5</object-name>
+        <object-name>PfixM6</object-name>
+        <object-name>PfixM7</object-name>
+        <object-name>PaleFix1</object-name>
+        <object-name>PaleFix2</object-name>
+        <object-name>PaleFix3</object-name>
+        <object-name>PaleFix4</object-name>
+        <object-name>PaleFix5</object-name>
+        <object-name>PaleFix6</object-name>
+        <object-name>PaleFix7</object-name>
+
+        <object-name>MainRotProp</object-name>
+    </animation>
+
+    <animation>
     <type>rotate</type>
       <object-name>MovMainRotor</object-name>
       <object-name>BS1</object-name>
@@ -423,7 +654,7 @@
                   <property>surface-positions/wing-fold-pos-norm</property>
                   <entry>
                           <ind> 0.0</ind>
-                          <dep> 1.0</dep>
+                          <dep>-1.0</dep>
                       </entry>
                       <entry>
                           <ind> 0.01</ind>
@@ -1628,7 +1859,205 @@
   </animation>
   
   
+  <!-- pilots -->
   
+  <model>
+  <name>pilot</name>
+    <path>Aircraft/ch53e/Models/Helipilot4/pilot.xml</path>
+    <offsets>
+      <x-m>  -5.1 </x-m>
+      <y-m> 0.55 </y-m>
+      <z-m> 1.1 </z-m>
+    </offsets>
+  </model>
+  
+  
+   <model>
+  <name>co-pilot</name>
+    <path>Aircraft/ch53e/Models/Helipilot4/pilot.xml</path>
+    <offsets>
+      <x-m>  -5.1 </x-m>
+      <y-m> -0.58 </y-m>
+      <z-m> 1.1 </z-m>
+    </offsets>
+  </model>
+  
+  <!-- Suppress parts in Cockpit View -->
 
+    <animation>
+        <type>select</type>
+        <object-name>pilot</object-name>
+
+        <condition>
+            <not>
+                <property>sim/current-view/internal</property>
+            </not>
+        </condition>
+    </animation>
+
+    <!--== particles ==-->
+    <animation>
+        <type>rotate</type>
+        <object-name>dirt</object-name>
+        <property>orientation/pitch-deg</property>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>dirt</object-name>
+        <property>orientation/roll-deg</property>
+        <axis>
+            <x>1</x>
+            <y>0</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>translate</type>
+        <object-name>dirt</object-name>
+        <property>position/gear-agl-m</property>
+        <axis>
+            <x>0</x>
+            <y>0</y>
+            <z>-1</z>
+        </axis>
+    </animation>
+
+    <particlesystem>
+        <name>dirt</name>
+        <texture>dirt.rgb</texture>
+        <emissive>false</emissive>
+        <lighting>false</lighting>
+
+        <offsets>
+            <x-m>0</x-m>
+            <y-m>0</y-m>
+            <z-m>-1.4</z-m>
+            <roll-deg>90</roll-deg>
+        </offsets>
+
+        <attach>world</attach>
+
+        <placer>
+            <type>point</type>
+        </placer>
+
+        <condition>
+            <property>sim/model/ch53e/particles/enabled</property>
+            <not>
+                <property>sim/paused</property>
+            </not>
+            <not>
+                <property>sim/crashed</property>
+            </not>
+            <less-than>
+                <property>position/altitude-agl-ft</property>
+                <value>100</value>
+            </less-than>
+            <greater-than>
+                <property>rotors/main/rpm</property>
+                <value>150</value>
+            </greater-than>
+        </condition>
+
+        <shooter>
+            <theta-min-deg>0</theta-min-deg>
+            <theta-max-deg>360</theta-max-deg>
+            <phi-min-deg>-0.1</phi-min-deg>
+            <phi-max-deg>0.1</phi-max-deg>
+            <speed-mps>
+                <property>rotors/main/rpm</property>
+                <factor>0.1</factor>
+                <spread>6</spread>
+            </speed-mps>
+            <rotation-speed>
+                <x-min-deg-sec>0</x-min-deg-sec>
+                <y-min-deg-sec>0</y-min-deg-sec>
+                <z-min-deg-sec>0</z-min-deg-sec>
+                <x-max-deg-sec>0</x-max-deg-sec>
+                <y-max-deg-sec>0</y-max-deg-sec>
+                <z-max-deg-sec>0</z-max-deg-sec>
+            </rotation-speed>
+        </shooter>
+
+        <counter>
+            <particles-per-sec>
+                <property>position/altitude-agl-ft</property>
+                <factor>-40</factor>
+                <offset-m>2000</offset-m>
+            </particles-per-sec>
+        </counter>
+
+        <align>billboard</align>
+
+        <particle>
+            <start>
+                <color>
+                    <red>
+                        <value>0.6</value>
+                    </red>
+                    <green>
+                        <value>0.6</value>
+                    </green>
+                    <blue>
+                        <value>0.6</value>
+                    </blue>
+                    <alpha>
+                        <property>rotors/main/rpm</property>
+                        <factor>0.00004</factor>
+                        <max>0.02</max>
+                    </alpha>
+                </color>
+                <size>
+                    <value>0.8</value>
+                </size>
+            </start>
+
+            <end>
+                <color>
+                    <red>
+                        <value>0.6</value>
+                    </red>
+                    <green>
+                        <value>0.6</value>
+                    </green>
+                    <blue>
+                        <value>0.6</value>
+                    </blue>
+                    <alpha>
+                        <property>rotors/main/rpm</property>
+                        <factor>0.0002</factor>
+                        <max>0.04</max>
+                    </alpha>
+                </color>
+                <size>
+                    <value>0.8</value>
+                </size>
+            </end>
+
+            <life-sec>
+                <value>0.37</value>
+            </life-sec>
+            <mass-kg>0.01</mass-kg>
+            <radius-m>0.00001</radius-m>
+        </particle>
+
+        <program>
+            <fluid>water</fluid>
+            <gravity>true</gravity>
+            <wind>false</wind>
+        </program>
+    </particlesystem>
+
+    <!--== lights ==-->
+    <model>
+        <path>Aircraft/ch53e/Models/Lights/LightPack.xml</path>
+    </model>
 </PropertyList>
 

@@ -3,6 +3,12 @@
 <PropertyList>
 
     <path>panel.ac</path>
+	
+	<animation>
+        <type>range</type>
+        <min-m>0</min-m>
+        <max-m>200</max-m>
+    </animation>
 
     <animation>
         <object-name>panel</object-name>
