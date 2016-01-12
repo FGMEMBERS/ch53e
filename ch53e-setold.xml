@@ -11,6 +11,8 @@
 	<status>early alpha</status>
 	<aircraft-version>0.1</aircraft-version>
 
+  <exclude-from-catalog type="bool">true</exclude-from-catalog>
+
 	<flight-model>yasim</flight-model>
 	<aero>ch53e-yasim</aero>
 
