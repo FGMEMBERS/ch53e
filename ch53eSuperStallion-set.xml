@@ -11,7 +11,7 @@
     <sim include="Nasal/views.xml">
 
         <description>Sikorsky CH-53E Super Stallion (Yasim)</description>
-        <author>Pierre Duval, Josh Babcok</author>
+        <author>Pierre Duval, Josh Babcok, StuartC</author>
         <status>1.5</status>
         <license>GPL v2</license>
 
@@ -56,9 +56,9 @@
                 </default_exit>
             </map>
             <ch53e>
-                <particles>
-                    <enabled type="bool">true</enabled>
-                </particles>
+				<particles>
+					<enabled type="bool">true</enabled>
+				</particles>
 
                 <debug-model type='int'>0</debug-model>
                 <state type="int">0</state>
@@ -179,24 +179,32 @@
                 <id-249-course-deg type="double" userarchive='y'>0</id-249-course-deg>
             </jrb-usn>
         </model>
+		
+		 <mp-systems>
+	<radar-enabled type="bool">true</radar-enabled>
+	<ecm-rwr-enabled type="bool">true</ecm-rwr-enabled>
+	<combat-enabled type="bool">true</combat-enabled>
+</mp-systems>
 
-        <multiplay>
+       <multiplay n="0">
             <chat_display>1</chat_display>
             <generic>
-                <!-- Nav lights on -->
-                <int n="0" alias="/controls/switches/nav-lights-switch" />
-
-                <!-- Beacon on -->
-                <int n="1" alias="/controls/switches/beacon-switch" />
-                
-                <!-- Landing lights on -->
-                <int n="2" alias="/controls/switches/landing-lights-switch" />
-                
-                <!-- Taxi light on -->
-                <int n="3" alias="/controls/switches/strobe-switch" />
-                
-                <!-- Crashed -->
-                <int n="7" alias="/sim/crashed" />
+				 <!-- Nav lights on -->
+        <!-- Nav lights on -->
+      <int n="0" alias="/controls/switches/nav-lights-switch" />
+      <!-- Beacon on -->
+      <int n="1" alias="/controls/switches/beacon-switch" />
+      <!-- Landing lights on -->
+      <int n="2" alias="/controls/switches/landing-lights-switch" />
+	    <!-- Taxi light on -->
+      <int n="3" alias="/controls/switches/strobe-switch" />
+      <!-- Crashed -->
+      <int n="7" alias="/sim/crashed" />
+	  
+	   <float n="5" alias="/instrumentation/doors/passenger/position-norm"/>
+	   <float n="6" alias="/instrumentation/doors/crew/position-norm"/>
+	   <float n="7" alias="/instrumentation/doors/ramp/position-norm"/>
+		<float n="8" alias="/instrumentation/doors/wings/position-norm"/>		
             </generic>
         </multiplay>
 
@@ -262,8 +270,8 @@
                 <desc>Crew door and left Window</desc>
             </key>
             <key>
-                <name>CTRL-l</name>
-                <desc>Loading Bay Door</desc>
+                <name>SHIFT-D</name>
+                <desc>Cargo Ramp</desc>
             </key>
             <key>
                 <name>n</name>
@@ -324,23 +332,23 @@
         <enav>
             <selected type="int">3</selected>
         </enav>
-        <radar>
-            <range type="int" archive="y">40</range>
-            <range-factor type="double" archive="n">0.001888</range-factor>
-            <minimized type="bool" archive="y">false</minimized>
-            <selected type="int">3</selected>
-            <!-- inicio en pruebas -->
-            <enabled type="bool">true</enabled>
-            <az-field type="double">140</az-field>
-            <range type="double">150</range>
-            <range-selected type="double">40</range-selected>
-            <radar2-range type="double">150</radar2-range>
-            <display-rdr type="bool">true</display-rdr>
-            <radar-standby type="int">0</radar-standby>
-            <mode>
-                <rws type="bool">true</rws>
-                <tws-auto type="bool">false</tws-auto>
-            </mode>
+		  <radar>
+      <range type="int" archive="y">40</range>
+      <range-factor type="double" archive="n">0.001888</range-factor>
+      <minimized type="bool" archive="y">false</minimized>
+      <selected type="int">3</selected>
+      <!-- inicio en pruebas -->
+      <enabled type="bool">true</enabled>
+      <az-field type="double">140</az-field>
+      <range type="double">150</range>
+      <range-selected type="double">40</range-selected>
+      <radar2-range type="double">150</radar2-range>
+      <display-rdr type="bool">true</display-rdr>
+      <radar-standby type="int">0</radar-standby>
+      <mode>
+        <rws type="bool">true</rws>
+        <tws-auto type="bool">false</tws-auto>
+      </mode>
         </radar>
 
         <gsdi>
@@ -348,11 +356,10 @@
             <enabled type="bool">true</enabled>
         </gsdi>
     </instrumentation>
-
     <systems>
-        <!--<electrical>
-            <path>Aircraft/ch53e/ch53e-electrical.xml</path>
-        </electrical>-->
+        <!--electrical>
+		<path>Aircraft/ch53e/ch53e-electrical.xml</path>
+	</electrical-->
         <hydraulic>
             <system n='0'>
                 <stage n='0'>
@@ -368,11 +375,15 @@
                 </stage>
             </system>
         </hydraulic>
+	
+		
+		<refuel>
+  <type>probe</type>
+  <serviceable type="bool">true</serviceable>
+ </refuel>
 
-        <refuel>
-            <type>probe</type>
-            <serviceable type="bool">true</serviceable>
-        </refuel>
+		
+		
     </systems>
 
     <consumables>
@@ -434,34 +445,34 @@
             <file>Aircraft/ch53e/Nasal/doors.nas</file>
             <file>Aircraft/ch53e/Nasal/ch53e.nas</file>
             <file>Aircraft/ch53e/Nasal/liveries.nas</file>
-
+           
             <file>Aircraft/ch53e/Nasal/jrb-usn.nas</file>
             <file>Aircraft/ch53e/Nasal/interior-lights.nas</file>
             <file>Aircraft/ch53e/Nasal/ch53e-caution.nas</file>
             <file>Aircraft/ch53e/Nasal/EngSim.nas</file>
         </ch53e>
-
-        <lights>
-            <file>Aircraft/ch53e/Nasal/Lights.nas</file>
-        </lights>
-
-        <aar>
+		
+			
+		<lights>
+      <file>Aircraft/ch53e/Nasal/Lights.nas</file>
+    </lights>
+		
+		<aar> 
             <file>Aircraft/Generic/aar.nas</file>
-        </aar>
-
-        <dual_control_tools>
-            <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
-        </dual_control_tools>
-
-        <aircraft_dual_control>
-            <file>Aircraft/ch53e/Nasal/ch53-dual-control.nas</file>
-        </aircraft_dual_control>
-        
-        <dual_control>
-            <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
-        </dual_control>
-
+        </aar>	
+		
+		<dual_control_tools>
+   <file>Aircraft/Generic/DualControl/dual-control-tools.nas</file>
+  </dual_control_tools>
+  <aircraft_dual_control>
+   <file>Aircraft/ch53e/Nasal/ch53-dual-control.nas</file>
+  </aircraft_dual_control>
+  <dual_control>
+   <file>Aircraft/Generic/DualControl/copilot-dual-control.nas</file>
+  </dual_control>
+		
     </nasal>
+
 
 </PropertyList>
 

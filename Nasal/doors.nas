@@ -8,7 +8,9 @@ Doors.new = func {
    obj = { parents : [Doors],
            crew : aircraft.door.new("instrumentation/doors/crew", 8.0),
            passenger : aircraft.door.new("instrumentation/doors/passenger", 10.0),
-           wings : aircraft.door.new("instrumentation/doors/wings", 10.0)
+           wings : aircraft.door.new("instrumentation/doors/wings", 10.0),
+		     ramp : aircraft.door.new("instrumentation/doors/ramp", 11.0)
+         
          };
    return obj;
 };
@@ -25,6 +27,9 @@ Doors.wingsexport = func {
    me.wings.toggle();
 }
 
+Doors.rampexport = func {
+   me.ramp.toggle();
+}
 
 # ==============
 # Initialization

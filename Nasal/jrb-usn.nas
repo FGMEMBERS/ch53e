@@ -287,13 +287,8 @@ initRadAlt = func {
 	setlistener(state, animateRadAlt);
 	watchRadAlt();
 }
-var usn_init_done = 0;
 
 usn_init = func {
-
-    if (usn_init_done) return;
-        usn_init_done=1;
-
 	# Some globally used properties
 
 	# These are supplied by interior-lights.nas, reflected light from various sources
