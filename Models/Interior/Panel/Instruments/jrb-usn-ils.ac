@@ -1,8 +1,8 @@
 AC3Db
-MATERIAL "MattLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
-MATERIAL "TrueBlack" rgb 0.0001 0.0001 0.0001  amb 0.5 0.5 0.5  emis 0 0 0  spec 0.0001 0.0001 0.0001  shi 32  trans 0
-MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.6 0.6 0.6  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
-MATERIAL "ShinyLit" rgb 1 0.9999 0.9999  amb 0.2 0.2 0.2  emis 0 0 0  spec 1 0.9999 0.9999  shi 10  trans 0
+MATERIAL "MattLit" rgb 0.4 0.4 0.4  amb 0.4 0.4 0.4  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
+MATERIAL "TrueBlack" rgb 0.0001 0.0001 0.0001  amb 0.0001 0.0001 0.0001  emis 0 0 0  spec 0.0001 0.0001 0.0001  shi 32  trans 0
+MATERIAL "SolidDisplayLit" rgb 0.4 0.4 0.4  amb 0.4 0.4 0.4  emis 0 0 0  spec 0.3 0.3 0.3  shi 0  trans 0
+MATERIAL "ShinyLit" rgb 1 0.9999 0.9999  amb 1 0.9999 0.9999  emis 0 0 0  spec 1 0.9999 0.9999  shi 10  trans 0
 OBJECT world
 kids 13
 OBJECT poly

@@ -19,6 +19,16 @@
      <script>ch53e.doorsystem.crewexport();</script>
     </binding>
    </key>
+   
+   <key n="68">
+       <name>SHIFT-D</name>
+	   <desc>Open/close Ramp</desc>
+	   <binding>
+	       <command>nasal</command>
+	       <script>ch53e.doorsystem.rampexport();</script>
+	   </binding>
+    </key>
+   
 
     <key n="78">
       <name>N</name>

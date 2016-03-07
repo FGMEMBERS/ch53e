@@ -1,4 +1,23 @@
-﻿This is a merge of Pierre Duval's excellent model and changes together with Josh Babcock's original model.
+﻿Rev. 1.5;
+------------------
+RedTwo tuned the FDM; and then StuartC (FGUK) has tuned redtwo's revisions.
+
+* Fix hstab mirrored on left side. Use vstab instead.
+
+* main and tail rotor increases in diameter (main from 74' to 79', tail from 15'4" to 20')
+* longer tail section which includes the hstab position change, and vstab position and height change
+* minor modification to the cruise value (max. speed really) from 172 to 170.
+* all the above per dimensions
+
+StuartC scaled the exterior model to match the revised FDM.
+
+Voodoo da Vinci has fixed the inside shading (so it's not quite like a coal hole anymore)
+
+Richard Harrison; rjh@zaretto.com; 29 January 2016
+
+--------------------------------
+
+This is a merge of Pierre Duval's excellent model and changes together with Josh Babcock's original model.
 
 All I've done is to merge, add a splash screen, changed the folding so that it doesn't matter if the blades are in the right position they will stil end up folded, although they may pass through parts of the aircraft to do so. I also started on the ALS cockpit effects (panel backlighting and interior shadows)
 
